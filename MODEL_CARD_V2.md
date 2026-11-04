@@ -20,12 +20,21 @@ pretraining completed on SCC under job `8425910`, with 20,000 optimizer steps
 and 160,000 training-table draws across all eight training provenance families.
 Step 17,000 was selected by independent same-source DEV factual loss (1.526461).
 Actual scheduler accounting recorded successful completion. Final effect-estimation and interval results
-require the subsequent nested-regression, learned-error, post-training,
-calibration and evaluation stages.
+follow completion of the remaining uncertainty stages.
+
+Nested-regression training also completed under job `8425970`: 5,000 optimizer
+steps and 40,000 training-table draws, with selected DEV pseudo-outcome loss
+0.229999 at step 5,000. Its frozen factual-teacher SHA-256 matches the selected
+factual checkpoint exactly. The two nuisance checkpoints passed a joint
+cross-fitted inference restoration check on an independent 64-row generated
+table, without computing or supplying its true effect.
 
 The implementation is initialized from new weights. Optional TabPFN-based
 variants are separate experiments and do not identify this custom backbone.
 The first-version model and results are preserved in [`v1/`](v1/).
+
+Each custom nuisance network has **4,217,345 parameters**. Factual and nested
+models share the architecture and retain separate trained weights.
 
 ## Target and data
 
@@ -61,7 +70,7 @@ baseline-plus-mediator values, and outcome regressions. Their Bayes relation
 provides the mediator distribution ratio. A separate nested-regression stage
 uses inner out-of-fold pseudo-outcomes from the frozen factual teacher.
 
-The planned final estimator uses outer cross-fitted mediation scores. A
+The restored nuisance estimator uses outer cross-fitted mediation scores. A
 separate model learns signed, standardized estimator errors from independently
 generated synthetic tasks. Post-training and fresh calibration follow model
 selection. Known synthetic effects are offline supervision/evaluation targets;
@@ -97,7 +106,15 @@ The [checkpoint manifest](v2/checkpoints/factual/manifest.json) binds its source
 configuration, training log and completion record. The larger optimizer-resume
 checkpoint is a [private release asset](https://github.com/shibo769/MediPFN/releases/tag/v2-factual-20261103).
 
-This checkpoint provides factual nuisance predictions; the final NIE interval
-pipeline also needs its subsequent stages. The private repository preserves
+The [selected nested checkpoint](v2/checkpoints/nested/best.pt) has SHA-256
+`82fc00689e50526f130263beebecd09afefe4ab4cbe1fccf7239dd599d659cd7`.
+Its [manifest](v2/checkpoints/nested/manifest.json) preserves the teacher binding
+and verified completion record; the optimizer-resume state is a separate
+[release asset](https://github.com/shibo769/MediPFN/releases/tag/v2-nested-20261103).
+The [joint restoration record](v2/checkpoints/nuisance_restore_smoke.json)
+checks complete finite scores from the two selected models.
+
+These checkpoints provide the nuisance estimator; learned-error training,
+post-training and fresh calibration remain separate stages. The private repository preserves
 upstream licenses and notices; raw observed test banks and authentication
 material are excluded.

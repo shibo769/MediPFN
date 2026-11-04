@@ -1,0 +1,2583 @@
+{
+  "arguments": {
+    "teacher": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/medipfn_v2_20261103/runs/factual_seed0/best.pt",
+    "output": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/medipfn_v2_20261103/runs/nested_seed0",
+    "device": "cuda",
+    "seed": 2026110311,
+    "data_seed": 2026110312,
+    "steps": 5000,
+    "batch_size": 8,
+    "dev_batch_size": 16,
+    "dev_every": 250,
+    "n_values": [
+      200,
+      600,
+      1000
+    ],
+    "query_budget": 64,
+    "lr": 0.0001,
+    "cpu_threads": 8,
+    "data_workers": 4,
+    "no_amp": false
+  },
+  "source_sha256": {
+    "model.py": "cf8af4ef5025a30fc4faf8a879cb64163505a882303010b5e9cdd8b4321aff5a",
+    "train.py": "b073f88e24b9c832efc60082da4070565efccdbfef7684b3bcd2b2fa894c40e0",
+    "dgp/__init__.py": "902d7570d098c7447932d0e41c95794009870074c9d5de969bf33236d0ec943b",
+    "dgp/generators.py": "443e04663970594a8ec2932dc0ee9718c10cc501314d133686dfd0e9acf1baa8",
+    "dgp/source_manifest.json": "be6ee04db16a871f1f50ad7a300c9d6a8f4b410abb4f4879a5c3fce1cd16247b",
+    "dgp/vendor/mediation-cheng-li-2025-principal-strata-kang-schafer-v1.py": "ed43c56bfe4e449bf956226ddda160077318c50fa98c2ff5d807450f290387bb",
+    "dgp/vendor/mediation-diaz-et-al-2021-intermediate-confounding-v1.py": "468754ccae407176ddfb640797dc1adce6c8528fabdb24fbf0327254dc9bc829",
+    "dgp/vendor/mediation-diaz-hejazi-2020-discrete-three-mediators-v1.py": "f1d8ba9551abc91f22767212912ffa79a395cf955a825941dd25d0a21426750e",
+    "dgp/vendor/mediation-he-song-xu-2024-single-linear-v1.py": "882ac9277e21703f31f2935921948ab7b77fcac6e5598ab5f20eeca197bc213b",
+    "dgp/vendor/mediation-jones-2024-sparse-mediators-lnl-v1.py": "e160af24f35039b2327cff69b2f143cc97c0815fc0d2c9df37292db020a486b8",
+    "dgp/vendor/mediation-jones-2024-sparse-mediators-lnn-v1.py": "e160af24f35039b2327cff69b2f143cc97c0815fc0d2c9df37292db020a486b8",
+    "dgp/vendor/mediation-jones-2024-sparse-mediators-nnn-v1.py": "e160af24f35039b2327cff69b2f143cc97c0815fc0d2c9df37292db020a486b8",
+    "dgp/vendor/mediation-jones-et-al-2025-correlated-sparse-v1.py": "f7e2f82ed150851a2dc9200053ca0f94c82ba7fdaefa440caa0620623456071b",
+    "dgp/vendor/mediation-miles-2019-toxicity-path-specific-v1.py": "240b3ebd82e710580b00ceba6b0ec834d2101b42b17ba4f75fb3070e609f5753",
+    "dgp/vendor/mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1.py": "5f92f805e44762ee000df68992889cb5729812267ad0f77f4a4f5c34fbfe97d1",
+    "dgp/vendor/mediation-shan-li-ai-2026-missing-confounders-internal-shadow-v1.py": "5f92f805e44762ee000df68992889cb5729812267ad0f77f4a4f5c34fbfe97d1",
+    "dgp/vendor/mediation-xia-chan-2023-binary-plackett-v1.py": "8424eebfe8597a372bb318c96077fd1ec4c10ecc812a058a6f537a7ecb4415d8",
+    "dgp/vendor/mediation-xia-chan-2023-continuous-copula-v1.py": "83c43ffc5714b3287d493f32a49be5ffc0f5e5aca3931236df110bb591036df3",
+    "dgp/vendor/mediation-zuo-et-al-2025-continuous-mnar-v1.py": "bfb70fd669b7f4527631de9a3d0ae85416ad800b5bcb59c124c28390c374c031",
+    "dgp/vendor/nie-eric-original-v1.py": "7c33d3584e976a5a0ea7796df15b84d433172283544c42483be3888b807ee2a4",
+    "dgp/vendor/mediation-cheng-li-2025-principal-strata-kang-schafer-v1.json": "aa6ad7228fc65d58f51c1293ae2433f7871fae968e4f84f2b9a7bcf4e59b03ba",
+    "dgp/vendor/mediation-diaz-et-al-2021-intermediate-confounding-v1.json": "b4e5975229c11db35e57e280543f8b5167971ec7327b762f9ff9410edc94cd4e",
+    "dgp/vendor/mediation-diaz-hejazi-2020-discrete-three-mediators-v1.json": "fab7de7cbb2b98692e8376d1f503f7f0e05756d7787076dfa03920643b0a0805",
+    "dgp/vendor/mediation-he-song-xu-2024-single-linear-v1.json": "8b82aa519639ae69ff3721ab36d2db598c7376e2182caac530dcbd7dccdfec0a",
+    "dgp/vendor/mediation-jones-2024-sparse-mediators-lnl-v1.json": "61b86c2821594475cf78a20c8b861d6433a1fa38089f6f7b38cec3136d1eb04b",
+    "dgp/vendor/mediation-jones-2024-sparse-mediators-lnn-v1.json": "2ca25d1edd157683f7171a2ee4932b48df5c3dd5e7b11c522a6ecb9ad20d3da3",
+    "dgp/vendor/mediation-jones-2024-sparse-mediators-nnn-v1.json": "c7ee41053fe94a8e8f38c41699ea103efc7b0ae79ebc099c9a2faf997cb79b55",
+    "dgp/vendor/mediation-jones-et-al-2025-correlated-sparse-v1.json": "d1ab8e3028fdd08e4bdf67ee6d757952b63b4ca8e346aaa29b7575a00cbc7826",
+    "dgp/vendor/mediation-miles-2019-toxicity-path-specific-v1.json": "5024b0e00bc9f472c1d3d3b442108b4dd106095cc66bfaa6b1a04f3871698c34",
+    "dgp/vendor/mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1.json": "b2f64c528254c8de2f3cdd09b001e347a574afe7b103b2ecb84d4e68318c7190",
+    "dgp/vendor/mediation-shan-li-ai-2026-missing-confounders-internal-shadow-v1.json": "5bd5e282023a0fda0d1df8e0fdf453da4a3dd556e3c18bf4223cf40d09e7101f",
+    "dgp/vendor/mediation-xia-chan-2023-binary-plackett-v1.json": "5cbe7ce4d3feaa704acc37daf6d0db1666933260d6804f08f1c5304962de56b3",
+    "dgp/vendor/mediation-xia-chan-2023-continuous-copula-v1.json": "036845eaa1349d4c3a14418e6531382aec5db1780b13b63a6796dc4d05d8071a",
+    "dgp/vendor/mediation-zuo-et-al-2025-continuous-mnar-v1.json": "52fcb6851a2525dd5bf0c46dbd1fc35334ca58164b2f0d2a58847ec8e6918e13",
+    "dgp/vendor/nie-eric-original-v1.json": "3335d85209b91099d1d87ef167a34cc48edfb94f49c88a86defc75319ed3fe6d",
+    "train_nested.py": "861b9f9eb9aa73cb0bd8e5b2e460a8fec41bf5ff8beced28ab94d91b035664a7"
+  },
+  "frozen_teacher_sha256": "722172242bb4f80957b02a9f2227d557d29379db20906a63a5e5e2aa01a2d66b",
+  "teacher_selected_step": 17000,
+  "stage": "nested_eta_regression",
+  "ready_for_nie_score": true,
+  "selection": "fixed frozen-teacher inner-OOF DEV pseudo-outcome loss; train-source mechanisms only",
+  "truth_used": false,
+  "dev_provenance": [
+    {
+      "source_id": "cheng",
+      "source_group": "cheng",
+      "registry_id": "mediation-cheng-li-2025-principal-strata-kang-schafer-v1",
+      "mechanism_id": "c5a2b7d0edc0e0cf59ce29d60367dfec0f6393382f3fd200628af3ef3d0ff8dd",
+      "mechanism_seed": 8746030821138251905,
+      "table_seed": 26621349053726823427,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "covariate_dimension": 4,
+        "covariate_sd": 1.0185158302846946,
+        "treatment_coefficients": [
+          -1.0,
+          0.5,
+          -0.25,
+          -0.1
+        ],
+        "event_intercept": -1.0,
+        "event_treatment_coefficient": 2.0,
+        "event_coefficients": [
+          1.0,
+          -0.8,
+          0.6,
+          -1.0
+        ],
+        "mediator_intercept": -1.8,
+        "mediator_treatment_coefficient": 1.913871105048152,
+        "mediator_event_coefficient": 0.0,
+        "mediator_coefficients": [
+          1.0,
+          -0.5,
+          0.9,
+          -1.0
+        ],
+        "outcome_intercept": 210.0,
+        "outcome_treatment_coefficient": 1.5,
+        "outcome_event_coefficient": 0.0,
+        "outcome_mediator_coefficient": 1.2693608763003958,
+        "outcome_coefficients": [
+          27.4,
+          13.7,
+          13.7,
+          13.7
+        ],
+        "outcome_noise_sd": 1.1310257236990902,
+        "quadrature_orders": [
+          80,
+          160
+        ],
+        "target": "ITT_NDE"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_hejazi",
+      "source_group": "diaz_hejazi",
+      "registry_id": "mediation-diaz-hejazi-2020-discrete-three-mediators-v1",
+      "mechanism_id": "7eb32d1a3f7c62559e605eaeba44c12ed655d0efa5ecb1eb3641c4bc6715e30b",
+      "mechanism_seed": 3693103837487466203,
+      "table_seed": 649104468904512831,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_probabilities": [
+          0.45624072900216706,
+          0.42920295313315493,
+          0.33496467645955946
+        ],
+        "treatment_denominator": 4.0,
+        "treatment_intercept": 0.1,
+        "outcome_mediator_coefficients": [
+          1.4886654575683613,
+          0.9203351773910604,
+          -0.6581511769963732
+        ],
+        "outcome_treatment_coefficient": 0.5390494468749188,
+        "outcome_baseline_quadratic_coefficient": -0.1,
+        "outcome_noise_sd": 0.41544490675535994,
+        "mediation_path_scale": 0.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_intermediate",
+      "source_group": "diaz_intermediate",
+      "registry_id": "mediation-diaz-et-al-2021-intermediate-confounding-v1",
+      "mechanism_id": "95b562f432928f3ecc0c4cab8eee798d9e520a7774e236a7a54d1f4fedbdb6c1",
+      "mechanism_seed": 9539326183274424389,
+      "table_seed": 11768815141336590981,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "p_w1": 0.6,
+        "p_w2": 0.3,
+        "p_w3_intercept": 0.2,
+        "p_w3_slope": 0.3333333333333333,
+        "treatment_intercept": -2.0,
+        "treatment_w_sum": 0.25,
+        "treatment_w1w2": 3.0,
+        "z_intercept": -0.25,
+        "z_w_sum": 0.3333333333333333,
+        "z_a": -1.0,
+        "z_aw3": -1.0,
+        "m_w1": 1.0,
+        "m_w2": 1.0,
+        "m_a": 0.659198604039115,
+        "m_z": 0.0,
+        "m_az": 0.0,
+        "m_aw2": -0.43054473633012125,
+        "y_a": 0.5478857081387887,
+        "y_z": 0.0,
+        "y_m": -0.8468076808337296,
+        "y_az": 0.0,
+        "y_denominator_intercept": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "binary",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "he_song_xu",
+      "source_group": "he_song_xu",
+      "registry_id": "mediation-he-song-xu-2024-single-linear-v1",
+      "mechanism_id": "1005587150ab48056f9434bdc933fe8c603ed24ddc852f85671604d5c5265373",
+      "mechanism_seed": 11974678585366213821,
+      "table_seed": 15710934097143369601,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "alpha_s": 0.0,
+        "beta_m": -0.0,
+        "x1_sd": 1.0,
+        "x2_probability": 0.5,
+        "treatment_probability": 0.5,
+        "mediator_intercept": 1.0,
+        "mediator_x1": 1.1822213380416562,
+        "mediator_x2": 1.4306224532386385,
+        "mediator_noise_sd": 0.6821048689003292,
+        "outcome_intercept": 1.0,
+        "outcome_x1": 1.4431619131212952,
+        "outcome_x2": 0.7756974859713376,
+        "outcome_direct": 1.0,
+        "outcome_noise_sd": 0.40473847276240876
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "jones_lnl",
+      "source_group": "jones",
+      "registry_id": "mediation-jones-2024-sparse-mediators-lnl-v1",
+      "mechanism_id": "500b068a62973ab6008eb0ddefc4417eb4c152035517f507bb6df9a1ee219f75",
+      "mechanism_seed": 10377509916861613089,
+      "table_seed": 14950706575755460859,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "covariate_count": 3,
+        "covariate_variance": 0.25,
+        "mediator_count": 10,
+        "propensity_form": "linear",
+        "propensity_scale": 0.4339812249628248,
+        "mediator_confounding_form": "nonlinear",
+        "outcome_confounding_form": "linear",
+        "alpha0": [
+          -1.189698668284761,
+          -1.3991448947099556,
+          0.8055384632970339,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "beta0": [
+          -0.9005323197512913,
+          0.4000332481952337,
+          -0.9225046403880917,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gamma0": 2.0,
+        "mediator_noise_sd": 0.9337284813501274,
+        "outcome_noise_sd": 1.0950782604676716,
+        "target": "NIE"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "miles",
+      "source_group": "miles",
+      "registry_id": "mediation-miles-2019-toxicity-path-specific-v1",
+      "mechanism_id": "303c9c92d7da31de238913201a0ca04fd02b4a884087a3ffa498f1e7db65f92b",
+      "mechanism_seed": 28387981274640453781,
+      "table_seed": 2455156653776253649,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_support": [
+          0.0,
+          2.0
+        ],
+        "exposure_coefficients": [
+          0.9,
+          0.3
+        ],
+        "confounder_intercept": [
+          0.8,
+          0.6,
+          -0.3
+        ],
+        "confounder_baseline": [
+          1.0,
+          0.1,
+          0.2
+        ],
+        "confounder_exposure": [
+          0.5,
+          -0.4,
+          0.5
+        ],
+        "confounder_interaction": [
+          -0.1,
+          0.8,
+          -0.2
+        ],
+        "confounder_sd": 1.0,
+        "mediator_intercept": -0.5,
+        "mediator_baseline": -0.2,
+        "mediator_exposure": 0.0,
+        "mediator_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_exposure_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_sd": 0.6281047719603706,
+        "outcome_intercept": 0.2,
+        "outcome_baseline": 0.2,
+        "outcome_exposure": 0.6,
+        "outcome_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome_mediator": -1.1060562462847927,
+        "outcome_exposure_mediator": -0.8720286274559318,
+        "outcome_sd": 0.9112189035561046,
+        "reference_level": 0,
+        "comparison_level": 1,
+        "target": "P_AMY"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "shan",
+      "source_group": "shan",
+      "registry_id": "mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1",
+      "mechanism_id": "2de137e6363f8ea69628131013088b7a1c5c02f0ce359ed6367ddfaf8edadfde",
+      "mechanism_seed": 21259325895133938235,
+      "table_seed": 9261872572332938131,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x3_probability": 0.5,
+        "propensity_intercept": 0.1,
+        "propensity_x1_squared": 1.0,
+        "propensity_x2": -1.0,
+        "propensity_x3": 0.2,
+        "mediator_intercept": -1.0,
+        "mediator_treatment": 0.6311376695061938,
+        "mediator_treatment_x1_squared": -1.089561965011455,
+        "mediator_x1_squared": 4.0,
+        "mediator_sin_x2": -1.0,
+        "mediator_x3": 1.0,
+        "mediator_noise_sd": 0.8920283712344484,
+        "outcome_intercept": -1.0,
+        "outcome_treatment": 1.0,
+        "outcome_treatment_mediator": 4.3122567014335935,
+        "outcome_mediator": 1.7982099276397845,
+        "outcome_treatment_x1": 1.0,
+        "outcome_sin_x1": 5.0,
+        "outcome_x2_squared": -2.0,
+        "outcome_x3": 1.0,
+        "outcome_noise_sd": 0.7864595744134271,
+        "incomplete_pattern_count": 3,
+        "missing_fill_value": 0.0,
+        "missingness_x1": 3.0,
+        "missingness_x2": 1.0,
+        "missingness_x3": -1.0,
+        "missingness_treatment_times_mediator_noise": 0.5,
+        "missingness_outcome_noise": 0.1,
+        "shadow_correlation": 0.6,
+        "missingness_form": "dgp1_residual_dependent",
+        "shadow_variables": "auxiliary",
+        "target": "MF",
+        "source_n": [
+          1000,
+          2000
+        ]
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "zuo",
+      "source_group": "zuo",
+      "registry_id": "mediation-zuo-et-al-2025-continuous-mnar-v1",
+      "mechanism_id": "35616f9d072fd546cd28d3299050aceb6b384dcc9e0272af29be7b6e97cbe87b",
+      "mechanism_seed": 34763150379364593619,
+      "table_seed": 1829157539880857535,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x_mean": 0.0,
+        "x_sd": 1.0,
+        "p_t": 0.5,
+        "alpha_0": 0.0,
+        "alpha_t": 1.4349414261858218,
+        "alpha_x": 1.290038914623456,
+        "m_sd": 1.4712788973271178,
+        "beta_0": 0.0,
+        "beta_m": 0.9534851526934935,
+        "beta_t": 1.0,
+        "beta_mt": 0.871502466132463,
+        "beta_x": 0.7607406638572808,
+        "y_sd": 0.8459195759614813,
+        "lambda_0": 1.4,
+        "lambda_m": 1.0,
+        "lambda_t": 1.0,
+        "lambda_x": 1.0,
+        "gamma_0": 1.8,
+        "gamma_y": 1.0,
+        "gamma_t": 1.0,
+        "gamma_x": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "cheng",
+      "source_group": "cheng",
+      "registry_id": "mediation-cheng-li-2025-principal-strata-kang-schafer-v1",
+      "mechanism_id": "1e66a0a8fd244b51c13397092cbb551d0d0a92fe011d7c8f2da0aa5858c24097",
+      "mechanism_seed": 9970746989055193955,
+      "table_seed": 35174048375162094695,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "covariate_dimension": 4,
+        "covariate_sd": 1.147604880836159,
+        "treatment_coefficients": [
+          -1.0,
+          0.5,
+          -0.25,
+          -0.1
+        ],
+        "event_intercept": -1.0,
+        "event_treatment_coefficient": 2.0,
+        "event_coefficients": [
+          1.0,
+          -0.8,
+          0.6,
+          -1.0
+        ],
+        "mediator_intercept": -1.8,
+        "mediator_treatment_coefficient": 2.1222403425883716,
+        "mediator_event_coefficient": 0.0,
+        "mediator_coefficients": [
+          1.0,
+          -0.5,
+          0.9,
+          -1.0
+        ],
+        "outcome_intercept": 210.0,
+        "outcome_treatment_coefficient": 1.5,
+        "outcome_event_coefficient": 0.0,
+        "outcome_mediator_coefficient": 1.4627180662981831,
+        "outcome_coefficients": [
+          27.4,
+          13.7,
+          13.7,
+          13.7
+        ],
+        "outcome_noise_sd": 1.4491964352080506,
+        "quadrature_orders": [
+          80,
+          160
+        ],
+        "target": "ITT_NDE"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_hejazi",
+      "source_group": "diaz_hejazi",
+      "registry_id": "mediation-diaz-hejazi-2020-discrete-three-mediators-v1",
+      "mechanism_id": "328fcf48203018f25b0bae9c87d32a16702cdf43db07120d6f8007ac718cff2d",
+      "mechanism_seed": 30292067217761819235,
+      "table_seed": 33042161227953607283,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_probabilities": [
+          0.7430177165903523,
+          0.5361978787058281,
+          0.4816937945536663
+        ],
+        "treatment_denominator": 4.0,
+        "treatment_intercept": 0.1,
+        "outcome_mediator_coefficients": [
+          1.4875576728421982,
+          1.1614113864989282,
+          -1.4968199074164004
+        ],
+        "outcome_treatment_coefficient": 1.2940157835486206,
+        "outcome_baseline_quadratic_coefficient": -0.1,
+        "outcome_noise_sd": 0.694928755907583,
+        "mediation_path_scale": 0.41968075771482793
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_intermediate",
+      "source_group": "diaz_intermediate",
+      "registry_id": "mediation-diaz-et-al-2021-intermediate-confounding-v1",
+      "mechanism_id": "b61016298e50cb5a2ca440b8c691ac130c7350a7268d19cdcc0564f1520f2d4a",
+      "mechanism_seed": 21056235540166782255,
+      "table_seed": 18113635648641734399,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "p_w1": 0.6,
+        "p_w2": 0.3,
+        "p_w3_intercept": 0.2,
+        "p_w3_slope": 0.3333333333333333,
+        "treatment_intercept": -2.0,
+        "treatment_w_sum": 0.25,
+        "treatment_w1w2": 3.0,
+        "z_intercept": -0.25,
+        "z_w_sum": 0.3333333333333333,
+        "z_a": -1.0,
+        "z_aw3": -1.0,
+        "m_w1": 1.0,
+        "m_w2": 1.0,
+        "m_a": 0.672426130435893,
+        "m_z": 0.0,
+        "m_az": 0.0,
+        "m_aw2": -0.44344986355709115,
+        "y_a": 1.3471238057522832,
+        "y_z": 0.0,
+        "y_m": 0.0,
+        "y_az": 0.0,
+        "y_denominator_intercept": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "binary",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "he_song_xu",
+      "source_group": "he_song_xu",
+      "registry_id": "mediation-he-song-xu-2024-single-linear-v1",
+      "mechanism_id": "3a5f07a9328d0fca6054b5a4d7f32f2e06774f7a604b45ce7e5decc03e45e9ba",
+      "mechanism_seed": 194266909104326341,
+      "table_seed": 15366431098976085481,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "alpha_s": 0.0,
+        "beta_m": 0.41365038521252884,
+        "x1_sd": 1.0,
+        "x2_probability": 0.5,
+        "treatment_probability": 0.5,
+        "mediator_intercept": 1.0,
+        "mediator_x1": 0.566650141696116,
+        "mediator_x2": 1.1419399381810347,
+        "mediator_noise_sd": 0.68879342531895,
+        "outcome_intercept": 1.0,
+        "outcome_x1": 1.240205360952194,
+        "outcome_x2": 0.5232326740573456,
+        "outcome_direct": 1.0,
+        "outcome_noise_sd": 0.6653247341314112
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "jones_lnn",
+      "source_group": "jones",
+      "registry_id": "mediation-jones-2024-sparse-mediators-lnn-v1",
+      "mechanism_id": "c26170d7474e74534237b70ecf2c5ed2777c660efed5338969676444a3c86bcf",
+      "mechanism_seed": 24663650480324739329,
+      "table_seed": 6475026418193284175,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "covariate_count": 3,
+        "covariate_variance": 0.25,
+        "mediator_count": 5,
+        "propensity_form": "linear",
+        "propensity_scale": 1.0228715042729837,
+        "mediator_confounding_form": "nonlinear",
+        "outcome_confounding_form": "nonlinear",
+        "alpha0": [
+          1.418897754075304,
+          1.3213630460781178,
+          -1.0846857279067,
+          0.0,
+          0.0
+        ],
+        "beta0": [
+          -0.4043752608428565,
+          -0.3601043494342411,
+          0.5964020670116086,
+          0.0,
+          0.0
+        ],
+        "gamma0": 2.0,
+        "mediator_noise_sd": 0.8231522683482185,
+        "outcome_noise_sd": 1.1358685064899987,
+        "target": "NIE"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "miles",
+      "source_group": "miles",
+      "registry_id": "mediation-miles-2019-toxicity-path-specific-v1",
+      "mechanism_id": "272c2ef462c0e91c60541593d7c7461b4c0739f80e69d13b9d3d8764d4a7ddb3",
+      "mechanism_seed": 16229594028332769167,
+      "table_seed": 29492634607406905807,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_support": [
+          0.0,
+          2.0
+        ],
+        "exposure_coefficients": [
+          0.9,
+          0.3
+        ],
+        "confounder_intercept": [
+          0.8,
+          0.6,
+          -0.3
+        ],
+        "confounder_baseline": [
+          1.0,
+          0.1,
+          0.2
+        ],
+        "confounder_exposure": [
+          0.5,
+          -0.4,
+          0.5
+        ],
+        "confounder_interaction": [
+          -0.1,
+          0.8,
+          -0.2
+        ],
+        "confounder_sd": 1.0,
+        "mediator_intercept": -0.5,
+        "mediator_baseline": -0.2,
+        "mediator_exposure": 0.402236780838771,
+        "mediator_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_exposure_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_sd": 0.6632292771504988,
+        "outcome_intercept": 0.2,
+        "outcome_baseline": 0.2,
+        "outcome_exposure": 0.6,
+        "outcome_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome_mediator": -0.9434230194414588,
+        "outcome_exposure_mediator": -0.8430006072947631,
+        "outcome_sd": 1.484136478347796,
+        "reference_level": 0,
+        "comparison_level": 1,
+        "target": "P_AMY"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "shan",
+      "source_group": "shan",
+      "registry_id": "mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1",
+      "mechanism_id": "88d91f4f3c91d57961fc47b93af5155d4a271cbde143239601c42ba38f766799",
+      "mechanism_seed": 32500608308650962081,
+      "table_seed": 20937239885736774213,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x3_probability": 0.5,
+        "propensity_intercept": 0.1,
+        "propensity_x1_squared": 1.0,
+        "propensity_x2": -1.0,
+        "propensity_x3": 0.2,
+        "mediator_intercept": -1.0,
+        "mediator_treatment": 0.633113312035866,
+        "mediator_treatment_x1_squared": -1.3506189116691938,
+        "mediator_x1_squared": 4.0,
+        "mediator_sin_x2": -1.0,
+        "mediator_x3": 1.0,
+        "mediator_noise_sd": 1.0376094459569358,
+        "outcome_intercept": -1.0,
+        "outcome_treatment": 1.0,
+        "outcome_treatment_mediator": 4.241455398685226,
+        "outcome_mediator": -0.7516408432986885,
+        "outcome_treatment_x1": 1.0,
+        "outcome_sin_x1": 5.0,
+        "outcome_x2_squared": -2.0,
+        "outcome_x3": 1.0,
+        "outcome_noise_sd": 1.0900535751102591,
+        "incomplete_pattern_count": 3,
+        "missing_fill_value": 0.0,
+        "missingness_x1": 3.0,
+        "missingness_x2": 1.0,
+        "missingness_x3": -1.0,
+        "missingness_treatment_times_mediator_noise": 0.5,
+        "missingness_outcome_noise": 0.1,
+        "shadow_correlation": 0.6,
+        "missingness_form": "dgp1_residual_dependent",
+        "shadow_variables": "auxiliary",
+        "target": "MF",
+        "source_n": [
+          1000,
+          2000
+        ]
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "zuo",
+      "source_group": "zuo",
+      "registry_id": "mediation-zuo-et-al-2025-continuous-mnar-v1",
+      "mechanism_id": "0c49fe6f56c6f96d4e90a8dfd20d45258c18dee8c665e9795d709be527fb947f",
+      "mechanism_seed": 16493130299352851813,
+      "table_seed": 18806895471533827645,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x_mean": 0.0,
+        "x_sd": 1.0,
+        "p_t": 0.5,
+        "alpha_0": 0.0,
+        "alpha_t": 1.2622963615255574,
+        "alpha_x": 1.4420556452089426,
+        "m_sd": 0.9096829846937066,
+        "beta_0": 0.0,
+        "beta_m": 0.5369922836012065,
+        "beta_t": 1.0,
+        "beta_mt": 0.8765521448918584,
+        "beta_x": 1.2665805775890022,
+        "y_sd": 1.4395611567577813,
+        "lambda_0": 1.4,
+        "lambda_m": 1.0,
+        "lambda_t": 1.0,
+        "lambda_x": 1.0,
+        "gamma_0": 1.8,
+        "gamma_y": 1.0,
+        "gamma_t": 1.0,
+        "gamma_x": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "cheng",
+      "source_group": "cheng",
+      "registry_id": "mediation-cheng-li-2025-principal-strata-kang-schafer-v1",
+      "mechanism_id": "a33fa33c8cbc0177641acf680b094cac812dfa6b4babb796537c2e9f5c0c95b4",
+      "mechanism_seed": 35105354200204373815,
+      "table_seed": 34369156479326328857,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "covariate_dimension": 4,
+        "covariate_sd": 1.1561812567512928,
+        "treatment_coefficients": [
+          -1.0,
+          0.5,
+          -0.25,
+          -0.1
+        ],
+        "event_intercept": -1.0,
+        "event_treatment_coefficient": 2.0,
+        "event_coefficients": [
+          1.0,
+          -0.8,
+          0.6,
+          -1.0
+        ],
+        "mediator_intercept": -1.8,
+        "mediator_treatment_coefficient": 0.0,
+        "mediator_event_coefficient": 0.0,
+        "mediator_coefficients": [
+          1.0,
+          -0.5,
+          0.9,
+          -1.0
+        ],
+        "outcome_intercept": 210.0,
+        "outcome_treatment_coefficient": 1.5,
+        "outcome_event_coefficient": 0.0,
+        "outcome_mediator_coefficient": 1.3657105641515872,
+        "outcome_coefficients": [
+          27.4,
+          13.7,
+          13.7,
+          13.7
+        ],
+        "outcome_noise_sd": 1.1707375920562595,
+        "quadrature_orders": [
+          80,
+          160
+        ],
+        "target": "ITT_NDE"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_hejazi",
+      "source_group": "diaz_hejazi",
+      "registry_id": "mediation-diaz-hejazi-2020-discrete-three-mediators-v1",
+      "mechanism_id": "6737c7c664d54f482eb382673a56ffa0ee270ae190caa349a2cac6ced740abc5",
+      "mechanism_seed": 4816129196219178359,
+      "table_seed": 29626872310527603089,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_probabilities": [
+          0.2553602323754469,
+          0.43513037086289774,
+          0.33128576427149603
+        ],
+        "treatment_denominator": 4.0,
+        "treatment_intercept": 0.1,
+        "outcome_mediator_coefficients": [
+          -0.5346375062729339,
+          -1.3991180623581156,
+          0.6740237590123963
+        ],
+        "outcome_treatment_coefficient": 0.6178535021264921,
+        "outcome_baseline_quadratic_coefficient": -0.1,
+        "outcome_noise_sd": 0.6999593248934197,
+        "mediation_path_scale": 0.5595539986276952
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_intermediate",
+      "source_group": "diaz_intermediate",
+      "registry_id": "mediation-diaz-et-al-2021-intermediate-confounding-v1",
+      "mechanism_id": "965d372c79fef01684b60bf6727b6e9ccbe183e33ffea4a64ab7af42298eb661",
+      "mechanism_seed": 34271496954494010465,
+      "table_seed": 4294370229830023617,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "p_w1": 0.6,
+        "p_w2": 0.3,
+        "p_w3_intercept": 0.2,
+        "p_w3_slope": 0.3333333333333333,
+        "treatment_intercept": -2.0,
+        "treatment_w_sum": 0.25,
+        "treatment_w1w2": 3.0,
+        "z_intercept": -0.25,
+        "z_w_sum": 0.3333333333333333,
+        "z_a": -1.0,
+        "z_aw3": -1.0,
+        "m_w1": 1.0,
+        "m_w2": 1.0,
+        "m_a": 1.03508984098842,
+        "m_z": 0.0,
+        "m_az": 0.0,
+        "m_aw2": -0.21233881080562741,
+        "y_a": 1.1797519172415227,
+        "y_z": 0.0,
+        "y_m": -1.1960998431567402,
+        "y_az": 0.0,
+        "y_denominator_intercept": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "binary",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "he_song_xu",
+      "source_group": "he_song_xu",
+      "registry_id": "mediation-he-song-xu-2024-single-linear-v1",
+      "mechanism_id": "8750136232a7595552be4aca3952501ad0d277a71d68501145c652cff8a95f5a",
+      "mechanism_seed": 33223161160442552569,
+      "table_seed": 17400070593352613377,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "alpha_s": 0.0,
+        "beta_m": 0.5121943237272549,
+        "x1_sd": 1.0,
+        "x2_probability": 0.5,
+        "treatment_probability": 0.5,
+        "mediator_intercept": 1.0,
+        "mediator_x1": 0.8411620344975779,
+        "mediator_x2": 0.67459902821451,
+        "mediator_noise_sd": 0.4724847659470277,
+        "outcome_intercept": 1.0,
+        "outcome_x1": 1.0654603489347128,
+        "outcome_x2": 0.9055814918233237,
+        "outcome_direct": 1.0,
+        "outcome_noise_sd": 0.5281762506220973
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "jones_lnn",
+      "source_group": "jones",
+      "registry_id": "mediation-jones-2024-sparse-mediators-lnn-v1",
+      "mechanism_id": "0fd3e090d4f2659582ab834d07ebbe3d52a6aba3d23b695761d994fdb8c48d3d",
+      "mechanism_seed": 26682963735148306749,
+      "table_seed": 5523497486926703099,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "covariate_count": 3,
+        "covariate_variance": 0.25,
+        "mediator_count": 3,
+        "propensity_form": "linear",
+        "propensity_scale": 0.8479820248178072,
+        "mediator_confounding_form": "nonlinear",
+        "outcome_confounding_form": "nonlinear",
+        "alpha0": [
+          0.7796628518041293,
+          -1.6200757767966982,
+          0.687187829761851
+        ],
+        "beta0": [
+          -0.3358510417710209,
+          0.7094127710189717,
+          -0.8228796641696403
+        ],
+        "gamma0": 2.0,
+        "mediator_noise_sd": 0.9119619655215037,
+        "outcome_noise_sd": 0.7776992257922786,
+        "target": "NIE"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "miles",
+      "source_group": "miles",
+      "registry_id": "mediation-miles-2019-toxicity-path-specific-v1",
+      "mechanism_id": "8c9766b9381373a283a8d19f9013da2146f0a3ecb48b625ef794e35b8a1fd9d3",
+      "mechanism_seed": 24291371894483725335,
+      "table_seed": 28232694906426019787,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_support": [
+          0.0,
+          2.0
+        ],
+        "exposure_coefficients": [
+          0.9,
+          0.3
+        ],
+        "confounder_intercept": [
+          0.8,
+          0.6,
+          -0.3
+        ],
+        "confounder_baseline": [
+          1.0,
+          0.1,
+          0.2
+        ],
+        "confounder_exposure": [
+          0.5,
+          -0.4,
+          0.5
+        ],
+        "confounder_interaction": [
+          -0.1,
+          0.8,
+          -0.2
+        ],
+        "confounder_sd": 1.0,
+        "mediator_intercept": -0.5,
+        "mediator_baseline": -0.2,
+        "mediator_exposure": 0.0,
+        "mediator_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_exposure_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_sd": 0.8105903186743177,
+        "outcome_intercept": 0.2,
+        "outcome_baseline": 0.2,
+        "outcome_exposure": 0.6,
+        "outcome_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome_mediator": -1.3280791315733593,
+        "outcome_exposure_mediator": -0.4923384385492261,
+        "outcome_sd": 1.385539209541244,
+        "reference_level": 0,
+        "comparison_level": 1,
+        "target": "P_AMY"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "shan",
+      "source_group": "shan",
+      "registry_id": "mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1",
+      "mechanism_id": "0500a44cc84ac15415136daf6df9681022e211b41afffdefa85bb9ee8f785c3c",
+      "mechanism_seed": 17044142132607743021,
+      "table_seed": 9558531076243240301,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x3_probability": 0.5,
+        "propensity_intercept": 0.1,
+        "propensity_x1_squared": 1.0,
+        "propensity_x2": -1.0,
+        "propensity_x3": 0.2,
+        "mediator_intercept": -1.0,
+        "mediator_treatment": 0.6902737842974187,
+        "mediator_treatment_x1_squared": -1.2788268030943244,
+        "mediator_x1_squared": 4.0,
+        "mediator_sin_x2": -1.0,
+        "mediator_x3": 1.0,
+        "mediator_noise_sd": 1.1826265816935337,
+        "outcome_intercept": -1.0,
+        "outcome_treatment": 1.0,
+        "outcome_treatment_mediator": 3.940174073295794,
+        "outcome_mediator": -1.0687899233803608,
+        "outcome_treatment_x1": 1.0,
+        "outcome_sin_x1": 5.0,
+        "outcome_x2_squared": -2.0,
+        "outcome_x3": 1.0,
+        "outcome_noise_sd": 0.8630468513403197,
+        "incomplete_pattern_count": 3,
+        "missing_fill_value": 0.0,
+        "missingness_x1": 3.0,
+        "missingness_x2": 1.0,
+        "missingness_x3": -1.0,
+        "missingness_treatment_times_mediator_noise": 0.5,
+        "missingness_outcome_noise": 0.1,
+        "shadow_correlation": 0.6,
+        "missingness_form": "dgp1_residual_dependent",
+        "shadow_variables": "auxiliary",
+        "target": "MF",
+        "source_n": [
+          1000,
+          2000
+        ]
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "zuo",
+      "source_group": "zuo",
+      "registry_id": "mediation-zuo-et-al-2025-continuous-mnar-v1",
+      "mechanism_id": "fd32b363c4027efcaabe874e3c6d6cafc982018c0bc46535da92923548dd4750",
+      "mechanism_seed": 34132424300556752047,
+      "table_seed": 22586374435046682507,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x_mean": 0.0,
+        "x_sd": 1.0,
+        "p_t": 0.5,
+        "alpha_0": 0.0,
+        "alpha_t": 1.3268329310407592,
+        "alpha_x": 1.0464376312801784,
+        "m_sd": 0.916785816495374,
+        "beta_0": 0.0,
+        "beta_m": 1.499512545767613,
+        "beta_t": 1.0,
+        "beta_mt": 1.4296412427994487,
+        "beta_x": 1.4824410425026406,
+        "y_sd": 0.5172472061688911,
+        "lambda_0": 1.4,
+        "lambda_m": 1.0,
+        "lambda_t": 1.0,
+        "lambda_x": 1.0,
+        "gamma_0": 1.8,
+        "gamma_y": 1.0,
+        "gamma_t": 1.0,
+        "gamma_x": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "cheng",
+      "source_group": "cheng",
+      "registry_id": "mediation-cheng-li-2025-principal-strata-kang-schafer-v1",
+      "mechanism_id": "1bc50b51203299a0ba0278c75f897c4be77dd08dfc31d91f0869ae39f825197d",
+      "mechanism_seed": 1930261763802783817,
+      "table_seed": 5093613276060838577,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "covariate_dimension": 4,
+        "covariate_sd": 1.256969900263028,
+        "treatment_coefficients": [
+          -1.0,
+          0.5,
+          -0.25,
+          -0.1
+        ],
+        "event_intercept": -1.0,
+        "event_treatment_coefficient": 2.0,
+        "event_coefficients": [
+          1.0,
+          -0.8,
+          0.6,
+          -1.0
+        ],
+        "mediator_intercept": -1.8,
+        "mediator_treatment_coefficient": 1.1702379477241633,
+        "mediator_event_coefficient": 0.0,
+        "mediator_coefficients": [
+          1.0,
+          -0.5,
+          0.9,
+          -1.0
+        ],
+        "outcome_intercept": 210.0,
+        "outcome_treatment_coefficient": 1.5,
+        "outcome_event_coefficient": 0.0,
+        "outcome_mediator_coefficient": -0.7856070560657465,
+        "outcome_coefficients": [
+          27.4,
+          13.7,
+          13.7,
+          13.7
+        ],
+        "outcome_noise_sd": 1.1123747781614437,
+        "quadrature_orders": [
+          80,
+          160
+        ],
+        "target": "ITT_NDE"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_hejazi",
+      "source_group": "diaz_hejazi",
+      "registry_id": "mediation-diaz-hejazi-2020-discrete-three-mediators-v1",
+      "mechanism_id": "383ccf9b4257e39f6e9f2d0e8212e15d8576f6c9aef0172e81ee471cee6e610c",
+      "mechanism_seed": 30973109374978956157,
+      "table_seed": 28721848658498741359,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_probabilities": [
+          0.5016985734844401,
+          0.44862749388211,
+          0.5908131808790522
+        ],
+        "treatment_denominator": 4.0,
+        "treatment_intercept": 0.1,
+        "outcome_mediator_coefficients": [
+          -1.4304748849792879,
+          -1.0418098899070005,
+          1.2814544902186782
+        ],
+        "outcome_treatment_coefficient": 0.9812649584599293,
+        "outcome_baseline_quadratic_coefficient": -0.1,
+        "outcome_noise_sd": 0.5688395124311955,
+        "mediation_path_scale": 0.43253882033101976
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_intermediate",
+      "source_group": "diaz_intermediate",
+      "registry_id": "mediation-diaz-et-al-2021-intermediate-confounding-v1",
+      "mechanism_id": "9fb3abd68eef11208ff4525d3eac3459d6fa4b12308854e1163972a3933f8e3d",
+      "mechanism_seed": 36455903228418890407,
+      "table_seed": 12900441145942921103,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "p_w1": 0.6,
+        "p_w2": 0.3,
+        "p_w3_intercept": 0.2,
+        "p_w3_slope": 0.3333333333333333,
+        "treatment_intercept": -2.0,
+        "treatment_w_sum": 0.25,
+        "treatment_w1w2": 3.0,
+        "z_intercept": -0.25,
+        "z_w_sum": 0.3333333333333333,
+        "z_a": -1.0,
+        "z_aw3": -1.0,
+        "m_w1": 1.0,
+        "m_w2": 1.0,
+        "m_a": 1.4222141255700302,
+        "m_z": 0.0,
+        "m_az": 0.0,
+        "m_aw2": -0.23757921601546164,
+        "y_a": 1.2142766801980152,
+        "y_z": 0.0,
+        "y_m": -1.2601323591832398,
+        "y_az": 0.0,
+        "y_denominator_intercept": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "binary",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "he_song_xu",
+      "source_group": "he_song_xu",
+      "registry_id": "mediation-he-song-xu-2024-single-linear-v1",
+      "mechanism_id": "9c71c99521683454108fec73b53169f99e40f0b2e15e6fd0251dee9e8b303459",
+      "mechanism_seed": 13225067098493077761,
+      "table_seed": 2004636877548206097,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "alpha_s": 0.0,
+        "beta_m": 0.5112861576991208,
+        "x1_sd": 1.0,
+        "x2_probability": 0.5,
+        "treatment_probability": 0.5,
+        "mediator_intercept": 1.0,
+        "mediator_x1": 1.1738241572157317,
+        "mediator_x2": 1.0659224032519714,
+        "mediator_noise_sd": 0.64875484157113,
+        "outcome_intercept": 1.0,
+        "outcome_x1": 0.8057264991103112,
+        "outcome_x2": 0.6256654408936781,
+        "outcome_direct": 1.0,
+        "outcome_noise_sd": 0.3649280009736854
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "jones_correlated",
+      "source_group": "jones",
+      "registry_id": "mediation-jones-et-al-2025-correlated-sparse-v1",
+      "mechanism_id": "642d453e64a2309c42d1b27d474840a057be600eb362c61859a203dcf9a28b48",
+      "mechanism_seed": 3341658899333083171,
+      "table_seed": 5407108505705418715,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "p": 10,
+        "rho_within": 0.48257151836752876,
+        "rho_bridge": 0.25141997237940605,
+        "p_treatment": 0.5,
+        "a_to_m_indices": [
+          1,
+          2,
+          3
+        ],
+        "m_to_y_indices": [
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "a_to_m_coefficient": 1.07391903704402,
+        "m_to_y_coefficient": 0.7818150901814357,
+        "direct_effect": 2.0,
+        "mediator_error_sd": 1.0,
+        "outcome_error_sd": 1.39192239686981,
+        "source_n": 200
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "x_types": [],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "miles",
+      "source_group": "miles",
+      "registry_id": "mediation-miles-2019-toxicity-path-specific-v1",
+      "mechanism_id": "e92481bfd48e49a7599d2e054cc8a96a1680eb12d18e50bbafaa3d9e681e4207",
+      "mechanism_seed": 24350097608449106653,
+      "table_seed": 24845599788663474747,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_support": [
+          0.0,
+          2.0
+        ],
+        "exposure_coefficients": [
+          0.9,
+          0.3
+        ],
+        "confounder_intercept": [
+          0.8,
+          0.6,
+          -0.3
+        ],
+        "confounder_baseline": [
+          1.0,
+          0.1,
+          0.2
+        ],
+        "confounder_exposure": [
+          0.5,
+          -0.4,
+          0.5
+        ],
+        "confounder_interaction": [
+          -0.1,
+          0.8,
+          -0.2
+        ],
+        "confounder_sd": 1.0,
+        "mediator_intercept": -0.5,
+        "mediator_baseline": -0.2,
+        "mediator_exposure": 0.29291301583815876,
+        "mediator_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_exposure_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_sd": 1.1217548927835748,
+        "outcome_intercept": 0.2,
+        "outcome_baseline": 0.2,
+        "outcome_exposure": 0.6,
+        "outcome_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome_mediator": 1.2694353354489099,
+        "outcome_exposure_mediator": -0.6174280190523406,
+        "outcome_sd": 0.843021617470842,
+        "reference_level": 0,
+        "comparison_level": 1,
+        "target": "P_AMY"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "shan",
+      "source_group": "shan",
+      "registry_id": "mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1",
+      "mechanism_id": "1828e3b3207ace046afc41f92945da0c4a04322dbdc01bc8db7eb5de5c6e4c58",
+      "mechanism_seed": 4338789736166374857,
+      "table_seed": 12861868733396162447,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x3_probability": 0.5,
+        "propensity_intercept": 0.1,
+        "propensity_x1_squared": 1.0,
+        "propensity_x2": -1.0,
+        "propensity_x3": 0.2,
+        "mediator_intercept": -1.0,
+        "mediator_treatment": 0.8283039980552113,
+        "mediator_treatment_x1_squared": -0.9623445748569057,
+        "mediator_x1_squared": 4.0,
+        "mediator_sin_x2": -1.0,
+        "mediator_x3": 1.0,
+        "mediator_noise_sd": 1.4468952119653031,
+        "outcome_intercept": -1.0,
+        "outcome_treatment": 1.0,
+        "outcome_treatment_mediator": 1.5655411711550327,
+        "outcome_mediator": -2.1717634556267957,
+        "outcome_treatment_x1": 1.0,
+        "outcome_sin_x1": 5.0,
+        "outcome_x2_squared": -2.0,
+        "outcome_x3": 1.0,
+        "outcome_noise_sd": 0.8613399555912264,
+        "incomplete_pattern_count": 3,
+        "missing_fill_value": 0.0,
+        "missingness_x1": 3.0,
+        "missingness_x2": 1.0,
+        "missingness_x3": -1.0,
+        "missingness_treatment_times_mediator_noise": 0.5,
+        "missingness_outcome_noise": 0.1,
+        "shadow_correlation": 0.6,
+        "missingness_form": "dgp1_residual_dependent",
+        "shadow_variables": "auxiliary",
+        "target": "MF",
+        "source_n": [
+          1000,
+          2000
+        ]
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "zuo",
+      "source_group": "zuo",
+      "registry_id": "mediation-zuo-et-al-2025-continuous-mnar-v1",
+      "mechanism_id": "89b12a0feceb28f189d307f5acc4b512ad4ecf052f9b27987b4de8aa7022d4fb",
+      "mechanism_seed": 16818078236307373893,
+      "table_seed": 34433591920996549385,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x_mean": 0.0,
+        "x_sd": 1.0,
+        "p_t": 0.5,
+        "alpha_0": 0.0,
+        "alpha_t": 1.4662429699958333,
+        "alpha_x": 0.9848654270209133,
+        "m_sd": 0.831196799334844,
+        "beta_0": 0.0,
+        "beta_m": 0.0,
+        "beta_t": 1.0,
+        "beta_mt": 0.0,
+        "beta_x": 1.467045321359203,
+        "y_sd": 0.9825995067125273,
+        "lambda_0": 1.4,
+        "lambda_m": 1.0,
+        "lambda_t": 1.0,
+        "lambda_x": 1.0,
+        "gamma_0": 1.8,
+        "gamma_y": 1.0,
+        "gamma_t": 1.0,
+        "gamma_x": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "cheng",
+      "source_group": "cheng",
+      "registry_id": "mediation-cheng-li-2025-principal-strata-kang-schafer-v1",
+      "mechanism_id": "42c4f4f634a085dac56e783322256ebefff4b2c95a5d3fa82518c789a0d1563b",
+      "mechanism_seed": 32255633080203434201,
+      "table_seed": 32571859271257127987,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "covariate_dimension": 4,
+        "covariate_sd": 1.4211177506817299,
+        "treatment_coefficients": [
+          -1.0,
+          0.5,
+          -0.25,
+          -0.1
+        ],
+        "event_intercept": -1.0,
+        "event_treatment_coefficient": 2.0,
+        "event_coefficients": [
+          1.0,
+          -0.8,
+          0.6,
+          -1.0
+        ],
+        "mediator_intercept": -1.8,
+        "mediator_treatment_coefficient": 1.536919188171671,
+        "mediator_event_coefficient": 0.0,
+        "mediator_coefficients": [
+          1.0,
+          -0.5,
+          0.9,
+          -1.0
+        ],
+        "outcome_intercept": 210.0,
+        "outcome_treatment_coefficient": 1.5,
+        "outcome_event_coefficient": 0.0,
+        "outcome_mediator_coefficient": 0.0,
+        "outcome_coefficients": [
+          27.4,
+          13.7,
+          13.7,
+          13.7
+        ],
+        "outcome_noise_sd": 1.4910469302695981,
+        "quadrature_orders": [
+          80,
+          160
+        ],
+        "target": "ITT_NDE"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_hejazi",
+      "source_group": "diaz_hejazi",
+      "registry_id": "mediation-diaz-hejazi-2020-discrete-three-mediators-v1",
+      "mechanism_id": "c32ed1fdd203e695def60c361e2f58ee38379dddb1bbc6f5580f640d1aa71c52",
+      "mechanism_seed": 7713756602903682761,
+      "table_seed": 25388555327711818079,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_probabilities": [
+          0.37665484082345857,
+          0.31298981270675374,
+          0.5243407008028096
+        ],
+        "treatment_denominator": 4.0,
+        "treatment_intercept": 0.1,
+        "outcome_mediator_coefficients": [
+          1.0996659507503708,
+          0.8163791480010206,
+          -1.3578021531187825
+        ],
+        "outcome_treatment_coefficient": 1.0124886798292216,
+        "outcome_baseline_quadratic_coefficient": -0.1,
+        "outcome_noise_sd": 0.5043314082934705,
+        "mediation_path_scale": 0.7036498579602675
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_intermediate",
+      "source_group": "diaz_intermediate",
+      "registry_id": "mediation-diaz-et-al-2021-intermediate-confounding-v1",
+      "mechanism_id": "b82b0f6107f6f9faadf430d6d87e301647578435272e1d3f43e9b2e10d8644fc",
+      "mechanism_seed": 14496163797477861277,
+      "table_seed": 10686180279710013021,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "p_w1": 0.6,
+        "p_w2": 0.3,
+        "p_w3_intercept": 0.2,
+        "p_w3_slope": 0.3333333333333333,
+        "treatment_intercept": -2.0,
+        "treatment_w_sum": 0.25,
+        "treatment_w1w2": 3.0,
+        "z_intercept": -0.25,
+        "z_w_sum": 0.3333333333333333,
+        "z_a": -1.0,
+        "z_aw3": -1.0,
+        "m_w1": 1.0,
+        "m_w2": 1.0,
+        "m_a": 0.8074761010919442,
+        "m_z": 0.0,
+        "m_az": 0.0,
+        "m_aw2": -0.3371230944666303,
+        "y_a": 0.8847294054328494,
+        "y_z": 0.0,
+        "y_m": 0.0,
+        "y_az": 0.0,
+        "y_denominator_intercept": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "binary",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "he_song_xu",
+      "source_group": "he_song_xu",
+      "registry_id": "mediation-he-song-xu-2024-single-linear-v1",
+      "mechanism_id": "9e8842c5e51a7f199651f1074674ccf60c6e47ffce977f99ee4525a81cce34b0",
+      "mechanism_seed": 24432698240181669339,
+      "table_seed": 11284914719141404927,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "alpha_s": 0.0,
+        "beta_m": 0.0,
+        "x1_sd": 1.0,
+        "x2_probability": 0.5,
+        "treatment_probability": 0.5,
+        "mediator_intercept": 1.0,
+        "mediator_x1": 0.7433098541088502,
+        "mediator_x2": 0.8182846231753063,
+        "mediator_noise_sd": 0.7390909584083776,
+        "outcome_intercept": 1.0,
+        "outcome_x1": 1.4788775113665706,
+        "outcome_x2": 1.480306091143949,
+        "outcome_direct": 1.0,
+        "outcome_noise_sd": 0.34357143130598555
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "jones_correlated",
+      "source_group": "jones",
+      "registry_id": "mediation-jones-et-al-2025-correlated-sparse-v1",
+      "mechanism_id": "34a49e1f06ee7aa6b47462029fa9b880732e228a2bc93012d4f8778a1a92d0ad",
+      "mechanism_seed": 17016579103342904427,
+      "table_seed": 35805476279454551583,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "p": 50,
+        "rho_within": 0.2090231827615168,
+        "rho_bridge": 0.04789557511953527,
+        "p_treatment": 0.5,
+        "a_to_m_indices": [
+          1,
+          2,
+          3
+        ],
+        "m_to_y_indices": [
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "a_to_m_coefficient": -0.7548205313066597,
+        "m_to_y_coefficient": 1.3356177286186093,
+        "direct_effect": 2.0,
+        "mediator_error_sd": 1.0,
+        "outcome_error_sd": 1.1293608595371936,
+        "source_n": 200
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "x_types": [],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "miles",
+      "source_group": "miles",
+      "registry_id": "mediation-miles-2019-toxicity-path-specific-v1",
+      "mechanism_id": "6413cb66f224a94d3250443452a882a78acb4f9646d5a649d872bc90ac2cf3d0",
+      "mechanism_seed": 14149554951920582649,
+      "table_seed": 7893592051548098291,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_support": [
+          0.0,
+          2.0
+        ],
+        "exposure_coefficients": [
+          0.9,
+          0.3
+        ],
+        "confounder_intercept": [
+          0.8,
+          0.6,
+          -0.3
+        ],
+        "confounder_baseline": [
+          1.0,
+          0.1,
+          0.2
+        ],
+        "confounder_exposure": [
+          0.5,
+          -0.4,
+          0.5
+        ],
+        "confounder_interaction": [
+          -0.1,
+          0.8,
+          -0.2
+        ],
+        "confounder_sd": 1.0,
+        "mediator_intercept": -0.5,
+        "mediator_baseline": -0.2,
+        "mediator_exposure": 0.2868151675344609,
+        "mediator_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_exposure_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_sd": 0.9157167511401472,
+        "outcome_intercept": 0.2,
+        "outcome_baseline": 0.2,
+        "outcome_exposure": 0.6,
+        "outcome_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome_mediator": 1.3366043751166412,
+        "outcome_exposure_mediator": -1.0173386563040523,
+        "outcome_sd": 0.9323449026187512,
+        "reference_level": 0,
+        "comparison_level": 1,
+        "target": "P_AMY"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "shan",
+      "source_group": "shan",
+      "registry_id": "mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1",
+      "mechanism_id": "b2fe64d98ae09a1565a404094a4bff0f41a3e29108fbd4c30870c80fd66a2bb7",
+      "mechanism_seed": 33438866014015794939,
+      "table_seed": 4731146032035031807,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x3_probability": 0.5,
+        "propensity_intercept": 0.1,
+        "propensity_x1_squared": 1.0,
+        "propensity_x2": -1.0,
+        "propensity_x3": 0.2,
+        "mediator_intercept": -1.0,
+        "mediator_treatment": 0.0,
+        "mediator_treatment_x1_squared": 0.0,
+        "mediator_x1_squared": 4.0,
+        "mediator_sin_x2": -1.0,
+        "mediator_x3": 1.0,
+        "mediator_noise_sd": 0.5007963946233641,
+        "outcome_intercept": -1.0,
+        "outcome_treatment": 1.0,
+        "outcome_treatment_mediator": 4.3492162879763825,
+        "outcome_mediator": -0.826290850368169,
+        "outcome_treatment_x1": 1.0,
+        "outcome_sin_x1": 5.0,
+        "outcome_x2_squared": -2.0,
+        "outcome_x3": 1.0,
+        "outcome_noise_sd": 1.052260286479742,
+        "incomplete_pattern_count": 3,
+        "missing_fill_value": 0.0,
+        "missingness_x1": 3.0,
+        "missingness_x2": 1.0,
+        "missingness_x3": -1.0,
+        "missingness_treatment_times_mediator_noise": 0.5,
+        "missingness_outcome_noise": 0.1,
+        "shadow_correlation": 0.6,
+        "missingness_form": "dgp1_residual_dependent",
+        "shadow_variables": "auxiliary",
+        "target": "MF",
+        "source_n": [
+          1000,
+          2000
+        ]
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "zuo",
+      "source_group": "zuo",
+      "registry_id": "mediation-zuo-et-al-2025-continuous-mnar-v1",
+      "mechanism_id": "beed5e309c9b48b0ecc533e0378b7bffa5b5da8641d40265d627c41d36ba586a",
+      "mechanism_seed": 18877133378082208795,
+      "table_seed": 12652951528673016571,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x_mean": 0.0,
+        "x_sd": 1.0,
+        "p_t": 0.5,
+        "alpha_0": 0.0,
+        "alpha_t": 0.6546639951125165,
+        "alpha_x": 0.6837843443452774,
+        "m_sd": 0.9631996894666921,
+        "beta_0": 0.0,
+        "beta_m": 1.4545288548325828,
+        "beta_t": 1.0,
+        "beta_mt": 1.095366600690003,
+        "beta_x": 0.6351593067517594,
+        "y_sd": 0.5309288610006214,
+        "lambda_0": 1.4,
+        "lambda_m": 1.0,
+        "lambda_t": 1.0,
+        "lambda_x": 1.0,
+        "gamma_0": 1.8,
+        "gamma_y": 1.0,
+        "gamma_t": 1.0,
+        "gamma_x": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "cheng",
+      "source_group": "cheng",
+      "registry_id": "mediation-cheng-li-2025-principal-strata-kang-schafer-v1",
+      "mechanism_id": "5bbcf01f778917e10048c8d1df4c3d6e610b98b4c1af40bb771f1e141f02922d",
+      "mechanism_seed": 20452408315953654019,
+      "table_seed": 17698602796010871507,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "covariate_dimension": 4,
+        "covariate_sd": 0.7107122726574157,
+        "treatment_coefficients": [
+          -1.0,
+          0.5,
+          -0.25,
+          -0.1
+        ],
+        "event_intercept": -1.0,
+        "event_treatment_coefficient": 2.0,
+        "event_coefficients": [
+          1.0,
+          -0.8,
+          0.6,
+          -1.0
+        ],
+        "mediator_intercept": -1.8,
+        "mediator_treatment_coefficient": 2.1379598024954336,
+        "mediator_event_coefficient": 0.0,
+        "mediator_coefficients": [
+          1.0,
+          -0.5,
+          0.9,
+          -1.0
+        ],
+        "outcome_intercept": 210.0,
+        "outcome_treatment_coefficient": 1.5,
+        "outcome_event_coefficient": 0.0,
+        "outcome_mediator_coefficient": 0.8152774232311413,
+        "outcome_coefficients": [
+          27.4,
+          13.7,
+          13.7,
+          13.7
+        ],
+        "outcome_noise_sd": 1.0807268676068396,
+        "quadrature_orders": [
+          80,
+          160
+        ],
+        "target": "ITT_NDE"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_hejazi",
+      "source_group": "diaz_hejazi",
+      "registry_id": "mediation-diaz-hejazi-2020-discrete-three-mediators-v1",
+      "mechanism_id": "ab49772c85f9d5bab61c63eac836dbad1dc95017f84c97fe8ca08a1334759e25",
+      "mechanism_seed": 2435872123448329131,
+      "table_seed": 23837483419450132277,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_probabilities": [
+          0.4506486617398906,
+          0.29163528335799227,
+          0.5731516908462618
+        ],
+        "treatment_denominator": 4.0,
+        "treatment_intercept": 0.1,
+        "outcome_mediator_coefficients": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome_treatment_coefficient": 1.4293905783795429,
+        "outcome_baseline_quadratic_coefficient": -0.1,
+        "outcome_noise_sd": 0.43042431790271,
+        "mediation_path_scale": 0.798728132245818
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "diaz_intermediate",
+      "source_group": "diaz_intermediate",
+      "registry_id": "mediation-diaz-et-al-2021-intermediate-confounding-v1",
+      "mechanism_id": "ee18ec483b4752713e8dea5d4a070e282f0e0a6def57a7b9a671f7553c657060",
+      "mechanism_seed": 20109223721305200859,
+      "table_seed": 28188894130075021567,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "p_w1": 0.6,
+        "p_w2": 0.3,
+        "p_w3_intercept": 0.2,
+        "p_w3_slope": 0.3333333333333333,
+        "treatment_intercept": -2.0,
+        "treatment_w_sum": 0.25,
+        "treatment_w1w2": 3.0,
+        "z_intercept": -0.25,
+        "z_w_sum": 0.3333333333333333,
+        "z_a": -1.0,
+        "z_aw3": -1.0,
+        "m_w1": 1.0,
+        "m_w2": 1.0,
+        "m_a": 1.207560000998873,
+        "m_z": 0.0,
+        "m_az": 0.0,
+        "m_aw2": -0.24350416229661043,
+        "y_a": 0.9672824759028994,
+        "y_z": 0.0,
+        "y_m": 0.0,
+        "y_az": 0.0,
+        "y_denominator_intercept": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "binary"
+      ],
+      "x_types": [
+        "binary",
+        "binary",
+        "binary"
+      ],
+      "outcome_type": "binary",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "he_song_xu",
+      "source_group": "he_song_xu",
+      "registry_id": "mediation-he-song-xu-2024-single-linear-v1",
+      "mechanism_id": "d0940a6cb68d4394ba664ac904702b872d9008fe520ddfc490c23036ed219acb",
+      "mechanism_seed": 6976210970352882269,
+      "table_seed": 1713785040083514653,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "alpha_s": 0.0,
+        "beta_m": 0.3992396626294901,
+        "x1_sd": 1.0,
+        "x2_probability": 0.5,
+        "treatment_probability": 0.5,
+        "mediator_intercept": 1.0,
+        "mediator_x1": 0.8684973443498545,
+        "mediator_x2": 0.8982882175695532,
+        "mediator_noise_sd": 0.40089174013477147,
+        "outcome_intercept": 1.0,
+        "outcome_x1": 1.3892358535574638,
+        "outcome_x2": 0.5023416741086729,
+        "outcome_direct": 1.0,
+        "outcome_noise_sd": 0.6155302596115275
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "jones_correlated",
+      "source_group": "jones",
+      "registry_id": "mediation-jones-et-al-2025-correlated-sparse-v1",
+      "mechanism_id": "9d9f76036996fd699f5dddf2b2f06e52c6e195ea62ac11b52a661539f675c269",
+      "mechanism_seed": 17621503763343942243,
+      "table_seed": 24480884646691079053,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "p": 20,
+        "rho_within": 0.24532962225689336,
+        "rho_bridge": 0.24425901855290516,
+        "p_treatment": 0.5,
+        "a_to_m_indices": [
+          1,
+          2,
+          3
+        ],
+        "m_to_y_indices": [
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "a_to_m_coefficient": -0.7099333678446966,
+        "m_to_y_coefficient": 1.3246771982752776,
+        "direct_effect": 2.0,
+        "mediator_error_sd": 1.0,
+        "outcome_error_sd": 0.8022189865293741,
+        "source_n": 200
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous",
+        "continuous"
+      ],
+      "x_types": [],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "miles",
+      "source_group": "miles",
+      "registry_id": "mediation-miles-2019-toxicity-path-specific-v1",
+      "mechanism_id": "485fb8e8b194476d8e85203e0660cfe773cc90fbf66170e231af548aa54fbf4b",
+      "mechanism_seed": 19172040299376610973,
+      "table_seed": 19798880922191613873,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "baseline_support": [
+          0.0,
+          2.0
+        ],
+        "exposure_coefficients": [
+          0.9,
+          0.3
+        ],
+        "confounder_intercept": [
+          0.8,
+          0.6,
+          -0.3
+        ],
+        "confounder_baseline": [
+          1.0,
+          0.1,
+          0.2
+        ],
+        "confounder_exposure": [
+          0.5,
+          -0.4,
+          0.5
+        ],
+        "confounder_interaction": [
+          -0.1,
+          0.8,
+          -0.2
+        ],
+        "confounder_sd": 1.0,
+        "mediator_intercept": -0.5,
+        "mediator_baseline": -0.2,
+        "mediator_exposure": 0.3164130707243345,
+        "mediator_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_exposure_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mediator_sd": 1.0705793929606098,
+        "outcome_intercept": 0.2,
+        "outcome_baseline": 0.2,
+        "outcome_exposure": 0.6,
+        "outcome_confounder": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome_mediator": 1.189628993686113,
+        "outcome_exposure_mediator": -1.1139006563430607,
+        "outcome_sd": 1.2870617243329592,
+        "reference_level": 0,
+        "comparison_level": 1,
+        "target": "P_AMY"
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "shan",
+      "source_group": "shan",
+      "registry_id": "mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1",
+      "mechanism_id": "9e9af102801c6249dc3c4c240b5650eba918d23eb42a73561d32ca03c7a82ed2",
+      "mechanism_seed": 7946362386718008955,
+      "table_seed": 17404508350932904401,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x3_probability": 0.5,
+        "propensity_intercept": 0.1,
+        "propensity_x1_squared": 1.0,
+        "propensity_x2": -1.0,
+        "propensity_x3": 0.2,
+        "mediator_intercept": -1.0,
+        "mediator_treatment": 0.695539491363834,
+        "mediator_treatment_x1_squared": -1.213886307333262,
+        "mediator_x1_squared": 4.0,
+        "mediator_sin_x2": -1.0,
+        "mediator_x3": 1.0,
+        "mediator_noise_sd": 0.5457526810728813,
+        "outcome_intercept": -1.0,
+        "outcome_treatment": 1.0,
+        "outcome_treatment_mediator": 4.009790873495397,
+        "outcome_mediator": -1.8323165075354835,
+        "outcome_treatment_x1": 1.0,
+        "outcome_sin_x1": 5.0,
+        "outcome_x2_squared": -2.0,
+        "outcome_x3": 1.0,
+        "outcome_noise_sd": 0.5076229757006276,
+        "incomplete_pattern_count": 3,
+        "missing_fill_value": 0.0,
+        "missingness_x1": 3.0,
+        "missingness_x2": 1.0,
+        "missingness_x3": -1.0,
+        "missingness_treatment_times_mediator_noise": 0.5,
+        "missingness_outcome_noise": 0.1,
+        "shadow_correlation": 0.6,
+        "missingness_form": "dgp1_residual_dependent",
+        "shadow_variables": "auxiliary",
+        "target": "MF",
+        "source_n": [
+          1000,
+          2000
+        ]
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous",
+        "continuous",
+        "binary"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    },
+    {
+      "source_id": "zuo",
+      "source_group": "zuo",
+      "registry_id": "mediation-zuo-et-al-2025-continuous-mnar-v1",
+      "mechanism_id": "728af4b495a960e1c3e7f7b5ea0a142f2937ec04fa934272ab6b8a2452ea0406",
+      "mechanism_seed": 946735330550248361,
+      "table_seed": 17064224197784283949,
+      "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+      "config": {
+        "x_mean": 0.0,
+        "x_sd": 1.0,
+        "p_t": 0.5,
+        "alpha_0": 0.0,
+        "alpha_t": 0.0,
+        "alpha_x": 1.1989188531941561,
+        "m_sd": 0.8823192888895147,
+        "beta_0": 0.0,
+        "beta_m": 0.9346439092056956,
+        "beta_t": 1.0,
+        "beta_mt": 1.0327151060728958,
+        "beta_x": 1.2031121544080885,
+        "y_sd": 0.9314289045277147,
+        "lambda_0": 1.4,
+        "lambda_m": 1.0,
+        "lambda_t": 1.0,
+        "lambda_x": 1.0,
+        "gamma_0": 1.8,
+        "gamma_y": 1.0,
+        "gamma_t": 1.0,
+        "gamma_x": 1.0
+      },
+      "target": "superpopulation_NIE_1",
+      "mediator_types": [
+        "continuous"
+      ],
+      "x_types": [
+        "continuous"
+      ],
+      "outcome_type": "continuous",
+      "adaptation": "full-data; induced-confounder paths removed where applicable"
+    }
+  ],
+  "created_utc": "2026-11-04T00:38:25.609863+00:00"
+}

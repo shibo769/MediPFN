@@ -1,12 +1,31 @@
 # MediPFN v2: rich mediation simulations
 
-**Status: factual nuisance pretraining completed under SCC job `8425910`.**
+**Status: factual and nested nuisance training completed.**
+Factual pretraining ran under SCC job `8425910`.
 The completed run contains 20,000 optimizer steps and 160,000 training tables
 across all eight source families. Step 17,000 was selected by same-source DEV
 factual loss (1.526461). Its [checkpoint manifest](checkpoints/factual/manifest.json)
 records the verified assets. The retained v1 weights and results are stored
 separately in [`../v1`](../v1); final v2 interval evaluation follows the later
 stages.
+
+Nested-regression job `8425970` completed 5,000 steps and 40,000 training-table
+draws. Its selected checkpoint is bound to the exact factual teacher and is
+recorded in the [nested checkpoint manifest](checkpoints/nested/manifest.json).
+The pair passed an independent native-table cross-fitted inference restore
+check with finite scores and no synthetic truth supplied to inference.
+
+For a small generated-table loading/inference check from this directory:
+
+```sh
+python evaluate.py --checkpoint checkpoints/factual/best.pt \
+  --eta-checkpoint checkpoints/nested/best.pt --source he_song_xu \
+  --n 200 --device cpu --output smoke_score.json
+```
+
+This entry point reports the point estimate and an uncalibrated score-Wald
+interval. The learned-error and calibrated interval stages have separate
+artifacts and will be added after validation.
 
 This version introduces a new custom support-query network for scalar and
 vector mediator inputs, factual propensity/outcome learning, Bayes-based density

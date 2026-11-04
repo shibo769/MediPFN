@@ -1,0 +1,15 @@
+{
+  "eta_sha256": "82fc00689e50526f130263beebecd09afefe4ab4cbe1fccf7239dd599d659cd7",
+  "factual_sha256": "722172242bb4f80957b02a9f2227d557d29379db20906a63a5e5e2aa01a2d66b",
+  "input_rows": 64,
+  "output_kind": "uncalibrated score-Wald; loading fixture, not a coverage experiment",
+  "parameter_count": 4217345,
+  "scores_complete_finite": true,
+  "seconds": 0.8732411980163306,
+  "source": "he_song_xu",
+  "source_release_files_verified": 59,
+  "standard_error": 0.19301415588878032,
+  "status": "COMPLETED_FACTUAL_NESTED_CPU_RESTORE_CROSSFIT_SMOKE_PASS",
+  "teacher_binding_verified_by_loader": true,
+  "truth_used": false
+}

@@ -17,7 +17,7 @@ and independent calibration produce the retained effect intervals.
 | Version | Model and data | Current status |
 |---|---|---|
 | **v1** | Retained custom MediPFN production pipeline | Code, seven checkpoint files, normalization/calibration records and verified aggregate results archived; restore check passed |
-| **v2** | New custom backbone and a richer literature-derived mediation simulation bank | Factual nuisance pretraining completed and selected checkpoint archived; nested/error/post-training/calibration stages follow; final inference evaluation pending |
+| **v2** | New custom backbone and a richer literature-derived mediation simulation bank | Factual and nested nuisance stages completed with archived selected checkpoints; learned-error/post-training/calibration stages follow; final interval evaluation pending |
 
 The versions are stored separately. New v2 development does not change the
 first-version model, manuscript or reported experiments. This repository is
@@ -91,8 +91,10 @@ Factual nuisance pretraining completed under SCC job `8425910`: 20,000 optimizer
 steps and 160,000 training-table draws across all eight training families. The
 selected checkpoint is from step 17,000, with same-source DEV factual loss
 1.526461. Its [checkpoint and provenance](v2/checkpoints/factual/manifest.json)
-are archived separately from the v1 assets. Final effect-estimation and
-coverage results follow the later stages.
+are archived separately from the v1 assets. The nested-regression stage also
+completed 5,000 steps and 40,000 training-table draws; its selected DEV loss is
+0.229999. Both checkpoints passed a joint cross-fitted inference restoration
+check. Final interval-coverage results follow the later stages.
 
 The frozen factual/nested source release is identified by
 `65fff8193cab74881e14a3262c254578255a78d2f6ca56aa4d7f6086a25ed36d`.

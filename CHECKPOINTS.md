@@ -44,3 +44,18 @@ subsequent nested-regression, uncertainty and calibration stages.
 the frozen source digest, configuration, training log, source-family counts,
 selection record and actual scheduler-completion evidence. The larger resume
 file is a private [release asset](https://github.com/shibo769/MediPFN/releases/tag/v2-factual-20261103).
+
+## MediPFN v2 nested-regression checkpoint
+
+The nested stage completed 5,000 optimizer steps and 40,000 training-table
+draws. Its frozen teacher is the factual best checkpoint above. The selected
+factual/nested pair passed a joint native-table cross-fitted inference restore
+check; uncertainty training, post-training and calibration remain later stages.
+
+| Asset | Bytes | SHA-256 |
+|---|---:|---|
+| [Selected nested checkpoint](v2/checkpoints/nested/best.pt) | 16,939,208 | `82fc00689e50526f130263beebecd09afefe4ab4cbe1fccf7239dd599d659cd7` |
+| [Last nested optimizer-resume checkpoint](https://github.com/shibo769/MediPFN/releases/download/v2-nested-20261103/nested-seed0-last.pt) | 49,429,126 | `34372ad78109131c9293b044ebe25a9b45b8e2461ac26be132a41bf8056a8a7d` |
+
+See the [nested manifest](v2/checkpoints/nested/manifest.json) and
+[joint restoration record](v2/checkpoints/nuisance_restore_smoke.json).
