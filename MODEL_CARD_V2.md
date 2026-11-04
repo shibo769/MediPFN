@@ -15,10 +15,11 @@ tags:
 ## Model and training status
 
 MediPFN v2 is a new custom support-query network for causal mediation nuisance
-learning across literature-derived simulation tasks. The factual nuisance
-stage is training on SCC under job `8425910`. The latest verified snapshot
-contains 3,250 optimizer steps and 26,000 training-table draws across all eight
-training provenance families. Final effect-estimation and interval results
+learning across literature-derived simulation tasks. Factual nuisance
+pretraining completed on SCC under job `8425910`, with 20,000 optimizer steps
+and 160,000 training-table draws across all eight training provenance families.
+Step 17,000 was selected by independent same-source DEV factual loss (1.526461).
+Actual scheduler accounting recorded successful completion. Final effect-estimation and interval results
 require the subsequent nested-regression, learned-error, post-training,
 calibration and evaluation stages.
 
@@ -90,7 +91,13 @@ maintained separately. Later stages use separately frozen releases.
 
 ## Checkpoints and access
 
-The active v2 training producer writes checkpoints on SCC. A stable selected
-checkpoint will be copied, hashed and verified before release. The private
-repository preserves upstream licenses and notices; raw observed test banks
-and authentication material are excluded.
+The completed factual-stage [selected checkpoint](v2/checkpoints/factual/best.pt)
+has SHA-256 `722172242bb4f80957b02a9f2227d557d29379db20906a63a5e5e2aa01a2d66b`.
+The [checkpoint manifest](v2/checkpoints/factual/manifest.json) binds its source,
+configuration, training log and completion record. The larger optimizer-resume
+checkpoint is a [private release asset](https://github.com/shibo769/MediPFN/releases/tag/v2-factual-20261103).
+
+This checkpoint provides factual nuisance predictions; the final NIE interval
+pipeline also needs its subsequent stages. The private repository preserves
+upstream licenses and notices; raw observed test banks and authentication
+material are excluded.

@@ -28,6 +28,19 @@ and asset bindings are recorded in [v1/manifest.json](v1/manifest.json).
 All seven files were independently downloaded back from the private GitHub
 repository after the first push and matched against these SHA-256 values.
 
-No trained v2 checkpoint has been released yet. Any future v2 checkpoint must
-identify its source-release digest, training configuration, data/split identity,
-selection record and calibration state.
+## MediPFN v2 factual-stage checkpoint
+
+Factual nuisance pretraining completed with 20,000 optimizer steps and 160,000
+training-table draws. The selected checkpoint is from step 17,000. It supplies
+factual nuisance predictions; the final NIE interval pipeline requires the
+subsequent nested-regression, uncertainty and calibration stages.
+
+| Asset | Bytes | SHA-256 |
+|---|---:|---|
+| [Selected factual checkpoint](v2/checkpoints/factual/best.pt) | 27,005,256 | `722172242bb4f80957b02a9f2227d557d29379db20906a63a5e5e2aa01a2d66b` |
+| [Last optimizer-resume checkpoint](https://github.com/shibo769/MediPFN/releases/download/v2-factual-20261103/factual-seed0-last.pt) | 62,627,426 | `fd83b1aa2c32fdf7b8933da5583b3cdfb6d0e111bb98b2a702dc36033490d3a1` |
+
+[The factual checkpoint manifest](v2/checkpoints/factual/manifest.json) records
+the frozen source digest, configuration, training log, source-family counts,
+selection record and actual scheduler-completion evidence. The larger resume
+file is a private [release asset](https://github.com/shibo769/MediPFN/releases/tag/v2-factual-20261103).

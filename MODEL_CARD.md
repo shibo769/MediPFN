@@ -59,7 +59,7 @@ TabCon/RL model comparison. The restored retained mixture uses its frozen SFT
 router.
 
 The new v2 uses a different simulation bank and model interface; its factual
-nuisance stage is now training. Its checkpoints, split manifests, and validation
+nuisance pretraining stage is complete. Its checkpoints, split manifests, and validation
 results are recorded separately in the [v2 model card](MODEL_CARD_V2.md).
 
 ## Evaluation

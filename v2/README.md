@@ -1,10 +1,12 @@
 # MediPFN v2: rich mediation simulations
 
-**Status: factual nuisance pretraining is running on SCC under job `8425910`.**
-The latest verified snapshot records 3,250 optimizer steps and 26,000 training
-tables across all eight source families. The retained v1 weights and results
-are stored separately in [`../v1`](../v1); final v2 checkpoints and evaluation
-results will follow completion of the later stages.
+**Status: factual nuisance pretraining completed under SCC job `8425910`.**
+The completed run contains 20,000 optimizer steps and 160,000 training tables
+across all eight source families. Step 17,000 was selected by same-source DEV
+factual loss (1.526461). Its [checkpoint manifest](checkpoints/factual/manifest.json)
+records the verified assets. The retained v1 weights and results are stored
+separately in [`../v1`](../v1); final v2 interval evaluation follows the later
+stages.
 
 This version introduces a new custom support-query network for scalar and
 vector mediator inputs, factual propensity/outcome learning, Bayes-based density
