@@ -1,0 +1,78 @@
+{
+  "format": "medipfn-v2-frozen-shared-test-bank-protocol-1",
+  "status": "fixed before scientific model evaluation",
+  "namespace": "medipfn-v2-independent-test-20261103-9f3d7be288af",
+  "target": "superpopulation NIE_1 = E[Y(1,M(1))-Y(1,M(0))]",
+  "dgp_source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+  "sample_sizes": [
+    200,
+    600,
+    1000
+  ],
+  "mechanism_blocks_per_group_and_n": 16,
+  "independent_row_replicates_per_block": 2,
+  "id_groups": {
+    "cheng": [
+      "cheng"
+    ],
+    "diaz_hejazi": [
+      "diaz_hejazi"
+    ],
+    "diaz_intermediate": [
+      "diaz_intermediate"
+    ],
+    "he_song_xu": [
+      "he_song_xu"
+    ],
+    "jones": [
+      "jones_lnl",
+      "jones_lnn",
+      "jones_correlated"
+    ],
+    "miles": [
+      "miles"
+    ],
+    "shan": [
+      "shan"
+    ],
+    "zuo": [
+      "zuo"
+    ]
+  },
+  "source_ood_presets": [
+    "eric",
+    "xia_binary",
+    "xia_continuous"
+  ],
+  "composition_ood_presets": [
+    "jones_nnn"
+  ],
+  "expected_tables": {
+    "id": 768,
+    "source_ood": 288,
+    "composition_ood": 96,
+    "total": 1152
+  },
+  "source_ood_family_policy": "Eric family and both Xia-Chan presets are absent from our mediation-specific pretraining, offline adaptation, DEV and calibration. The inherited upstream TabPFN-v3 pretraining distribution is not controlled or audited by this experiment.",
+  "composition_policy": "Jones family is seen; NNN preset/composition is absent from all three models' fitting and calibration.",
+  "jones_allocation": "Within each n: 6/5/5 blocks with the extra rotating over the three presets, giving 16 blocks for each preset over all n. Analysis weights give equal preset weight within the Jones family at every n.",
+  "analysis_weights": "Within each stratum and n, equal provenance-family weight, then equal preset weight within family, then equal mechanism-block and row-replicate weights. Across n, equal n weight. Report per-preset/n results as well.",
+  "cluster_definition": "Hash of source structural form plus active SEM parameters, excluding unused confounder/missingness/provenance metadata. Identical populations share a cluster even across independently seeded blocks or sample sizes.",
+  "seed_policy": "Mechanism/observation seeds have a fixed >256-bit purpose namespace. A common 31-bit fold seed and exact stratified two-fold assignment are stored per table.",
+  "data_policy": "No test-driven selection, task replacement, failure filtering, tuning, post-training or calibration. Retain all prespecified tables and method failures.",
+  "primary_nominal": 0.95,
+  "secondary_nominals": [
+    0.9,
+    0.99
+  ],
+  "timing": "All three frozen routes use exact same NPZ bytes and folds on the same allocated GPU. Record model initialization/warmup separately; synchronize device before/after each per-table inference. No oracle truth/source metadata passed to inference.",
+  "warmup": {
+    "source": "he_song_xu",
+    "n": 64,
+    "observation_seed": 2026110397,
+    "mechanism_seed": 2026110398,
+    "fold_seed": 18031,
+    "scientific_test_table": false
+  },
+  "fixture_policy": "Four additional fresh ID-only tables are separate from the formal bank, including no baseline covariates and 100 mediators at n=200 and n=1000. No early OOD model exposure."
+}

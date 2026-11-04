@@ -1,0 +1,51 @@
+{
+  "status": "PASS_REAL_GPU_PREDECESSOR_AND_PRODUCTION_ADMISSION",
+  "fixture_job_id": "8427015",
+  "actual_accounting": {
+    "jobnumber": "8427015",
+    "jobname": "mpfn2_eval_fix",
+    "owner": "shibo",
+    "project": "tmd-ortho",
+    "failed": "0",
+    "exit_status": "0",
+    "ru_wallclock": "42"
+  },
+  "fixture_report_sha256": "a002f2e55eed2badcc54d4be885c971d70e0a0ecbc9cfdf767eb6ae3ff3b3a0a",
+  "fixture_source_manifest_sha256": "1ce54849d0a4ef5e64c95b5b1ffe805920d242c390eed9f25b8519b8c34e7a86",
+  "production_source_manifest_sha256": "78fac42196727a23f3c6a40cd781319181c09438a66994b3741ead6670418257",
+  "guard_only_change": {
+    "status": "PASS_ADMISSION_GUARD_ONLY_CHANGE",
+    "old_route_sha256": "94526d02987d1341af59dfa30fa9faf6d0f865d8bd134d2a3adbbe49c8177811",
+    "hardened_route_sha256": "f8f6d78768899ce5c235601db46b588e629d7838815530bdb4dcc8695150eeca",
+    "changed_ast_nodes": [
+      "assign:EXPECTED_RELEASES",
+      "verify_assets"
+    ],
+    "unchanged": "All route classes, model loading/prediction helpers, numerical feature/head/calibration logic and route ordering"
+  },
+  "assets": {
+    "assets": {
+      "factual": "722172242bb4f80957b02a9f2227d557d29379db20906a63a5e5e2aa01a2d66b",
+      "eta": "82fc00689e50526f130263beebecd09afefe4ab4cbe1fccf7239dd599d659cd7",
+      "custom_head": "2a8e8c3ac56ceb34e718acc29838ec4b0a1785fd62c92b1dced910e856bcc3c3",
+      "custom_calibration": "dc857f520a4af6405d1e26922d28faae677ee294fb232b97f92127b5fda22427",
+      "frozen_head": "df406ce3d43bc097860473ba83817cb19f3e48e23d6dfabece0bfcd545e40ba3",
+      "frozen_calibration": "e013c2d849375d9ad5eeaee7fd1ca03234fa7b34871678e4faa962e8917df3cc",
+      "adapter": "dbc4c0fbc7c099e665ea65e8b26c9594a721711bef7825aed7cb5f56cf79f201",
+      "adapted_head": "ca7c0bf657fe6c927799daa4e74c05de3efe790a8419c11665f559c50f87a7e3",
+      "adapted_calibration": "dcef6f5e668b0756d78f9a7d3a4acfc1ce22bc994711e69536f5991537b66ad3",
+      "classifier": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988",
+      "regressor": "311ce18d97e9533d8585eaadafe040fbdd8070533209ed8696641dadc97a7301"
+    },
+    "releases": {
+      "primary_code": {
+        "release_sha256": "475a2abf480e9e36bfebeac6d584dc6a5d5139377340fac2ea0c221e41daedf6",
+        "files": 68
+      },
+      "optional_code": {
+        "release_sha256": "67409e5e616eea452020131b7beef22de3c6833c1c441e2fa7b30df569d43408",
+        "files": 30
+      }
+    }
+  }
+}

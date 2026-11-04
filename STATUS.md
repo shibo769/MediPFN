@@ -17,7 +17,9 @@ intervals on an independent synthetic table. See the
 The [primary bundle](v2/checkpoints/primary/bundle.json) binds the selected
 factual, nested, learned-error and post-trained checkpoints to the final
 calibration file and exact inference source. This is a trained research
-prototype; scientific ID/OOD evaluation has not yet been performed.
+prototype. Scientific ID/OOD tests have been submitted under the fixed shared
+protocol and array execution has begun; validated comparative
+performance is not yet available.
 
 | Stage | Verified result |
 |---|---|
@@ -68,8 +70,9 @@ tables; its selected step 500 was chosen on 16 independent DEV mechanisms.
 Its own 1,024/384/512-task head/DEV/calibration stages and full 40-row CPU
 restoration also passed. The [adapter archive](v2/checkpoints/adapter_v3/manifest.json)
 preserves those bindings and all trained components. All three model routes
-are trained, restored and backed up. Scientific ID/OOD evaluation remains
-pending. See the [adaptations model card](MODEL_CARD_V3_ADAPTATIONS.md).
+are trained, restored and backed up. Their shared scientific evaluation is
+submitted and in progress; complete comparative results require
+independent validation. See the [adaptations model card](MODEL_CARD_V3_ADAPTATIONS.md).
 
 ## Data split and checkpoint archive
 
@@ -83,3 +86,28 @@ are archived under [`v2/checkpoints/`](v2/checkpoints/). Larger nuisance
 optimizer-resume states are private GitHub release assets. Later optional
 checkpoints will be archived after their producers complete and their assets
 are verified. The v1 assets and manuscript remain unchanged.
+
+## Shared ID/OOD evaluation: submitted, execution in progress
+
+The [frozen evaluation snapshot](evaluation/v2_shared_20261103/README.md)
+contains 16 source/protocol files and source/model/bank identity records.
+Some formal array tasks have begun running. Complete task accounting and
+scientific results have not yet been verified.
+The prespecified bank has 1,152 tables from 576 structural populations:
+768 ID, 288 source-OOD and 96 composition-OOD tables. All three frozen routes
+receive the same table bytes and fold assignments. The minimum independent
+mechanism/observation seed length is 319 bits; common fold seeds use at most
+31 bits for 32-bit API compatibility.
+
+Array `8427083` evaluates 96 shards, each with 12 tables and all three routes
+on one L40S GPU. Summary `8427084` and independent audit `8427085` are submitted
+with predecessor checks. Scheduler quotas and hardware availability control
+concurrency; no artificial array cap was added. The actual real-GPU fixture
+and model-free bank admission passed before release.
+
+No coverage, interval-length, point-error or speed comparison is claimed from
+incomplete shards or fixture timings. Complete successful accounting, all
+prespecified attempts/failures and independently recomputed summaries are
+required before results are published. Raw observed NPZ test tables, synthetic
+truth labels and authenticated transport receipts are excluded from this
+repository; the archived hash/count/weight index binds the full frozen bank.

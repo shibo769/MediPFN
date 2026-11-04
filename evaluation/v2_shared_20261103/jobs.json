@@ -1,0 +1,36 @@
+{
+  "format": "medipfn-shared-evaluation-job-identities-1",
+  "status": "TESTS_SUBMITTED",
+  "array_job_id": "8427083",
+  "array_tasks": 96,
+  "tables_per_task": 12,
+  "summary_job_id": "8427084",
+  "independent_audit_job_id": "8427085",
+  "tables": 1152,
+  "method_attempts": 3456,
+  "case_levels": 10368,
+  "routes": [
+    "custom_v2",
+    "frozen_v3",
+    "adapted_v3"
+  ],
+  "gpu": "L40S",
+  "gpus_per_task": 1,
+  "cpu_slots_per_task": 8,
+  "artificial_array_concurrency_cap": null,
+  "concurrency_control": "Scheduler quotas and hardware availability only.",
+  "source_manifest_sha256": "78fac42196727a23f3c6a40cd781319181c09438a66994b3741ead6670418257",
+  "bank_manifest_sha256": "532d590e08e55be17a6603cfa3ed11e243476a0bd52a5fe01dfbaaa17038974c",
+  "summary_dependency": "all array tasks; actual successful accounting and output validity checked, not dependency termination alone",
+  "audit_dependency": "summary; actual successful accounting and independently recomputed metrics required",
+  "performance_results": "Not archived or claimed until the complete summary and independent audit are verified.",
+  "historical_initial_queue_snapshot": {
+    "local_time": "2026-11-03 21:54",
+    "timezone": "America/New_York",
+    "queued_tasks": 96,
+    "running_tasks": 0,
+    "verified_scientific_attempts": 0,
+    "source": "Root experiment monitor; initial queue state only, superseded by task execution"
+  },
+  "current_execution_scope": "Submitted; some array tasks have begun running. Complete accounting and scientific results unverified."
+}

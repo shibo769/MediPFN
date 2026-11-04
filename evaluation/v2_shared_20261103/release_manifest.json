@@ -1,0 +1,22 @@
+{
+  "files": {
+    "BANK.md": "64f7b25b11174d43ac74d1dfcc4bd50b90be28b681a576575c8dd9e11623c500",
+    "EVALUATION.md": "f9ed9a9bdfbb8e315c930730750234beafb745c2611a662f0cc47be68bbb974b",
+    "audit_summary.py": "2d2e19f7e455efd451a7282482d9db1d31395c5d3147c090c810627eeddd9d9d",
+    "bank.py": "449e88953c20ef2ad78d55ef55e4b941d3a1ae97652e26c2c618a3ae7fcd4009",
+    "bank_admission.json": "2c7132b92f5925abb4d42c133160d3f9d95573a410a30b7131468b652d29a885",
+    "bank_protocol.json": "ae706b605b3da36af8ac440389ba60de45d7d48301a82b5bb82af7a4b6d52131",
+    "evaluate_shard.py": "df1a2ebaeada1f46a04ad0b64c429e82eb6b4eac8cc4dcf501ec73ff840cdf88",
+    "fixture.py": "43eae38b546869204444666920d89b6ed5f76f9a18f680a585d2f58034bc63f5",
+    "frozen_model_hashes.json": "68a857a517c172ff2c4b0fc5cb02c64d940de2fdee5b1492d55b08234f4e6ee0",
+    "inference_guard_hardening.json": "4c9ba07a1ffecdc73f3eec264059c87643de3ec2493fcd3d8c6d0b2b7935e584",
+    "prove_guard_only_change.py": "60a91e6be095f775fce9768d79e7d5d435aa17860a9006b08049217bd6b0409e",
+    "routes.py": "f8f6d78768899ce5c235601db46b588e629d7838815530bdb4dcc8695150eeca",
+    "summarize.py": "49e33593a0aef0dbbbbccef7f49c56e0ec25db73013b46f604c3a26a23c81fec",
+    "test_bank_contracts.py": "195720e3291d3ce63132d20b58dd2a97f7355a62fd0a57bb11fad4ca450f84b4",
+    "test_evaluation.py": "73475b0b48747d17d0eb9eff101791f83925131b5214c4ea2d1f30b4feaa5a5a",
+    "verify_bank.py": "321da7201881fb38524eb49f1cb23812f6326f5b53a0e1864e70be1d159b9148"
+  },
+  "format": "medipfn-v2-shared-evaluation-source-1",
+  "release_sha256": "0c15d1c24fd52ac98a89cd7336e749432de5b8c682b7f8eee2cf8adcc190c005"
+}

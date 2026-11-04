@@ -11,14 +11,15 @@ and independent calibration produce the retained effect intervals.
 
 [v1 model card](MODEL_CARD.md) · [v2 model card](MODEL_CARD_V2.md) ·
 [V3 adaptations](MODEL_CARD_V3_ADAPTATIONS.md) ·
-[Checkpoints](CHECKPOINTS.md) · [Reproducibility](REPRODUCIBILITY.md) · [Status](STATUS.md)
+[Checkpoints](CHECKPOINTS.md) · [Reproducibility](REPRODUCIBILITY.md) ·
+[Shared evaluation](evaluation/v2_shared_20261103/README.md) · [Status](STATUS.md)
 
 ## Versions
 
 | Version | Model and data | Current status |
 |---|---|---|
 | **v1** | Retained custom MediPFN production pipeline | Code, seven checkpoint files, normalization/calibration records and verified aggregate results archived; restore check passed |
-| **v2** | New custom backbone and a richer literature-derived mediation simulation bank | Primary model trained, post-trained, freshly calibrated and restored; full bundle archived; scientific ID/OOD evaluation pending |
+| **v2** | New custom backbone and a richer literature-derived mediation simulation bank | Primary model trained, post-trained, freshly calibrated and restored; full bundle archived; shared scientific evaluation submitted and in progress; verified results pending |
 
 The versions are stored separately. New v2 development does not change the
 first-version model, manuscript or reported experiments. This repository is
@@ -121,7 +122,11 @@ ID task-mixture calibration are also complete. The
 [final bundle](v2/checkpoints/primary/bundle.json) preserves completion records
 and exact asset identities. This primary prototype uses one ordered
 signed-error head; it does not reuse the v1 mixture-of-experts construction.
-Scientific ID/OOD coverage, accuracy and runtime evaluation remain pending.
+A frozen [shared evaluation](evaluation/v2_shared_20261103/README.md) has been
+submitted for 1,152 paired tables across ID, source OOD and composition OOD.
+Scheduler quotas and hardware availability control the ongoing array execution.
+Coverage, interval-length and runtime comparisons will be released only after
+complete task accounting, summary validation and independent audit.
 
 The frozen factual/nested source release is identified by
 `65fff8193cab74881e14a3262c254578255a78d2f6ca56aa4d7f6086a25ed36d`.
