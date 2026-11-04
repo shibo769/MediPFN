@@ -1,0 +1,86 @@
+{
+  "format": "medipfn-v3-nie-adaptation-bundle-1",
+  "status": "TRAINED_HEAD_AND_FRESH_ID_CALIBRATION_COMPLETE",
+  "variant": "frozen-v3-mediation-NIE-error-head",
+  "actual_job": {
+    "jobnumber": "8426161",
+    "jobname": "mpfn2_v3_error",
+    "owner": "shibo",
+    "project": "tmd-ortho",
+    "failed": "0",
+    "exit_status": "0",
+    "ru_wallclock": "1003"
+  },
+  "files": [
+    {
+      "path": "best.pt",
+      "bytes": 1365340,
+      "sha256": "df406ce3d43bc097860473ba83817cb19f3e48e23d6dfabece0bfcd545e40ba3"
+    },
+    {
+      "path": "calibration.json",
+      "bytes": 3195,
+      "sha256": "e013c2d849375d9ad5eeaee7fd1ca03234fa7b34871678e4faa962e8917df3cc"
+    },
+    {
+      "path": "calibration_cache_manifest.json",
+      "bytes": 436,
+      "sha256": "3773c71cdd0ea1d71bf134d8c8bbfba25a991a5e2c70e6c415b86a1209e3a4e0"
+    },
+    {
+      "path": "completion.json",
+      "bytes": 1908,
+      "sha256": "061d049927672c702df0a8ab29efd66c935c44634a1652fef9ebe81738571478"
+    },
+    {
+      "path": "dev_cache_manifest.json",
+      "bytes": 435,
+      "sha256": "6c7aa467819824acad271b05b837efbdae40532813bfa7ec23d19c3b3a81c84e"
+    },
+    {
+      "path": "head_selection.json",
+      "bytes": 4524,
+      "sha256": "de498962ad02689416ce3a2edd7ce994611a79456aae9b7abd9b43b0a4433765"
+    },
+    {
+      "path": "last.pt",
+      "bytes": 1365212,
+      "sha256": "c70f4655b29dcac72fbe5ced7e546e057d0df57627bf0d75b299d15ffd19b859"
+    },
+    {
+      "path": "run_manifest.json",
+      "bytes": 2263,
+      "sha256": "0dfd5e59a816e62aefe08e8aded5d38812479609ec2a2950099e3bcacc613b5c"
+    },
+    {
+      "path": "train_cache_manifest.json",
+      "bytes": 448,
+      "sha256": "9b4234debb3e9ae7701518dadbe5e5e5db0138a75472a0ec48071a150bc739d1"
+    },
+    {
+      "path": "fixture_report.json",
+      "bytes": 3036,
+      "sha256": "7d5ea124a08e26ba5767899a06e92959495a2df5aca7097f0abc6e0b0bdc57e6"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 2856,
+      "sha256": "180e23611a47977a83ea49b8399b2ab392bbcc569472fbf40f20d363de064bc6"
+    }
+  ],
+  "source_release_sha256": "67409e5e616eea452020131b7beef22de3c6833c1c441e2fa7b30df569d43408",
+  "source_distribution_manifest": "../../manifests/optional_67409e5e616eea45_repository.json",
+  "source_distribution_manifest_sha256": "e8803ab0a1932294152a4f68864a8fa285e6b67216370b94dd46d3c7a6aa9001",
+  "upstream_license": "../../tabular_backbones/v3_runtime/TABPFN-3-LICENSE",
+  "upstream_metadata": "../../tabular_backbones/v3_runtime/hf_metadata.json",
+  "upstream_weight_policy": "Official TabPFN-v3 checkpoint bytes are required separately under their own license and are not redistributed.",
+  "upstream_weight_sha256": {
+    "classifier": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988",
+    "regressor": "311ce18d97e9533d8585eaadafe040fbdd8070533209ed8696641dadc97a7301"
+  },
+  "inference": "tabular_backbones.train_uncertainty.calibrated_interval with matching licensed local weights and unchanged pinned source",
+  "calibration_law": "fresh IID uniform mixture over the eight training provenance families and configured sample sizes",
+  "scientific_id_ood_test_evaluation": "not performed",
+  "selected_step": 50,
+  "selected_dev_pinball": 0.06920824944972992
+}

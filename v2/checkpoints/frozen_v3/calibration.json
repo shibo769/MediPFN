@@ -1,0 +1,68 @@
+{
+  "status": "CALIBRATED_ID_MIXTURE",
+  "variant": "frozen-v3-mediation-NIE-error-head",
+  "head_checkpoint_sha256": "df406ce3d43bc097860473ba83817cb19f3e48e23d6dfabece0bfcd545e40ba3",
+  "backbone_binding": {
+    "base_config": {
+      "model_version": "v3",
+      "package_version": "9.2.0",
+      "classifier_path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/medipfn_v2_20261103/tabular_backbones/v3_runtime/weights/tabpfn-v3-classifier-v3_default.ckpt",
+      "classifier_sha256": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988",
+      "regressor_path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/medipfn_v2_20261103/tabular_backbones/v3_runtime/weights/tabpfn-v3-regressor-v3_default.ckpt",
+      "regressor_sha256": "311ce18d97e9533d8585eaadafe040fbdd8070533209ed8696641dadc97a7301",
+      "device": "cuda",
+      "n_estimators": 1,
+      "n_preprocessing_jobs": 1,
+      "probability_floor": 0.01
+    },
+    "source_checkpoint_sha256": {
+      "classifier": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988",
+      "regressor": "311ce18d97e9533d8585eaadafe040fbdd8070533209ed8696641dadc97a7301"
+    },
+    "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+    "fixture_report_sha256": "7d5ea124a08e26ba5767899a06e92959495a2df5aca7097f0abc6e0b0bdc57e6",
+    "adapter_sha256": null,
+    "feature_program_sha256": "9353eabd50f3a645cacd95fc88a024367e73e360837a1016e5652d2c8e75aa20",
+    "frozen_program_sha256": "86e0af2e4dc167c0df7b69b87760027bb8eae089dd84f6d2b2d7f03a40f517f7"
+  },
+  "feature_schema_sha256": "81aa98e85f872fecad269882e26fcf8d1d312ba1b0fcb12e5f0eeb7ca05a7a30",
+  "source_checkpoint_sha256": {
+    "classifier": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988",
+    "regressor": "311ce18d97e9533d8585eaadafe040fbdd8070533209ed8696641dadc97a7301"
+  },
+  "standard_error_floor": 0.001,
+  "scale_definition": "max(estimated score standard error, recorded floor); same scale for targets and endpoints",
+  "interval_definition": "[estimate-scale*(q_upper+correction), estimate-scale*(q_lower-correction)]",
+  "corrections": {
+    "90": {
+      "nominal": 0.9,
+      "rank": 462,
+      "raw_correction": 0.4301583766937256,
+      "correction": 0.4301583766937256,
+      "calibration_tasks": 512,
+      "calibration_coverage": 0.90234375
+    },
+    "95": {
+      "nominal": 0.95,
+      "rank": 488,
+      "raw_correction": 0.3734472990036011,
+      "correction": 0.4301583766937256,
+      "calibration_tasks": 512,
+      "calibration_coverage": 0.955078125
+    },
+    "99": {
+      "nominal": 0.99,
+      "rank": 508,
+      "raw_correction": 0.6532611846923828,
+      "correction": 0.6532611846923828,
+      "calibration_tasks": 512,
+      "calibration_coverage": 0.9921875
+    }
+  },
+  "calibration_cache_sha256": "9a05b904afd4150941c31f16f68efc126cf274ab9c9d7330157a45ea60820106",
+  "calibration_law": "fresh IID uniform mixture over the eight training provenance families and configured sample sizes",
+  "applicability": "Same ID task-mixture evaluation only; no OOD coverage guarantee; no original TabCon reproduction",
+  "training_cases": 1024,
+  "dev_cases": 384,
+  "calibration_cases": 512
+}

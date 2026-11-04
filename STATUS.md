@@ -51,16 +51,25 @@ The real TabPFN-v3 fixture `8426159` passed actual classifier/regressor input
 gradients, adapter updates across contexts, frozen-backbone identity and
 checkpoint restoration. Actual scheduler accounting returned exit 0.
 
-| Active job | Purpose | Verified state at this update |
+| Job | Purpose | Verified state at this update |
 |---|---|---|
-| `8426161` | Frozen V3 nuisance backbone with an NIE error head and fresh calibration | Running; feature-task generation observed |
-| `8426163` | Cross-task mediation input/output adapter, then its own NIE error head and calibration | Running; adapter optimization with nonzero gradients observed |
+| `8426161` | Frozen V3 nuisance backbone with an NIE error head and fresh calibration | Complete, actual scheduler exit 0; source/cache/model audit and full CPU restoration passed; checkpoints archived |
+| `8426163` | Cross-task mediation input/output adapter, then its own NIE error head and calibration | Complete, actual scheduler exit 0; real-gradient/source/cache/model audit and full CPU restoration passed; checkpoints archived |
 
 These experiments use a separately frozen implementation. They are mediation
 adaptations rather than original TabCon reproductions. Official third-party
 weights are not redistributed. The [optional-backbone guide](v2/OPTIONAL_BACKBONES.md)
 records the package, pinned weight metadata, licenses and distributed source
-subset. Optional production completion and evaluation are still pending.
+subset. Frozen-V3 fitting used 1,024 training, 384 DEV and 512 fresh calibration
+tasks, with 1,920 disjoint mechanisms and zero failures. Its selected head and
+calibration are bound in the [archive manifest](v2/checkpoints/frozen_v3/manifest.json).
+The adapter completed 2,000 real-gradient steps on 8,000 independent factual
+tables; its selected step 500 was chosen on 16 independent DEV mechanisms.
+Its own 1,024/384/512-task head/DEV/calibration stages and full 40-row CPU
+restoration also passed. The [adapter archive](v2/checkpoints/adapter_v3/manifest.json)
+preserves those bindings and all trained components. All three model routes
+are trained, restored and backed up. Scientific ID/OOD evaluation remains
+pending. See the [adaptations model card](MODEL_CARD_V3_ADAPTATIONS.md).
 
 ## Data split and checkpoint archive
 

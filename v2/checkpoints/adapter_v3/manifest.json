@@ -1,0 +1,123 @@
+{
+  "format": "medipfn-v3-nie-adaptation-bundle-1",
+  "status": "TRAINED_HEAD_AND_FRESH_ID_CALIBRATION_COMPLETE",
+  "variant": "frozen-v3-offline-mediation-adapter-NIE-error-head",
+  "actual_job": {
+    "jobnumber": "8426163",
+    "jobname": "mpfn2_v3_adapt",
+    "owner": "shibo",
+    "project": "tmd-ortho",
+    "failed": "0",
+    "exit_status": "0",
+    "ru_wallclock": "1323"
+  },
+  "files": [
+    {
+      "path": "adapter/best.pt",
+      "bytes": 5354,
+      "sha256": "dbc4c0fbc7c099e665ea65e8b26c9594a721711bef7825aed7cb5f56cf79f201"
+    },
+    {
+      "path": "adapter/dev_latest.json",
+      "bytes": 3708,
+      "sha256": "0e6c849dabdac01179cf7b15e35450bcd16278fd1db222731c8109140d50c402"
+    },
+    {
+      "path": "adapter/last.pt",
+      "bytes": 95658,
+      "sha256": "11e408e252891f67789c0b6867f26a8531f1bcb9e6ee04cae0919cbfea41f045"
+    },
+    {
+      "path": "adapter/run_manifest.json",
+      "bytes": 1171,
+      "sha256": "fbdc9874951a7511f1857f87a827f7c78d271b22c27417595148b016075f3791"
+    },
+    {
+      "path": "head/best.pt",
+      "bytes": 1365404,
+      "sha256": "ca7c0bf657fe6c927799daa4e74c05de3efe790a8419c11665f559c50f87a7e3"
+    },
+    {
+      "path": "head/calibration.json",
+      "bytes": 3275,
+      "sha256": "dcef6f5e668b0756d78f9a7d3a4acfc1ce22bc994711e69536f5991537b66ad3"
+    },
+    {
+      "path": "head/calibration_cache_manifest.json",
+      "bytes": 436,
+      "sha256": "5578f641363a0fc00291fad1659c7c0118af26aed76163cc201c94d361144116"
+    },
+    {
+      "path": "head/completion.json",
+      "bytes": 1986,
+      "sha256": "d818d3a7e462cbe57b8eae7c1d9e125af0179e56b16b6ebd7502173f8dd0dce0"
+    },
+    {
+      "path": "head/dev_cache_manifest.json",
+      "bytes": 435,
+      "sha256": "f606be1ef40a245e0ecfd09d59ac956c16dd2c8f57ccf3dc3109747610e7ce15"
+    },
+    {
+      "path": "head/head_selection.json",
+      "bytes": 4531,
+      "sha256": "1e1dfcb99484383864bfcbfce23c68bc6c0865eb8638fd3f591e22f9569dbbf7"
+    },
+    {
+      "path": "head/last.pt",
+      "bytes": 1365276,
+      "sha256": "e74a4fafe8f1a0fe3aa7af92ab0cd62290257650e5de6572d3ce67a0f4f2ccc8"
+    },
+    {
+      "path": "head/run_manifest.json",
+      "bytes": 2440,
+      "sha256": "7c902a455eaedd1346ec27dd9122382e20a5c37a911b7ff66f8dae052567a1ec"
+    },
+    {
+      "path": "head/train_cache_manifest.json",
+      "bytes": 448,
+      "sha256": "fa5056775037166b015412e8d45bcb0e75f4c4af82f25f4da367bd55807a2c08"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 3703,
+      "sha256": "61faa1cb34e537320ce21dfb43fb0c48d3ed9352a87ce3ace2050c0111115ce0"
+    }
+  ],
+  "source_release_sha256": "67409e5e616eea452020131b7beef22de3c6833c1c441e2fa7b30df569d43408",
+  "source_distribution_manifest": "../../manifests/optional_67409e5e616eea45_repository.json",
+  "source_distribution_manifest_sha256": "e8803ab0a1932294152a4f68864a8fa285e6b67216370b94dd46d3c7a6aa9001",
+  "upstream_license": "../../tabular_backbones/v3_runtime/TABPFN-3-LICENSE",
+  "upstream_metadata": "../../tabular_backbones/v3_runtime/hf_metadata.json",
+  "upstream_weight_policy": "Official TabPFN-v3 classifier/regressor bytes required separately under their own license; not redistributed.",
+  "upstream_weight_sha256": {
+    "classifier": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988",
+    "regressor": "311ce18d97e9533d8585eaadafe040fbdd8070533209ed8696641dadc97a7301"
+  },
+  "adapter_training": {
+    "best_checkpoint_sha256": "dbc4c0fbc7c099e665ea65e8b26c9594a721711bef7825aed7cb5f56cf79f201",
+    "last_checkpoint_sha256": "11e408e252891f67789c0b6867f26a8531f1bcb9e6ee04cae0919cbfea41f045",
+    "optimizer_steps": 2000,
+    "factual_table_draws": 8000,
+    "reconstructed_unique_training_mechanisms": 8000,
+    "training_source_counts": {
+      "miles": 998,
+      "jones": 968,
+      "cheng": 983,
+      "shan": 1048,
+      "diaz_intermediate": 971,
+      "zuo": 1027,
+      "he_song_xu": 1011,
+      "diaz_hejazi": 994
+    },
+    "dev_mechanisms": 16,
+    "selected_step": 500,
+    "selected_dev": 0.5115052734836354,
+    "min_actual_gradient_norm": 0.0030450490303337574,
+    "max_parameter_change": 0.023551274091005325
+  },
+  "selected_head_step": 50,
+  "selected_head_dev_pinball": 0.06810860335826874,
+  "calibration_law": "fresh IID uniform mixture over the eight training provenance families and configured sample sizes",
+  "scientific_id_ood_test_evaluation": "not performed",
+  "inference": "tabular_backbones.train_uncertainty.calibrated_interval with matching licensed local weights and selected frozen adapter"
+}

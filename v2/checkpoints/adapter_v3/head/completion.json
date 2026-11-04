@@ -1,0 +1,34 @@
+{
+  "status": "TRAINED_HEAD_AND_FRESH_ID_CALIBRATION_COMPLETE",
+  "variant": "frozen-v3-offline-mediation-adapter-NIE-error-head",
+  "best_checkpoint_sha256": "ca7c0bf657fe6c927799daa4e74c05de3efe790a8419c11665f559c50f87a7e3",
+  "last_checkpoint_sha256": "e74a4fafe8f1a0fe3aa7af92ab0cd62290257650e5de6572d3ce67a0f4f2ccc8",
+  "calibration_sha256": "dcef6f5e668b0756d78f9a7d3a4acfc1ce22bc994711e69536f5991537b66ad3",
+  "seconds": 821.5544742849888,
+  "binding": {
+    "base_config": {
+      "model_version": "v3",
+      "package_version": "9.2.0",
+      "classifier_path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/medipfn_v2_20261103/tabular_backbones/v3_runtime/weights/tabpfn-v3-classifier-v3_default.ckpt",
+      "classifier_sha256": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988",
+      "regressor_path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/medipfn_v2_20261103/tabular_backbones/v3_runtime/weights/tabpfn-v3-regressor-v3_default.ckpt",
+      "regressor_sha256": "311ce18d97e9533d8585eaadafe040fbdd8070533209ed8696641dadc97a7301",
+      "device": "cuda",
+      "n_estimators": 1,
+      "n_preprocessing_jobs": 1,
+      "probability_floor": 0.01
+    },
+    "source_checkpoint_sha256": {
+      "classifier": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988",
+      "regressor": "311ce18d97e9533d8585eaadafe040fbdd8070533209ed8696641dadc97a7301"
+    },
+    "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+    "fixture_report_sha256": "7d5ea124a08e26ba5767899a06e92959495a2df5aca7097f0abc6e0b0bdc57e6",
+    "adapter_sha256": "dbc4c0fbc7c099e665ea65e8b26c9594a721711bef7825aed7cb5f56cf79f201",
+    "feature_program_sha256": "9353eabd50f3a645cacd95fc88a024367e73e360837a1016e5652d2c8e75aa20",
+    "frozen_program_sha256": "86e0af2e4dc167c0df7b69b87760027bb8eae089dd84f6d2b2d7f03a40f517f7"
+  },
+  "feature_dimension": 1038,
+  "failures": 0,
+  "evaluation_status": "No ID/OOD scientific test evaluation performed"
+}

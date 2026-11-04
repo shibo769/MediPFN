@@ -10,6 +10,7 @@ simulated tasks; cross-fitted scores, learned error distributions, post-training
 and independent calibration produce the retained effect intervals.
 
 [v1 model card](MODEL_CARD.md) · [v2 model card](MODEL_CARD_V2.md) ·
+[V3 adaptations](MODEL_CARD_V3_ADAPTATIONS.md) ·
 [Checkpoints](CHECKPOINTS.md) · [Reproducibility](REPRODUCIBILITY.md) · [Status](STATUS.md)
 
 ## Versions
@@ -127,8 +128,12 @@ The frozen factual/nested source release is identified by
 The [current error-pipeline release](v2/release_manifest.json) preserves those
 source bytes and adds explicit estimator/feature/checkpoint bindings.
 Optional [pretrained-backbone experiments](v2/OPTIONAL_BACKBONES.md) use a
-separate pinned implementation. Their actual-model fixture passed; optional
-production runs are active. These are not completed v2 evaluation results.
+separate pinned implementation. The frozen-V3 NIE head and fresh calibration
+are complete and [archived](v2/checkpoints/frozen_v3/manifest.json), with actual
+accounting and full CPU restoration verified. The cross-task V3 adapter and
+its own NIE head/calibration are also [complete and archived](v2/checkpoints/adapter_v3/manifest.json).
+These are training/restoration records, not scientific ID/OOD performance
+results.
 See [v2/README.md](v2/README.md), [protocol](v2/protocol.json), and
 [release manifest](v2/release_manifest.json). Learned-error training,
 post-training, fresh calibration and final evaluation are separate stages.

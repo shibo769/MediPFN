@@ -20,10 +20,22 @@ It checked real V3 classifier/regressor input gradients, updates across
 independent contexts, unchanged frozen backbone weights and checkpoint
 restoration, including alternate feature-dimension paths.
 
-Frozen-V3 head job `8426161` and V3 adapter/head job `8426163` are now running.
-Actual feature generation and nonzero adapter gradients were observed.
-Production entry points inspect the required fixture report and pinned runtime
-identities. Completed optional checkpoints and evaluation are still pending. Current execution evidence is maintained
+Frozen-V3 head job `8426161` completed with actual scheduler exit 0. Its
+1,024 training, 384 DEV and 512 fresh calibration tasks passed an independent
+source/model/cache audit, with 1,920 disjoint mechanisms and zero failures.
+The full observed-table CPU restore returned finite nested intervals. Trained
+head/calibration files and their provenance are
+[archived](checkpoints/frozen_v3/manifest.json).
+
+The adapter/head route `8426163` also completed with actual scheduler exit 0.
+Its 2,000 positive-gradient steps, 8,000 independent factual mechanisms,
+16 DEV mechanisms, and disjoint 1,024/384/512-task error-head partitions passed
+independent audit. The selected adapter and its matching head/calibration
+passed a full 40-row CPU observed-table restore and are
+[archived](checkpoints/adapter_v3/manifest.json). Production entry points
+inspect the fixture report and pinned runtime identities. Scientific ID/OOD
+evaluation remains a separate pending stage. See the
+[adaptations model card](../MODEL_CARD_V3_ADAPTATIONS.md). Current execution evidence is maintained
 in [STATUS.md](../STATUS.md).
 
 ## Package, weights and license

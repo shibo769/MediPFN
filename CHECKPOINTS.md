@@ -86,3 +86,38 @@ python v2/predict.py --verify-only
 The complete
 [private release](https://github.com/shibo769/MediPFN/releases/tag/v2-primary-20261103)
 is a trained research prototype, with scientific ID/OOD evaluation pending.
+
+## Optional frozen-V3 NIE head and calibration
+
+The [optional manifest](v2/checkpoints/frozen_v3/manifest.json) binds trained head
+files, fresh calibration, selection history, source and verified completion.
+The official V3 classifier/regressor weights are separate licensed inputs;
+they are not mirrored here.
+
+| Asset | Bytes | SHA-256 |
+|---|---:|---|
+| [Selected NIE error head](v2/checkpoints/frozen_v3/best.pt) | 1,365,340 | `df406ce3d43bc097860473ba83817cb19f3e48e23d6dfabece0bfcd545e40ba3` |
+| [Last head state](v2/checkpoints/frozen_v3/last.pt) | 1,365,212 | `c70f4655b29dcac72fbe5ced7e546e057d0df57627bf0d75b299d15ffd19b859` |
+| [Fresh ID calibration](v2/checkpoints/frozen_v3/calibration.json) | 3,195 | `e013c2d849375d9ad5eeaee7fd1ca03234fa7b34871678e4faa962e8917df3cc` |
+
+Actual scheduler exit 0 and a full CPU observed-table restoration were
+independently verified. These checks establish a restored trained model;
+scientific ID/OOD coverage and runtime evaluation remain pending. See the
+[model card](MODEL_CARD_V3_ADAPTATIONS.md) for the licensed-backbone requirements.
+
+## Optional V3 mediation adapter and its own NIE head
+
+The [adapter-route manifest](v2/checkpoints/adapter_v3/manifest.json) preserves
+the selected/last adapter, its separate selected/last NIE head, calibration,
+configuration and independent actual-accounting/full-restoration proof.
+
+| Asset | SHA-256 |
+|---|---|
+| [Selected adapter](v2/checkpoints/adapter_v3/adapter/best.pt) | `dbc4c0fbc7c099e665ea65e8b26c9594a721711bef7825aed7cb5f56cf79f201` |
+| [Selected matching NIE head](v2/checkpoints/adapter_v3/head/best.pt) | `ca7c0bf657fe6c927799daa4e74c05de3efe790a8419c11665f559c50f87a7e3` |
+| [Fresh matching calibration](v2/checkpoints/adapter_v3/head/calibration.json) | `dcef6f5e668b0756d78f9a7d3a4acfc1ce22bc994711e69536f5991537b66ad3` |
+
+Both optional bundles and their scientific source/license references are in the
+[private adaptations release](https://github.com/shibo769/MediPFN/releases/tag/v2-v3-adaptations-20261103).
+Official backbone weights remain separate licensed inputs. Scientific ID/OOD
+evaluation is pending; restored training artifacts are not coverage results.

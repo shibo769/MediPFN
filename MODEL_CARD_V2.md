@@ -128,7 +128,9 @@ See the [current release manifest](v2/release_manifest.json),
 status field records the source-freeze point; current execution status is
 maintained separately. Optional pretrained TabPFN-v3 variants have their own
 [source and runtime guide](v2/OPTIONAL_BACKBONES.md). Their actual-model
-fixture passed, and optional production runs are active. They do not replace or rename the custom nuisance backbone.
+fixture passed, and the frozen-V3 head/calibration route is complete and
+[archived](MODEL_CARD_V3_ADAPTATIONS.md). The cross-task V3 adapter and its
+separate NIE head/calibration are also complete and verified. They do not replace or rename the custom nuisance backbone.
 
 ## Checkpoints and access
 

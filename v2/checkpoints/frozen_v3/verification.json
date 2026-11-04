@@ -1,0 +1,89 @@
+{
+  "status": "PASS_OPTIONAL_FROZEN_V3_TRAIN_CALIBRATE_RESTORE",
+  "release_sha256": "67409e5e616eea452020131b7beef22de3c6833c1c441e2fa7b30df569d43408",
+  "source_files_verified": 30,
+  "verified_run": {
+    "status": "VERIFIED_ACCOUNTING_CACHES_BINDINGS_HEAD_RESTORE",
+    "accounting": {
+      "jobnumber": "8426161",
+      "jobname": "mpfn2_v3_error",
+      "owner": "shibo",
+      "project": "tmd-ortho",
+      "failed": "0",
+      "exit_status": "0",
+      "ru_wallclock": "1003"
+    },
+    "completion_sha256": "061d049927672c702df0a8ab29efd66c935c44634a1652fef9ebe81738571478",
+    "best_checkpoint_sha256": "df406ce3d43bc097860473ba83817cb19f3e48e23d6dfabece0bfcd545e40ba3",
+    "last_checkpoint_sha256": "c70f4655b29dcac72fbe5ced7e546e057d0df57627bf0d75b299d15ffd19b859",
+    "calibration_sha256": "e013c2d849375d9ad5eeaee7fd1ca03234fa7b34871678e4faa962e8917df3cc",
+    "partitions": {
+      "train": {
+        "cases": 1024,
+        "families": {
+          "cheng": 128,
+          "diaz_hejazi": 128,
+          "diaz_intermediate": 128,
+          "he_song_xu": 128,
+          "jones": 128,
+          "miles": 128,
+          "shan": 128,
+          "zuo": 128
+        },
+        "sha256": "84358d37a40569a0152420e5282a7068180b6098a26db5884b4f13739a5df682"
+      },
+      "dev": {
+        "cases": 384,
+        "families": {
+          "cheng": 48,
+          "diaz_hejazi": 48,
+          "diaz_intermediate": 48,
+          "he_song_xu": 48,
+          "jones": 48,
+          "miles": 48,
+          "shan": 48,
+          "zuo": 48
+        },
+        "sha256": "fb3ced75e2614556ba984a56ef800cff504f51b166cbb83d9b6ee031c7fb3ac8"
+      },
+      "calibration": {
+        "cases": 512,
+        "families": {
+          "cheng": 60,
+          "diaz_hejazi": 69,
+          "jones": 69,
+          "he_song_xu": 77,
+          "shan": 72,
+          "miles": 54,
+          "diaz_intermediate": 44,
+          "zuo": 67
+        },
+        "sha256": "9a05b904afd4150941c31f16f68efc126cf274ab9c9d7330157a45ea60820106"
+      }
+    },
+    "unique_mechanisms": 1920,
+    "calibration_cpu_restore_max_correction_difference": 7.152557373046875e-07,
+    "full_observed_table_restore": {
+      "status": "PASS",
+      "rows": 64,
+      "device": "cpu",
+      "seconds": 48.90030903101433,
+      "estimate": -0.10923205857251841,
+      "intervals": {
+        "90": [
+          -0.37166211009025574,
+          0.03818494826555252
+        ],
+        "95": [
+          -0.3876418173313141,
+          0.08398821204900742
+        ],
+        "99": [
+          -0.44687846302986145,
+          0.12095469981431961
+        ]
+      }
+    }
+  },
+  "scope": "Independent accounting, partition/truth/error/binding audit and full observed-table CPU restoration; not a scientific ID/OOD evaluation."
+}

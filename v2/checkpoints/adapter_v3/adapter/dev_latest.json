@@ -1,0 +1,136 @@
+{
+  "step": 2000,
+  "value": 0.5132146550677135,
+  "tasks": [
+    {
+      "source": "cheng",
+      "family": "cheng",
+      "pi_nll": 0.48264312744140625,
+      "g_nll": 0.5045278668403625,
+      "normalized_mu_mse": 0.001745996531099081,
+      "combined": 0.3296389969376226
+    },
+    {
+      "source": "cheng",
+      "family": "cheng",
+      "pi_nll": 0.8058716654777527,
+      "g_nll": 0.7601608633995056,
+      "normalized_mu_mse": 0.0017544912407174706,
+      "combined": 0.5225956733726586
+    },
+    {
+      "source": "diaz_hejazi",
+      "family": "diaz_hejazi",
+      "pi_nll": 0.6712534427642822,
+      "g_nll": 0.6770443320274353,
+      "normalized_mu_mse": 0.5741837620735168,
+      "combined": 0.6408271789550781
+    },
+    {
+      "source": "diaz_hejazi",
+      "family": "diaz_hejazi",
+      "pi_nll": 0.6169254779815674,
+      "g_nll": 0.6276084780693054,
+      "normalized_mu_mse": 0.1620447188615799,
+      "combined": 0.4688595583041509
+    },
+    {
+      "source": "diaz_intermediate",
+      "family": "diaz_intermediate",
+      "pi_nll": 0.36298397183418274,
+      "g_nll": 0.36051079630851746,
+      "normalized_mu_mse": 1.0047868490219116,
+      "combined": 0.576093872388204
+    },
+    {
+      "source": "diaz_intermediate",
+      "family": "diaz_intermediate",
+      "pi_nll": 0.3969949185848236,
+      "g_nll": 0.3975946307182312,
+      "normalized_mu_mse": 1.016740083694458,
+      "combined": 0.6037765443325043
+    },
+    {
+      "source": "he_song_xu",
+      "family": "he_song_xu",
+      "pi_nll": 0.6930257678031921,
+      "g_nll": 0.6901180744171143,
+      "normalized_mu_mse": 0.05580123886466026,
+      "combined": 0.47964836036165553
+    },
+    {
+      "source": "he_song_xu",
+      "family": "he_song_xu",
+      "pi_nll": 0.6889645457267761,
+      "g_nll": 0.7081249356269836,
+      "normalized_mu_mse": 0.30435338616371155,
+      "combined": 0.5671476225058237
+    },
+    {
+      "source": "jones_lnl",
+      "family": "jones",
+      "pi_nll": 0.6892535090446472,
+      "g_nll": 0.605992317199707,
+      "normalized_mu_mse": 0.22861820459365845,
+      "combined": 0.5079546769460043
+    },
+    {
+      "source": "jones_lnn",
+      "family": "jones",
+      "pi_nll": 0.6982033848762512,
+      "g_nll": 0.36813807487487793,
+      "normalized_mu_mse": 0.1382814198732376,
+      "combined": 0.40154095987478894
+    },
+    {
+      "source": "miles",
+      "family": "miles",
+      "pi_nll": 0.5606116652488708,
+      "g_nll": 0.5518558621406555,
+      "normalized_mu_mse": 0.7942536473274231,
+      "combined": 0.6355737249056498
+    },
+    {
+      "source": "miles",
+      "family": "miles",
+      "pi_nll": 0.5872554779052734,
+      "g_nll": 0.5770474672317505,
+      "normalized_mu_mse": 0.3763757348060608,
+      "combined": 0.5135595599810282
+    },
+    {
+      "source": "shan",
+      "family": "shan",
+      "pi_nll": 0.6855558156967163,
+      "g_nll": 0.6113538146018982,
+      "normalized_mu_mse": 0.06405078619718552,
+      "combined": 0.4536534721652667
+    },
+    {
+      "source": "shan",
+      "family": "shan",
+      "pi_nll": 0.7368666529655457,
+      "g_nll": 0.4290560185909271,
+      "normalized_mu_mse": 0.47819191217422485,
+      "combined": 0.5480381945768992
+    },
+    {
+      "source": "zuo",
+      "family": "zuo",
+      "pi_nll": 0.7242772579193115,
+      "g_nll": 0.4809853732585907,
+      "normalized_mu_mse": 0.30583658814430237,
+      "combined": 0.5036997397740682
+    },
+    {
+      "source": "zuo",
+      "family": "zuo",
+      "pi_nll": 0.690824568271637,
+      "g_nll": 0.5863668918609619,
+      "normalized_mu_mse": 0.09928757697343826,
+      "combined": 0.45882634570201236
+    }
+  ],
+  "best_step": 500,
+  "best": 0.5115052734836354
+}

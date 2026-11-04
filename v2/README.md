@@ -123,7 +123,10 @@ check. The immutable [error guide](ERROR_PIPELINE.md) and
 [protocol](protocol.json) describe their freeze points;
 [STATUS.md](../STATUS.md) records subsequent execution. Optional pretrained
 backbone experiments have a separate [guide](OPTIONAL_BACKBONES.md) and source
-manifest. Their actual-model fixture passed; production runs are active.
+manifest. Their actual-model fixture passed; the frozen-V3 error head and
+fresh calibration are complete and archived. The V3 adapter, separate NIE head
+and calibration are also complete, independently restored and archived.
+Scientific ID/OOD evaluation remains pending.
 
 The retained v1 assets are separate in [`../v1`](../v1). Vendored source
 materials retain their [license](dgp/vendor/LICENSE) and [notice](dgp/vendor/NOTICE.md).

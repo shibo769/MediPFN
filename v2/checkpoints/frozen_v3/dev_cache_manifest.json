@@ -1,0 +1,21 @@
+{
+  "partition": "dev",
+  "cases": 384,
+  "unique_mechanisms": 384,
+  "families": {
+    "cheng": 48,
+    "diaz_hejazi": 48,
+    "diaz_intermediate": 48,
+    "he_song_xu": 48,
+    "jones": 48,
+    "miles": 48,
+    "shan": 48,
+    "zuo": 48
+  },
+  "dimensions": {
+    "1038": 384
+  },
+  "sha256": "fb3ced75e2614556ba984a56ef800cff504f51b166cbb83d9b6ee031c7fb3ac8",
+  "failures": 0,
+  "sampling": "exact family-balanced source mixture"
+}
