@@ -1,8 +1,10 @@
 # MediPFN v2: rich mediation simulations
 
-**Status: implementation and training preflight. No trained v2 checkpoint or
-v2 performance result is claimed by this source snapshot.** The retained v1
-weights and results are stored separately in [`../v1`](../v1).
+**Status: factual nuisance pretraining is running on SCC under job `8425910`.**
+The latest verified snapshot records 3,250 optimizer steps and 26,000 training
+tables across all eight source families. The retained v1 weights and results
+are stored separately in [`../v1`](../v1); final v2 checkpoints and evaluation
+results will follow completion of the later stages.
 
 This version introduces a new custom support-query network for scalar and
 vector mediator inputs, factual propensity/outcome learning, Bayes-based density
@@ -34,6 +36,10 @@ Training entry points are `train.py` and `train_nested.py`; inspect their
 run requires the separately recorded frozen configuration, resource profile,
 successful preflight and fresh output directory. No scheduler session,
 authentication material, raw test bank or environment is stored here.
+
+The status in the immutable `protocol.json` describes the source-freeze point.
+Current progress is recorded in [`../STATUS.md`](../STATUS.md) and the
+[`v2 model card`](../MODEL_CARD_V2.md).
 
 The upstream vendored materials remain private and retain their original
 [`LICENSE`](dgp/vendor/LICENSE) and [`NOTICE`](dgp/vendor/NOTICE.md).

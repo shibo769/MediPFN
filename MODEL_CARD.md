@@ -58,9 +58,9 @@ containing `tabcon`, `dpo`, or `rlvr` do not establish a separate original
 TabCon/RL model comparison. The restored retained mixture uses its frozen SFT
 router.
 
-The new v2 work will use a different simulation bank and model interface. Its
-checkpoints, split manifests, and validation results must be recorded separately
-and cannot replace these v1 files.
+The new v2 uses a different simulation bank and model interface; its factual
+nuisance stage is now training. Its checkpoints, split manifests, and validation
+results are recorded separately in the [v2 model card](MODEL_CARD_V2.md).
 
 ## Evaluation
 

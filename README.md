@@ -9,15 +9,15 @@ table. A custom support-query network learns nuisance relationships across
 simulated tasks; cross-fitted scores, learned error distributions, post-training
 and independent calibration produce the retained effect intervals.
 
-[Model card](MODEL_CARD.md) · [Checkpoints](CHECKPOINTS.md) ·
-[Reproducibility](REPRODUCIBILITY.md) · [v2 simulations](v2/dgp/README.md)
+[v1 model card](MODEL_CARD.md) · [v2 model card](MODEL_CARD_V2.md) ·
+[Checkpoints](CHECKPOINTS.md) · [Reproducibility](REPRODUCIBILITY.md) · [Status](STATUS.md)
 
 ## Versions
 
 | Version | Model and data | Current status |
 |---|---|---|
 | **v1** | Retained custom MediPFN production pipeline | Code, seven checkpoint files, normalization/calibration records and verified aggregate results archived; restore check passed |
-| **v2** | New custom backbone and a richer literature-derived mediation simulation bank | Factual/nested-stage source frozen; training preflight in progress; no trained v2 checkpoint or performance claim yet |
+| **v2** | New custom backbone and a richer literature-derived mediation simulation bank | Factual nuisance pretraining running on SCC; nested/error/post-training/calibration stages follow; final checkpoint and evaluation pending |
 
 The versions are stored separately. New v2 development does not change the
 first-version model, manuscript or reported experiments. This repository is
@@ -87,6 +87,11 @@ training, development selection and calibration. The bank uses a common
 superpopulation natural indirect effect target, with each adaptation and truth
 calculation documented in [the generator guide](v2/dgp/README.md).
 
+The factual nuisance stage is running under SCC job `8425910`. The latest
+verified snapshot contains 3,250 optimizer steps and 26,000 training-table
+draws across all eight training families. This is training progress; final
+effect-estimation and coverage results follow the later stages.
+
 The frozen factual/nested source release is identified by
 `65fff8193cab74881e14a3262c254578255a78d2f6ca56aa4d7f6086a25ed36d`.
 See [v2/README.md](v2/README.md), [protocol](v2/protocol.json), and
@@ -97,6 +102,8 @@ post-training, fresh calibration and final evaluation are separate stages.
 
 ```text
 MODEL_CARD.md          Retained model, evaluation and use scope
+MODEL_CARD_V2.md       New model, source split and training status
+STATUS.md             Verified run progress and remaining stages
 CHECKPOINTS.md         Checkpoint roles and SHA-256 index
 REPRODUCIBILITY.md     Verification, restoration and training source map
 v1/
