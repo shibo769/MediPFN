@@ -1,64 +1,128 @@
 # MediPFN
 
-Private research archive for MediPFN, created on 2026-11-03 before starting the
-new simulation-bank version. The retained first-version model and the new v2
-development must remain in separate directories.
+**Amortized In-Context Nuisance Learning and Inference for Causal Mediation Analysis**
 
-## Retained first version
+Shi Bo · Boston University
 
-`v1/project/` preserves the actual SCC production source files and model assets.
-`v1/manifest.json` records every archived file's byte length and SHA-256. The
-checkpoint selection is bound to the completed evaluation protocol with SHA-256
-`3da1386f3d019bfd9287f07bc04f0330888e16c4e15db479370197b10dfbda83`.
+MediPFN estimates a natural indirect effect and its uncertainty from an observed
+table. A custom support-query network learns nuisance relationships across
+simulated tasks; cross-fitted scores, learned error distributions, post-training
+and independent calibration produce the retained effect intervals.
 
-The seven `.pt` files contain the retained nuisance backbone, error mixture,
-confidence model, selected 95% post-training model/selection states, and the 90%
-and 99% heads. The corresponding normalization values and calibration expansion
-coefficients are preserved in the checkpoint files and frozen JSON records.
-The path `capacity_full/large_seed0` is a historical directory name; the retained
-backbone identity is determined by its checkpoint configuration and SHA-256,
-not by that directory name. Legacy small models and fictional fixture weights
-are excluded.
+[Model card](MODEL_CARD.md) · [Checkpoints](CHECKPOINTS.md) ·
+[Reproducibility](REPRODUCIBILITY.md) · [v2 simulations](v2/dgp/README.md)
 
-The historical source directory called `tabcon` contains MediPFN's own mixture
-implementation. Its name does not identify an original TabCon implementation or
-an independently trained RL comparison.
+## Versions
 
-## Verify and restore
+| Version | Model and data | Current status |
+|---|---|---|
+| **v1** | Retained custom MediPFN production pipeline | Code, seven checkpoint files, normalization/calibration records and verified aggregate results archived; restore check passed |
+| **v2** | New custom backbone and a richer literature-derived mediation simulation bank | Factual/nested-stage source frozen; training preflight in progress; no trained v2 checkpoint or performance claim yet |
 
-Clone this private repository using an authenticated GitHub account, then run:
+The versions are stored separately. New v2 development does not change the
+first-version model, manuscript or reported experiments. This repository is
+private; the vendored generator materials have not been made public.
+
+## Quick start
 
 ```sh
+git clone https://github.com/shibo769/MediPFN.git
+cd MediPFN
 python v1/restore.py --verify-only
 ```
 
-Inference requires Python 3.12 or later, NumPy, PyTorch, SciPy and scikit-learn.
-The completed comparisons used PyTorch 2.5.1 and NumPy 2.2.6. In an environment
-with those dependencies, the synthetic restore check is:
+This standard-library check verifies every retained production source/asset
+against its SHA-256 manifest. For an environment with NumPy, PyTorch, SciPy and
+scikit-learn installed:
 
 ```sh
 python v1/restore.py --smoke
 ```
 
-This check loads the archived production weights, creates an independent small
-synthetic table, and verifies finite intervals at all three retained levels. It
-is an installation/restore check, not a coverage experiment.
+The smoke check restores the actual v1 weights and produces intervals on a new
+synthetic table. It is a loading/inference check, not a coverage benchmark.
+[Reproducibility instructions](REPRODUCIBILITY.md) include dependency guidance
+and a Python inference example.
 
-Python callers can import `v1/restore.py` and call
-`predict(rows, fold_ids, level=.95)`. The original v1 input convention and model
-support remain unchanged. `restore.py` verifies all archived bytes before
-loading the model. It resolves historical absolute references within the local
-archive without rewriting the original source files or checkpoints.
+## Inference pipeline
 
-## Scope
+```mermaid
+flowchart LR
+    D[Observed context table] --> N[Custom nuisance network]
+    N --> S[Cross-fitted mediation score]
+    S --> E[Effect estimate and scale]
+    S --> F[Observable diagnostics]
+    F --> U[Learned error distribution]
+    U --> Q[Quantile post-training]
+    E --> C[Calibrated effect interval]
+    Q --> C
+```
 
-The archive includes training/inference code, retained checkpoint assets, and
-aggregate verified comparison tables. It excludes passwords, authentication
-helpers, raw observed datasets, test-table banks, temporary environments,
-fictional model fixtures, and third-party TabPFN weights. Original SCC launch
-and audit scripts retain their historical paths and guards; they are preserved
-for provenance and are not intended to be run unchanged on another cluster.
+Deployment uses fixed weights and observable context data. Known synthetic
+effects are used in offline error training and evaluation, not supplied as
+features at inference. Causal interpretation requires the stated identification
+and overlap assumptions.
 
-The new rich-simulation MediPFN v2 will be added separately under `v2/` as its
-implementation and training become available. Its development must not replace
-or relabel the retained first-version weights.
+## Checkpoints and results
+
+All seven retained `.pt` files are included directly in the repository. The
+[checkpoint index](CHECKPOINTS.md) gives their roles, locations and full
+SHA-256 values. The [manifest](v1/manifest.json) binds 97 actual production
+source/asset files; the weights were downloaded back from GitHub and checked
+against the original SCC hashes after the initial push.
+
+The completed shared-bank evaluation contains 2,952 tables. At 95% nominal
+coverage, retained MediPFN coverage/mean interval length is 96.67%/0.4348 in
+distribution and 92.95%/0.4921 with real covariates and simulated responses.
+The [full aggregate and paired tables](v1/results) retain all settings and
+failure counts. Coverage gains should be assessed together with interval
+lengths and the scope of each comparison.
+
+## Rich-simulation v2
+
+The new bank adapts 15 registry records into 14 distinct complete-data presets.
+Entire Eric and Xia-Chan provenance families are reserved for source OOD;
+Jones NNN is reserved for composition OOD. Held-out sources are excluded from
+training, development selection and calibration. The bank uses a common
+superpopulation natural indirect effect target, with each adaptation and truth
+calculation documented in [the generator guide](v2/dgp/README.md).
+
+The frozen factual/nested source release is identified by
+`65fff8193cab74881e14a3262c254578255a78d2f6ca56aa4d7f6086a25ed36d`.
+See [v2/README.md](v2/README.md), [protocol](v2/protocol.json), and
+[release manifest](v2/release_manifest.json). Learned-error training,
+post-training, fresh calibration and final evaluation are separate stages.
+
+## Repository layout
+
+```text
+MODEL_CARD.md          Retained model, evaluation and use scope
+CHECKPOINTS.md         Checkpoint roles and SHA-256 index
+REPRODUCIBILITY.md     Verification, restoration and training source map
+v1/
+  manifest.json       Frozen production file identities
+  restore.py          Portable, verified inference wrapper
+  project/            Original source and retained model assets
+  results/            Verified aggregate and paired comparison tables
+v2/
+  protocol.json       Frozen simulation split and training design
+  release_manifest.json
+  model.py            New nuisance backbone
+  train.py            Factual pretraining entry point
+  train_nested.py     Nested-regression stage
+  dgp/                Adapted generators, tests and upstream provenance
+```
+
+## License and provenance
+
+The private project currently has no blanket public redistribution license.
+Vendored upstream generator materials retain their Apache-2.0
+[license](v2/dgp/vendor/LICENSE) and [notice](v2/dgp/vendor/NOTICE.md).
+Raw study datasets, raw test banks, authentication material, temporary
+environments and third-party TabPFN weights are not redistributed here.
+
+## Citation
+
+The manuscript title is *MediPFN: Amortized In-Context Nuisance Learning and
+Inference for Causal Mediation Analysis*, by Shi Bo. A persistent paper link
+and formal citation will be added when the manuscript has a public identifier.
