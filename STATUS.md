@@ -1,6 +1,6 @@
 # Project status
 
-Verified update: 2026-11-03 (America/New_York).
+Verified update: 2026-11-04 (America/New_York).
 
 ## MediPFN v1
 
@@ -17,9 +17,9 @@ intervals on an independent synthetic table. See the
 The [primary bundle](v2/checkpoints/primary/bundle.json) binds the selected
 factual, nested, learned-error and post-trained checkpoints to the final
 calibration file and exact inference source. This is a trained research
-prototype. Scientific ID/OOD tests have been submitted under the fixed shared
-protocol and array execution has begun; validated comparative
-performance is not yet available.
+prototype. Scientific ID/OOD tests under the fixed shared protocol are
+complete and independently verified; [all aggregate results](evaluation/v2_shared_20261103/results/README.md)
+retain favorable and adverse comparisons.
 
 | Stage | Verified result |
 |---|---|
@@ -71,8 +71,7 @@ Its own 1,024/384/512-task head/DEV/calibration stages and full 40-row CPU
 restoration also passed. The [adapter archive](v2/checkpoints/adapter_v3/manifest.json)
 preserves those bindings and all trained components. All three model routes
 are trained, restored and backed up. Their shared scientific evaluation is
-submitted and in progress; complete comparative results require
-independent validation. See the [adaptations model card](MODEL_CARD_V3_ADAPTATIONS.md).
+complete, with actual accounting and independent scalar recomputation passed. See the [adaptations model card](MODEL_CARD_V3_ADAPTATIONS.md).
 
 ## Data split and checkpoint archive
 
@@ -83,31 +82,28 @@ remain outside fitting, DEV selection and calibration.
 
 Selected primary weights, final calibration, configuration and training history
 are archived under [`v2/checkpoints/`](v2/checkpoints/). Larger nuisance
-optimizer-resume states are private GitHub release assets. Later optional
-checkpoints will be archived after their producers complete and their assets
-are verified. The v1 assets and manuscript remain unchanged.
+optimizer-resume states are private GitHub release assets. Both optional
+models, trained heads and matching calibrations are also archived and verified. The v1 assets and manuscript remain unchanged.
 
-## Shared ID/OOD evaluation: submitted, execution in progress
+## Shared ID/OOD evaluation: complete and independently verified
 
-The [frozen evaluation snapshot](evaluation/v2_shared_20261103/README.md)
-contains 16 source/protocol files and source/model/bank identity records.
-Some formal array tasks have begun running. Complete task accounting and
-scientific results have not yet been verified.
-The prespecified bank has 1,152 tables from 576 structural populations:
-768 ID, 288 source-OOD and 96 composition-OOD tables. All three frozen routes
-receive the same table bytes and fold assignments. The minimum independent
-mechanism/observation seed length is 319 bits; common fold seeds use at most
-31 bits for 32-bit API compatibility.
+Array `8427083` completed all 96 tasks with actual `failed=0`, `exit_status=0`.
+Summary `8427084` and independent audit `8427085` also completed successfully.
+The audit recomputed 1,008 metric and 1,008 paired cells. All 3,456 method
+attempts succeeded across 1,152 shared tables and 10,368 interval levels.
+The bank contains 576 structural populations: 768 ID, 288 source-OOD and
+96 composition-OOD tables. Model, source, bank, folds and output hashes passed.
 
-Array `8427083` evaluates 96 shards, each with 12 tables and all three routes
-on one L40S GPU. Summary `8427084` and independent audit `8427085` are submitted
-with predecessor checks. Scheduler quotas and hardware availability control
-concurrency; no artificial array cap was added. The actual real-GPU fixture
-and model-free bank admission passed before release.
+At the primary 95% level, custom v2 has ID coverage 95.99% and mean interval
+length 0.5816, versus frozen V3 96.72%/0.9547 and adapted V3 96.46%/0.7691.
+The custom route has about 21–24 times lower already-loaded per-table inference
+time. Its source-OOD intervals are wider, and composition-OOD coverage is only
+73.96%, versus 92.71% for both V3 routes. There is no universal best-model claim.
 
-No coverage, interval-length, point-error or speed comparison is claimed from
-incomplete shards or fixture timings. Complete successful accounting, all
-prespecified attempts/failures and independently recomputed summaries are
-required before results are published. Raw observed NPZ test tables, synthetic
-truth labels and authenticated transport receipts are excluded from this
-repository; the archived hash/count/weight index binds the full frozen bank.
+[Complete results](evaluation/v2_shared_20261103/results/README.md) preserve
+all three levels, source and sample-size cells, failure denominators,
+structural-population paired uncertainty and separate startup records.
+No test-driven model selection or calibration was performed. The inherited
+V3 pretraining source distribution is not controlled by our source holdout.
+Raw test tables, per-case truth/endpoints, full task seeds and authenticated
+transport receipts are excluded. The v1 manuscript and bibliography are unchanged.

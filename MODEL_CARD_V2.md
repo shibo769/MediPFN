@@ -22,8 +22,8 @@ Step 17,000 was selected by independent same-source DEV factual loss (1.526461).
 Actual scheduler accounting recorded successful completion. Signed-error
 learning, confidence-guided post-training and fresh ID task-mixture calibration
 are now also complete. The [primary inference bundle](v2/checkpoints/primary/bundle.json)
-is a trained research prototype. Scientific ID/OOD coverage, point-error and
-runtime evaluation remain pending.
+is a trained research prototype. The shared ID/OOD evaluation is now
+[complete and independently verified](evaluation/v2_shared_20261103/results/README.md).
 
 Nested-regression training also completed under job `8425970`: 5,000 optimizer
 steps and 40,000 training-table draws, with selected DEV pseudo-outcome loss
@@ -96,10 +96,14 @@ post-training and rank calibration; it is not the v1 mixture of experts.
 The implementation binds inference to the actual table, estimator source,
 selected factual/nested checkpoints, feature schema and calibration records.
 
-The primary interval level is 95%, with 90% and 99% as secondary levels. Final
-evaluation will report coverage, interval length, point error, failures and
-runtime, with paired uncertainty grouped by mechanism. There are no completed
-v2 evaluation results in this source snapshot.
+The primary interval level is 95%, with 90% and 99% as secondary levels. The
+[complete shared evaluation](evaluation/v2_shared_20261103/results/README.md)
+reports all levels, source/sample-size cells, point errors, zero method failures
+and paired structural-population uncertainty. On ID tables, custom v2 has
+95.99% coverage and mean interval length 0.5816, versus 96.72%/0.9547 for frozen
+V3 and 96.46%/0.7691 for adapted V3. Its source-OOD intervals are wider. On the
+composition holdout, coverage falls to 73.96%, versus 92.71% for each V3 route.
+These results support an ID efficiency advantage, not universal superiority.
 
 ## Frozen source and configuration
 
@@ -110,8 +114,9 @@ The registered factual budget is 20,000 optimizer steps with effective batch
 size 8, sample sizes 200/600/1000, 64 held-out query rows per task, and learning
 rate 0.0003. Selection uses independent same-source DEV factual loss. Runtime
 settings use mixed precision, TF32, shared inducing-token contexts and
-asynchronous data preparation; final measured runtime will be reported with
-the actual resource and timing boundaries.
+asynchronous data preparation. Verified shared L40S inference measurements
+and separate loading/bootstrap records are available in the
+[evaluation results](evaluation/v2_shared_20261103/results/README.md).
 
 The error/post-training weights were produced by release
 `475a2abf480e9e36bfebeac6d584dc6a5d5139377340fac2ea0c221e41daedf6`.
@@ -157,8 +162,8 @@ archive is available as the [private primary release](https://github.com/shibo76
 
 Calibration targets marginal coverage over the registered iid ID task mixture,
 conditional on the frozen models. It is not a per-source or conditional
-coverage statement, and source/composition OOD performance has not yet been
-measured. The model assumes the causal identification and overlap conditions
+coverage statement. Measured source/composition OOD results are retained
+with the ID results; composition undercoverage illustrates this scope limit. The model assumes the causal identification and overlap conditions
 required by its natural-effect score; numerical inference on a new table does
 not establish those assumptions. Input feature dimensions and type metadata
 must follow the documented interface. The private repository preserves

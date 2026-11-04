@@ -1,7 +1,7 @@
 # MediPFN v2: rich mediation simulations
 
 **Primary research prototype: trained, post-trained, freshly calibrated and
-restored. Scientific ID/OOD evaluation is pending.**
+restored. Shared scientific ID/OOD evaluation is complete and independently verified.**
 
 The custom backbone is trained from new weights. The bank adapts 15 registry
 records into 14 distinct complete-data presets, with the superpopulation
@@ -71,9 +71,10 @@ files are not overwritten. The CLI rejects altered source/weight/calibration
 bytes and incompatible construction contracts before prediction.
 
 Fresh calibration uses the registered iid ID task mixture. It supplies no
-per-source, conditional or arbitrary OOD coverage guarantee. Scientific
-coverage and runtime results are not yet available. A loading fixture is not
-a coverage or speed benchmark. Causal interpretation still requires the
+per-source, conditional or arbitrary OOD coverage guarantee. The
+[shared results](../evaluation/v2_shared_20261103/results/README.md) retain
+strong ID efficiency together with composition-OOD undercoverage. A loading
+fixture is separate from that scientific coverage and speed benchmark. Causal interpretation still requires the
 natural-effect identification and overlap assumptions.
 
 ## Completed training stages
@@ -126,7 +127,8 @@ backbone experiments have a separate [guide](OPTIONAL_BACKBONES.md) and source
 manifest. Their actual-model fixture passed; the frozen-V3 error head and
 fresh calibration are complete and archived. The V3 adapter, separate NIE head
 and calibration are also complete, independently restored and archived.
-Scientific ID/OOD evaluation remains pending.
+Shared ID/OOD evaluation is complete, with all attempts and independently
+recomputed results [archived](../evaluation/v2_shared_20261103/results/README.md).
 
 The retained v1 assets are separate in [`../v1`](../v1). Vendored source
 materials retain their [license](dgp/vendor/LICENSE) and [notice](dgp/vendor/NOTICE.md).

@@ -14,8 +14,14 @@ tags:
 These optional models retain the official TabPFN-v3 nuisance backbone and
 learn mediation-specific components from independent synthetic tasks. They
 are separate from the custom MediPFN v2 primary model and are not original
-TabCon reproductions. Scientific ID/OOD coverage, point-error and runtime
-evaluation have not been performed.
+TabCon reproductions. Their shared ID/OOD coverage, point-error and runtime
+evaluation is [complete and independently verified](evaluation/v2_shared_20261103/results/README.md).
+At 95%, frozen/adapted ID coverage is 96.72%/96.46%, with mean lengths
+0.9547/0.7691. Source-OOD coverage is 94.79%/97.14%; composition-OOD coverage
+is 92.71% for each. Both routes cover the composition holdout more often than
+the custom route, while using longer ID intervals and slower per-table
+inference. Full paired uncertainty, denominators and timing boundaries are
+retained in the linked results.
 
 ## Frozen V3 with a learned NIE error head
 

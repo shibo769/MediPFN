@@ -33,8 +33,9 @@ Its 2,000 positive-gradient steps, 8,000 independent factual mechanisms,
 independent audit. The selected adapter and its matching head/calibration
 passed a full 40-row CPU observed-table restore and are
 [archived](checkpoints/adapter_v3/manifest.json). Production entry points
-inspect the fixture report and pinned runtime identities. Scientific ID/OOD
-evaluation remains a separate pending stage. See the
+inspect the fixture report and pinned runtime identities. Their shared
+scientific ID/OOD evaluation is complete and
+[archived](../evaluation/v2_shared_20261103/results/README.md). See the
 [adaptations model card](../MODEL_CARD_V3_ADAPTATIONS.md). Current execution evidence is maintained
 in [STATUS.md](../STATUS.md).
 
@@ -83,6 +84,6 @@ python -m tabular_backbones.test_v3_runtime \
 Inspect `train_adapter.py` and `train_uncertainty.py` with `--help` before
 choosing fresh output directories and explicit training budgets. Head selection
 uses independent same-source DEV tasks; calibration tasks are generated only
-after the selected head is frozen. Scientific ID/OOD evaluation remains a
-separate stage. The immutable source README and protocol describe the release
+after the selected head is frozen. The completed shared ID/OOD evaluation
+is a separate stage, with no test-driven fitting or calibration. The immutable source README and protocol describe the release
 freeze point; this guide and the root status track subsequent submissions.

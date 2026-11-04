@@ -1,8 +1,9 @@
 # Shared evaluation of three frozen mediation models
 
-**Status: TESTS_SUBMITTED; array execution has begun.**
-Task completion, complete accounting and scientific results remain unverified.
-No comparative performance results are released yet.
+**Status: VERIFIED_COMPLETE (2026-11-04).**
+All 96 actual task-accounting records, the summary and independent audit passed.
+All 3,456 method attempts succeeded; the [complete aggregate results](results/README.md)
+retain ID, source OOD, composition OOD and all three nominal levels.
 
 This snapshot evaluates the completed custom MediPFN v2, frozen TabPFN-v3 with
 its NIE error head, and V3 with the selected cross-task mediation adapter and
@@ -67,10 +68,10 @@ cold processes.
 
 The real GPU fixture passed actual scheduler accounting and the
 [production admission](fixture_admission.json). That fixture does not provide
-scientific coverage, length or speed results. Summary job `8427084` must verify
+scientific coverage, length or speed results. Summary job `8427084` verified
 all 96 actual task-accounting records, identities and attempts. Independent
-audit job `8427085` must then recompute the summary from saved endpoints and
-confirm the actual summary accounting. A released dependency or output file
+audit job `8427085` recomputed every summary cell from saved endpoints and
+confirmed the actual summary accounting. A released dependency or output file
 alone does not satisfy those conditions.
 
 All attempted tables enter coverage, with method failures counted as misses.
