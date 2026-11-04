@@ -1,0 +1,220 @@
+{
+  "schema_version": "0.1",
+  "record_id": "mediation-diaz-et-al-2021-intermediate-confounding-v1",
+  "kind": "synthetic_dgp",
+  "domain": "mediation",
+  "english_display": {},
+  "paper": {
+    "citation": "Díaz, I., Hejazi, N. S., Rudolph, K. E. and van der Laan, M. J. (2021). Non-parametric efficient causal mediation with intermediate confounders. Biometrika 108(3), 627–641. DOI: 10.1093/biomet/asaa085.",
+    "title": null,
+    "doi": "10.1093/biomet/asaa085",
+    "source_url": "https://doi.org/10.1093/biomet/asaa085",
+    "source_file_evidence": [],
+    "venue": "Biometrika",
+    "year": 2021,
+    "source_version": null,
+    "source_locator": "Section 5 Numerical studies, displayed seven-equation DGP; checked against arXiv:1912.09936v2 PDF p.12 (zero-index p.11), lines 693–706. Interventional effect definition Eq. (2), PDF p.5 (zero-index p.4), and identification Eq. (3), PDF p.6."
+  },
+  "mechanism": {
+    "name": "Interventional indirect effect with a treatment-induced binary confounder",
+    "title_en": null,
+    "family_id": "diaz-et-al-2021-binary-intermediate-confounder",
+    "generation_equations": [
+      {
+        "label": "W",
+        "expression": "W1~Bern(0.6), W2|W1~Bern(0.3), W3|W1,W2~Bern(0.2+(W1+W2)/3)"
+      },
+      {
+        "label": "A",
+        "expression": "A|W~Bern(expit(0.25 sum(W)+3W1W2-2))"
+      },
+      {
+        "label": "Z",
+        "expression": "Z|A,W~Bern(expit(sum(W)/3-A-AW3-0.25))"
+      },
+      {
+        "label": "M",
+        "expression": "M|Z,A,W~Bern(expit(W1+W2+A-Z+AZ-0.3AW2))"
+      },
+      {
+        "label": "Y",
+        "expression": "Y|M,Z,A,W~Bern(expit((A-Z+M-AZ)/(sum(W)+1)))"
+      }
+    ],
+    "observed_variables": [
+      {
+        "name": "W1",
+        "role": "covariate",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "W2",
+        "role": "covariate",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "W3",
+        "role": "covariate",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "A",
+        "role": "treatment",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "Z",
+        "role": "post_treatment_confounder",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "M",
+        "role": "mediator",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "Y",
+        "role": "outcome",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      }
+    ],
+    "latent_variables": [],
+    "latent_variables_status": "not_explicitly_specified",
+    "sampling": {
+      "unit": "individual",
+      "dependence": "IID units; W3 depends on W1,W2; A->Z->M->Y within each unit"
+    },
+    "assumptions": [
+      "IID units and no interference",
+      "Sequential Bernoulli structural sampling as displayed in Section 5",
+      "Well-defined stochastic mediator draws conditional on W",
+      "Treatment and mediator positivity",
+      "Interventional rather than natural indirect effect because Z is treatment-induced mediator-outcome confounder"
+    ],
+    "properties": {
+      "dimension": 3,
+      "effective_dimension": 3,
+      "observed_columns": 7,
+      "high_dimensional": false,
+      "interactions": true,
+      "nonlinear": true,
+      "notes": "Binary W1,W2,W3,A,Z,M,Y; A*Z and A*W2 in mediator, A*Z in outcome."
+    }
+  },
+  "estimand": {
+    "name": "IIE_1",
+    "definition": "E[Y(1,G1)-Y(1,G0)], where G_a is an independent draw from M(a)|W, marginalizing the post-treatment Z under treatment a.",
+    "population": null
+  },
+  "scenarios": [
+    {
+      "id": "section_5",
+      "parameters": {
+        "p_w1": 0.6,
+        "p_w2": 0.3,
+        "p_w3_intercept": 0.2,
+        "p_w3_slope": 0.3333333333333333,
+        "treatment_intercept": -2.0,
+        "treatment_w_sum": 0.25,
+        "treatment_w1w2": 3.0,
+        "z_intercept": -0.25,
+        "z_w_sum": 0.3333333333333333,
+        "z_a": -1.0,
+        "z_aw3": -1.0,
+        "m_w1": 1.0,
+        "m_w2": 1.0,
+        "m_a": 1.0,
+        "m_z": -1.0,
+        "m_az": 1.0,
+        "m_aw2": -0.3,
+        "y_a": 1.0,
+        "y_z": -1.0,
+        "y_m": 1.0,
+        "y_az": -1.0,
+        "y_denominator_intercept": 1.0
+      },
+      "truth": {
+        "status": "reported_numeric",
+        "value": 0.03026875404999696,
+        "expression": "E[Y(1,G1)-Y(1,G0)], where G_a is an independent draw from M(a)|W, marginalizing the post-treatment Z under treatment a.",
+        "derivation": "Exact finite-state g-formula for theta(1,1)-theta(1,0), with independent summation implementation.",
+        "evidence": [
+          {
+            "file": "checks/report.json",
+            "location": "execution.scenario_results[section_5].truth"
+          }
+        ]
+      }
+    }
+  ],
+  "source_relation": "adapted_from_source",
+  "adaptations": [
+    "The displayed Section 5 generating equations are reproduced. The preprint prints expit(x)=(1+exp(x))^-1, which conflicts with standard expit and its own logistic formulas; implementation uses exp(x)/(1+exp(x)).",
+    "Target the interventional indirect effect at outcome treatment A=1, with mediator draws G1 and G0 conditional on W; the source studies this class of effects but does not state this derived numeric truth.",
+    "W2|W1 has constant Bernoulli(0.3), hence is sampled independently of W1; no nuisance-model misspecification is counted as another DGP."
+  ],
+  "implementation": {
+    "generator_available": true,
+    "generator_reference": "generator.py",
+    "truth_reference": "truth.py",
+    "source_archive": "mediation-diaz-et-al-2021-intermediate-confounding-v1.zip",
+    "code_check_reported_pass": true,
+    "scientific_acceptance": false,
+    "exported_generator_path": "generators/mediation-diaz-et-al-2021-intermediate-confounding-v1.py",
+    "exported_generator_sha256": "468754ccae407176ddfb640797dc1adce6c8528fabdb24fbf0327254dc9bc829"
+  },
+  "evidence": [
+    {
+      "file": "collection.json",
+      "location": "source, equations, estimand, truth"
+    },
+    {
+      "file": "config.json",
+      "location": "scenarios"
+    },
+    {
+      "file": "source_audit.json",
+      "location": "source review"
+    }
+  ],
+  "provenance": {
+    "mode": "structured_zip",
+    "archive_sha256": "9bf59e49c6eb050b457ecaa3b8a636ffd8651b9319c308994a3642dd594ee463",
+    "collection_sha256": "dcc2ff754304d54b7a77d3a07f2ce35f8712aacc3a4f119f491d986aa80d8183",
+    "provided_source_pdf_verified": false,
+    "source_review_status": "unknown",
+    "submission_file": "incoming/mediation-diaz-et-al-2021-intermediate-confounding-v1.zip",
+    "submitted_zip_sha256": "9bf59e49c6eb050b457ecaa3b8a636ffd8651b9319c308994a3642dd594ee463",
+    "reviewed_original_paper": false,
+    "submitted_by": "github_file_upload"
+  },
+  "review_status": "needs_scientific_review",
+  "warnings": [
+    "No explicit latent-variable metadata or reliably identifiable latent declarations; absence from this list does not prove that no latent variables exist."
+  ],
+  "source_suggested_domain": "mediation",
+  "classification_status": "zip_metadata_unverified",
+  "suggested_secondary_domains": []
+}
+

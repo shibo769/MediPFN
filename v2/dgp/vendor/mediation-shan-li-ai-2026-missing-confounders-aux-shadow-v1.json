@@ -1,0 +1,265 @@
+{
+  "schema_version": "0.1",
+  "record_id": "mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1",
+  "kind": "synthetic_dgp",
+  "domain": "mediation",
+  "english_display": {},
+  "paper": {
+    "citation": "Shan, J., Li, W. and Ai, C. (2026). Efficient Nonparametric Inference for Mediation Analysis with Nonignorable Missing Confounders. Journal of the American Statistical Association, published online 25 June 2026, pages 1-12. DOI: 10.1080/01621459.2026.2654218.",
+    "title": null,
+    "doi": "10.1080/01621459.2026.2654218",
+    "source_url": "https://doi.org/10.1080/01621459.2026.2654218",
+    "source_file_evidence": [],
+    "venue": "Journal of the American Statistical Association",
+    "year": 2026,
+    "source_version": null,
+    "source_locator": "Section 5 'Numerical studies', the displayed data-generating process and the DGP1 branch; arXiv:2402.05384 PDF page 14. Estimand definitions: Section 2.1, PDF page 4 (NIE xi(t), NDE zeta(t), ATE tau) and the mediation functional theta = E[Y(1, M(0))] with its identification formula (1) on PDF page 5. Figure 2 and its printed axis ranges: PDF page 15. Reported missingness split of about 58/14/14/14 per cent: PDF page 14. Page numbers are preprint PDF pages; the article is online first and carries no journal page numbers beyond 1-12."
+  },
+  "mechanism": {
+    "name": "Mediation functional under nonignorable missing confounders with residual-dependent missingness and external shadow variables",
+    "title_en": null,
+    "family_id": "shan-li-ai-2026-nonignorable-missing-confounders-residual-dependent",
+    "generation_equations": [
+      {
+        "label": "covariates",
+        "expression": "X1 = Phi(eps1), X2 = Phi(eps2) (both Uniform(0,1)), X3 ~ Bernoulli(0.5)"
+      },
+      {
+        "label": "treatment",
+        "expression": "T ~ Bernoulli(expit(0.1 + X1^2 - X2 + 0.2 X3))"
+      },
+      {
+        "label": "mediator",
+        "expression": "M = -1 + T - T X1^2 + 4 X1^2 - sin(X2) + X3 + eps3"
+      },
+      {
+        "label": "outcome",
+        "expression": "Y = -1 + T + 3 T M - 1.5 M + T X1 + 5 sin(X1) - 2 X2^2 + X3 + eps4"
+      },
+      {
+        "label": "missingness patterns",
+        "expression": "(R1,R2) ~ Multinomial(p11, p10, p01, p00), p11 = 1/(1 + 3 exp(-U)), p10 = p01 = p00 = 1/(exp(U) + 3)"
+      },
+      {
+        "label": "mediation functional",
+        "expression": "theta = E[Y(1, M(0))] = 3.192275262794844"
+      }
+    ],
+    "observed_variables": [
+      {
+        "name": "R1",
+        "role": "observation_indicator",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "R2",
+        "role": "observation_indicator",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "X1_obs0",
+        "role": "covariate_masked",
+        "dtype": "float",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "X2_obs0",
+        "role": "covariate_masked",
+        "dtype": "float",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "X3",
+        "role": "covariate",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "Z1",
+        "role": "shadow_variable",
+        "dtype": "float",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "Z2",
+        "role": "shadow_variable",
+        "dtype": "float",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "T",
+        "role": "treatment",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "M",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "Y",
+        "role": "outcome",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      }
+    ],
+    "latent_variables": [],
+    "latent_variables_status": "not_explicitly_specified",
+    "sampling": {
+      "unit": "independent individual",
+      "dependence": "i.i.d. across units; no interference, no clustering and no panel structure. Missingness patterns are drawn independently across units given each unit's own covariates, treatment and noises."
+    },
+    "assumptions": [
+      "Consistency: Y = Y(T, M(T)) and M = M(T), as the source states before its Assumption 1.",
+      "Sequential ignorability (source Assumption 1): {Y(t,m), M(t')} independent of T given X, and Y(t',m) independent of M(t) given T = t and X. This is a cross-world condition and is not testable from the data.",
+      "Positivity (source Assumption 2): f(t|x) > 0 and f(m|t,x) > 0. The logistic propensity is bounded inside (0,1) on the compact covariate support, but no uniform overlap bound is claimed for the complete-case missingness pattern.",
+      "Independent individuals; no interference, no grouping and no panel structure.",
+      "The registered target is a FULL-DATA functional. Whether it is identifiable from the observed data requires the source's shadow-variable condition, which this contribution does not assert and does not verify."
+    ],
+    "properties": {
+      "dimension": 5,
+      "effective_dimension": 3,
+      "high_dimensional": false,
+      "interactions": true,
+      "nonlinear": true,
+      "notes": "Three covariates X1, X2 ~ Uniform(0,1) independently (as Phi of a standard normal) and X3 ~ Bernoulli(0.5); all three enter the propensity, the mediator and the outcome, so effective_dimension = 3. dimension = 5 counts the three covariates plus the two external auxiliary shadow variables Z1, Z2, which are generated columns of the mechanism rather than confounders. Not high dimensional. interactions = true: the mediator equation contains T * X1^2 and the outcome equation contains T * M and T * X1, and the missingness index contains T * eps3. nonlinear = true: a logistic propensity, the squares X1^2 and X2^2 and the sines sin(X1), sin(X2). About 58 per cent of units have both partially observed covariates present and each of the three incomplete patterns occurs in about 14 per cent, which is the split the source reports."
+    }
+  },
+  "estimand": {
+    "name": "MF theta = E[Y(1, M(0))]",
+    "definition": "Mediation functional: the mean potential outcome when treatment is set to 1 while the mediator is set to the value it would have taken under treatment 0, theta = E[Y(1, M(0))]. The source calls this the fundamental quantity and derives the natural indirect effect xi(1) = E[Y(1,M(1))] - theta, the natural direct effect zeta(0) = theta - E[Y(0,M(0))] and the total effect tau = xi(1) + zeta(0) from it. theta is a cross-world mean and is NOT an indirect effect, NOT a direct effect and NOT a total effect.",
+    "population": null
+  },
+  "scenarios": [
+    {
+      "id": "dgp1_auxiliary_shadow",
+      "parameters": {
+        "x3_probability": 0.5,
+        "propensity_intercept": 0.1,
+        "propensity_x1_squared": 1.0,
+        "propensity_x2": -1.0,
+        "propensity_x3": 0.2,
+        "mediator_intercept": -1.0,
+        "mediator_treatment": 1.0,
+        "mediator_treatment_x1_squared": -1.0,
+        "mediator_x1_squared": 4.0,
+        "mediator_sin_x2": -1.0,
+        "mediator_x3": 1.0,
+        "mediator_noise_sd": 1.0,
+        "outcome_intercept": -1.0,
+        "outcome_treatment": 1.0,
+        "outcome_treatment_mediator": 3.0,
+        "outcome_mediator": -1.5,
+        "outcome_treatment_x1": 1.0,
+        "outcome_sin_x1": 5.0,
+        "outcome_x2_squared": -2.0,
+        "outcome_x3": 1.0,
+        "outcome_noise_sd": 1.0,
+        "incomplete_pattern_count": 3,
+        "missing_fill_value": 0.0,
+        "missingness_x1": 3.0,
+        "missingness_x2": 1.0,
+        "missingness_x3": -1.0,
+        "missingness_treatment_times_mediator_noise": 0.5,
+        "missingness_outcome_noise": 0.1,
+        "shadow_correlation": 0.6,
+        "missingness_form": "dgp1_residual_dependent",
+        "shadow_variables": "auxiliary",
+        "target": "MF",
+        "source_n": [
+          1000,
+          2000
+        ]
+      },
+      "truth": {
+        "status": "reported_numeric",
+        "value": 3.192275262794844,
+        "expression": "Mediation functional: the mean potential outcome when treatment is set to 1 while the mediator is set to the value it would have taken under treatment 0, theta = E[Y(1, M(0))]. The source calls this the fundamental quantity and derives the natural indirect effect xi(1) = E[Y(1,M(1))] - theta, the natural direct effect zeta(0) = theta - E[Y(0,M(0))] and the total effect tau = xi(1) + zeta(0) from it. theta is a cross-world mean and is NOT an indirect effect, NOT a direct effect and NOT a total effect.",
+        "derivation": "Closed form. X1 and X2 are Uniform(0,1) by the probability integral transform and X3 is Bernoulli, and both structural equations are additive with mean-zero noise, so theta reduces to the exact moments E[Xj] = 1/2, E[Xj^2] = 1/3, E[sin Xj] = 1 - cos(1) and E[X3]. Cross-checked by order-200 product Gauss-Legendre quadrature over the covariate cube and by a 400000-unit structural simulation of the nested counterfactual. The source prints no numerical truth, so this value is DERIVED by the collector; it is consistent with the vertical axis range of the matching panel of the source's Figure 2.",
+        "evidence": [
+          {
+            "file": "checks/report.json",
+            "location": "execution.scenario_results[dgp1_auxiliary_shadow].truth"
+          }
+        ]
+      }
+    }
+  ],
+  "source_relation": "adapted_from_source",
+  "adaptations": [
+    "Version used: the arXiv:2402.05384 preprint dated 2025-12-16. The publisher's typeset article was not accessible to the collector, so the locator points at the preprint and at the Crossref record for the DOI; the article is online first, so no volume or issue number exists yet and pages are given as 1-12.",
+    "The source names four estimands (the mediation functional theta, NIE xi(1), NDE zeta(0) and ATE tau) and prints no table of their true values; it draws them as solid lines in its Figure 2. This contribution registers theta, which the source calls the fundamental quantity, and carries the other three through verify.py so the target cannot be confused with them.",
+    "MECHANISM SLICING: the source gives two missingness mechanisms over one shared full-data law and pairs each with a different shadow-variable strategy. This contribution registers DGP1, where the missingness index carries 0.5 T eps3 and 0.1 eps4 - the noises of M and Y - so M and Y cannot serve as shadow variables and the source constructs two external auxiliary variables Z1, Z2. The sibling contribution mediation-shan-li-ai-2026-missing-confounders-internal-shadow-v1 registers DGP2. The two share the full-data law and therefore the registered value, but differ in the observed-data law: a different missingness mechanism and a different observed column set (10 columns here against 8 there). They carry different mechanism_family_id values for that reason.",
+    "MISSING-DATA ENCODING: the numeric-table interface requires every declared column to be finite and of equal length, so a partially observed covariate is exported as the pair (Rj, Xj_obs0) with Xj_obs0 = Rj * Xj. The value 0 is a declared transport fill, NOT an imputed datum and NOT an observed zero; Xj is Uniform(0,1) so an observed value is almost surely strictly positive, and the indicator recovers the pattern exactly. The complete covariate values of units with Rj = 0 are never returned.",
+    "The source's missingness formulas carry a constant 3, which equals the number of incomplete patterns rather than a tunable weight: p11 / p_kl = exp(U) and p11 + 3 p_kl = 1 identically. incomplete_pattern_count is therefore pinned to 3 and the generator refuses any other value.",
+    "Not reproduced: the source's SIO sieve estimator, its polynomial sieve basis and data-driven sieve dimension selection, and the Oracle, MI and CCA comparison estimators. All of those are estimation machinery applied to the same data and none is registered as a mechanism. The supplementary studies of Appendix G (high-dimensional covariates with debiased machine learning, missing-at-random variants, a trimming comparison) are not registered either; their parameters are not in the main text available to the collector.",
+    "Sampling is re-implemented with NumPy Generator(PCG64); no attempt is made to match the source software draw for draw. The source runs n = 1000 and n = 2000 with 500 replications, which is recorded in the configuration but not reproduced here."
+  ],
+  "implementation": {
+    "generator_available": true,
+    "generator_reference": "generator.py",
+    "truth_reference": "truth.py",
+    "source_archive": "mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1.zip",
+    "code_check_reported_pass": true,
+    "scientific_acceptance": false,
+    "exported_generator_path": "generators/mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1.py",
+    "exported_generator_sha256": "5f92f805e44762ee000df68992889cb5729812267ad0f77f4a4f5c34fbfe97d1"
+  },
+  "evidence": [
+    {
+      "file": "collection.json",
+      "location": "source, equations, estimand, truth"
+    },
+    {
+      "file": "config.json",
+      "location": "scenarios"
+    },
+    {
+      "file": "source_audit.json",
+      "location": "source review"
+    }
+  ],
+  "provenance": {
+    "mode": "structured_zip",
+    "archive_sha256": "ebd36d1d3f00e0aaece7804e8d5ec237d71edff59e77549ca8c93dfc58edd544",
+    "collection_sha256": "c682a25e820b7a5d69fb3e9df6ff830b8f9444158bfe9a5fd4307fc374fd8f31",
+    "provided_source_pdf_verified": false,
+    "source_review_status": "AI-assisted source audit by the collector; named human scientific review and independent-person reproduction pending",
+    "submission_file": "incoming/mediation-shan-li-ai-2026-missing-confounders-aux-shadow-v1.zip",
+    "submitted_zip_sha256": "ebd36d1d3f00e0aaece7804e8d5ec237d71edff59e77549ca8c93dfc58edd544",
+    "reviewed_original_paper": false,
+    "submitted_by": "github_file_upload"
+  },
+  "review_status": "needs_scientific_review",
+  "warnings": [
+    "No explicit latent-variable metadata or reliably identifiable latent declarations; absence from this list does not prove that no latent variables exist."
+  ],
+  "source_suggested_domain": "mediation",
+  "classification_status": "zip_metadata_unverified",
+  "suggested_secondary_domains": []
+}
+

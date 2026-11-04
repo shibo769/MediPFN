@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "tests": 12,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 2.952999999997701,
+  "source_commit": "8182caf7185845a31a2122e032811bb2254d6342",
+  "train_sources": [
+    "cheng",
+    "diaz_hejazi",
+    "diaz_intermediate",
+    "he_song_xu",
+    "jones_lnl",
+    "jones_lnn",
+    "jones_correlated",
+    "miles",
+    "shan",
+    "zuo"
+  ],
+  "ood_source": [
+    "eric",
+    "xia_binary",
+    "xia_continuous"
+  ],
+  "ood_composition": [
+    "jones_nnn"
+  ]
+}

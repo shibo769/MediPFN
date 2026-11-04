@@ -1,0 +1,232 @@
+{
+  "schema_version": "0.1",
+  "record_id": "nie-eric-original-v1",
+  "kind": "synthetic_dgp",
+  "domain": "mediation",
+  "english_display": {},
+  "paper": {
+    "citation": "Tchetgen Tchetgen, E. J. and Shpitser, I. (2012). Semiparametric theory for causal mediation analysis: efficiency bounds, multiple robustness and sensitivity analysis. The Annals of Statistics 40(3), 1816–1845. DOI: 10.1214/12-AOS990.",
+    "title": null,
+    "doi": null,
+    "source_url": "https://arxiv.org/abs/1210.4654v1",
+    "source_file_evidence": [],
+    "venue": "The Annals of Statistics",
+    "year": 2012,
+    "source_version": "arXiv:1210.4654v1, 2012-10-17, electronic reprint; retrieved 2026-10-23",
+    "source_locator": "Section 3, electronic-reprint PDF page 13: Model.X, Model.E, Model.M, Model.Y. NIE definition: equation (1), PDF page 2."
+  },
+  "mechanism": {
+    "name": "Natural indirect effect in the Tchetgen Tchetgen–Shpitser mediation design",
+    "title_en": null,
+    "family_id": "tchetgen-shpitser-2012-logistic-mediation",
+    "generation_equations": [
+      {
+        "label": "Baseline X1",
+        "expression": "X1 ~ Bernoulli(0.4)"
+      },
+      {
+        "label": "Baseline X2",
+        "expression": "X2 | X1 ~ Bernoulli(0.3 + 0.4 X1)"
+      },
+      {
+        "label": "Baseline X3",
+        "expression": "X3 | X1,X2 ~ Normal(-0.024 - 0.4 X1 + 0.4 X2, 1)"
+      },
+      {
+        "label": "Treatment",
+        "expression": "logit P(A=1|X) = 0.4 + X1 - X2 + 0.1 X3 - 1.5 X1 X3"
+      },
+      {
+        "label": "Mediator",
+        "expression": "logit P(M=1|A,X) = 0.5 - X1 + 0.5 X2 - 0.9 X3 - 1.5 X1 X3 + A"
+      },
+      {
+        "label": "Outcome",
+        "expression": "Y = 1 + 0.2 X1 + 0.3 X2 + 1.4 X3 - 2.5 A - 3.5 M + 5 A M + epsilon; epsilon ~ Normal(0,1)"
+      }
+    ],
+    "observed_variables": [
+      {
+        "name": "X1",
+        "role": "covariate",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "X2",
+        "role": "covariate",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "X3",
+        "role": "covariate",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "A",
+        "role": "treatment",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "M",
+        "role": "mediator",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "Y",
+        "role": "outcome",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      }
+    ],
+    "latent_variables": [],
+    "latent_variables_status": "not_explicitly_specified",
+    "sampling": {
+      "unit": "individual",
+      "dependence": "iid"
+    },
+    "assumptions": [
+      "Consistency and well-defined treatment/mediator interventions",
+      "Independent individuals; no interference",
+      "Treatment exchangeability conditional on X",
+      "Mediator–outcome exchangeability conditional on A,X and the required cross-world condition",
+      "No treatment-induced mediator–outcome confounder in this simple natural-effect design",
+      "Treatment and mediator positivity on the declared support; tail overlap may still be poor in finite samples"
+    ],
+    "properties": {
+      "dimension": 3,
+      "effective_dimension": 3,
+      "observed_columns": 6,
+      "high_dimensional": false,
+      "interactions": true,
+      "nonlinear": true,
+      "notes": "X1*X3 in treatment/mediator logits; A*M in the outcome. Nonlinearity is the logistic link, not a nonlinear continuous outcome surface. X variables are dependent. All three baseline covariates affect the mechanism."
+    }
+  },
+  "estimand": {
+    "name": "theta_NIE = theta_11 - theta_10",
+    "definition": "E[Y(1,M(1)) - Y(1,M(0))] in the superpopulation defined by the fixed DGP.",
+    "population": null
+  },
+  "scenarios": [
+    {
+      "id": "original",
+      "parameters": {
+        "x1_probability": 0.4,
+        "x2_coefficients": [
+          0.3,
+          0.4
+        ],
+        "x3_coefficients": [
+          -0.024,
+          -0.4,
+          0.4
+        ],
+        "x3_sd": 1.0,
+        "treatment_coefficients": [
+          0.4,
+          1.0,
+          -1.0,
+          0.1,
+          -1.5
+        ],
+        "mediator_coefficients": [
+          0.5,
+          -1.0,
+          0.5,
+          -0.9,
+          -1.5
+        ],
+        "mediator_treatment_coefficient": 1.0,
+        "outcome_coefficients": [
+          1.0,
+          0.2,
+          0.3,
+          1.4,
+          -2.5,
+          -3.5,
+          5.0
+        ],
+        "outcome_noise_sd": 1.0
+      },
+      "truth": {
+        "status": "reported_numeric",
+        "value": 0.2366199012683949,
+        "expression": "E[Y(1,M(1)) - Y(1,M(0))] in the superpopulation defined by the fixed DGP.",
+        "derivation": "Enumerate X1,X2 and use 64/128-point Gauss–Hermite quadrature for conditional Gaussian X3; independently compare composite Simpson integration.",
+        "evidence": [
+          {
+            "file": "contributions/nie-eric-original-v1/checks/report.json",
+            "location": "execution.scenario_results[original].truth"
+          }
+        ]
+      }
+    }
+  ],
+  "source_relation": "adapted_from_source",
+  "adaptations": [
+    "Keep the Section 3 observed-data equations and fixed parameters unchanged; rename exposure E to A.",
+    "Evaluate NIE = theta_11 - theta_10, whereas the Section 3 simulation compares natural direct-effect estimators.",
+    "Use small CPU checks instead of reproducing the paper's entire n=600/1000, R=1000 simulation or any PFN experiment.",
+    "Promote the existing student-toolkit example to contributions; generator.py, truth.py, verify.py and config.json are copied unchanged. This is an existing example-family registration, not a newly discovered mechanism."
+  ],
+  "implementation": {
+    "generator_available": true,
+    "generator_reference": "contributions/nie-eric-original-v1/generator.py",
+    "truth_reference": "contributions/nie-eric-original-v1/truth.py",
+    "source_archive": "contributions.zip",
+    "code_check_reported_pass": true,
+    "scientific_acceptance": false,
+    "exported_generator_path": "generators/nie-eric-original-v1.py",
+    "exported_generator_sha256": "7c33d3584e976a5a0ea7796df15b84d433172283544c42483be3888b807ee2a4"
+  },
+  "evidence": [
+    {
+      "file": "contributions/nie-eric-original-v1/collection.json",
+      "location": "source, equations, estimand, truth"
+    },
+    {
+      "file": "contributions/nie-eric-original-v1/config.json",
+      "location": "scenarios"
+    },
+    {
+      "file": "contributions/nie-eric-original-v1/source_audit.json",
+      "location": "source review"
+    }
+  ],
+  "provenance": {
+    "mode": "structured_zip",
+    "archive_sha256": "b9defbcbdc8290f7cf489d5227113adc705be56fb7feb187cc3d99aea399f908",
+    "collection_sha256": "9fd139ee2e77e21704163504e7d33f2768517d231a6293531127492f9faefce7",
+    "provided_source_pdf_verified": false,
+    "source_review_status": "AI source inspection completed; named human scientific verification pending",
+    "submission_file": "incoming/contributions.zip",
+    "submitted_zip_sha256": "b9defbcbdc8290f7cf489d5227113adc705be56fb7feb187cc3d99aea399f908",
+    "reviewed_original_paper": false,
+    "submitted_by": "github_file_upload"
+  },
+  "review_status": "needs_scientific_review",
+  "warnings": [
+    "No explicit latent-variable metadata or reliably identifiable latent declarations; absence from this list does not prove that no latent variables exist."
+  ],
+  "source_suggested_domain": "mediation",
+  "classification_status": "zip_metadata_unverified",
+  "suggested_secondary_domains": []
+}
+

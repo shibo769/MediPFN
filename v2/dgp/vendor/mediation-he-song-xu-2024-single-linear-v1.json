@@ -1,0 +1,282 @@
+{
+  "schema_version": "0.1",
+  "record_id": "mediation-he-song-xu-2024-single-linear-v1",
+  "kind": "synthetic_dgp",
+  "domain": "mediation",
+  "english_display": {},
+  "paper": {
+    "citation": "He, Y., Song, P. X.-K. and Xu, G. (2024). Adaptive Bootstrap Tests for Composite Null Hypotheses in the Mediation Pathway Analysis. Journal of the Royal Statistical Society: Series B 86(2), 411–434. DOI: 10.1093/jrsssb/qkad129.",
+    "title": null,
+    "doi": "10.1093/jrsssb/qkad129",
+    "source_url": "https://doi.org/10.1093/jrsssb/qkad129",
+    "source_file_evidence": [],
+    "venue": "Journal of the Royal Statistical Society: Series B",
+    "year": 2024,
+    "source_version": null,
+    "source_locator": "Journal §4 Numerical Experiments, equation (11), fixed null scenarios (12), §4.2 fixed-product 0.04 alternative; arXiv:2310.11630v1 PDF pp.10–12 (zero-index 9–11). NIE definition equation (1), preprint PDF p.4."
+  },
+  "mechanism": {
+    "name": "Single linear mediator with independent mixed-type baseline covariates",
+    "title_en": null,
+    "family_id": "he-song-xu-2024-single-linear-mixed-baseline",
+    "generation_equations": [
+      {
+        "label": "Baseline",
+        "expression": "A~Bern(0.5), X1~N(0,1), X2~Bern(0.5), independently"
+      },
+      {
+        "label": "Mediator",
+        "expression": "M=alpha_S A+1+X1+X2+epsilon_M, epsilon_M~N(0,0.5^2)"
+      },
+      {
+        "label": "Outcome",
+        "expression": "Y=beta_M M+1+X1+X2+A+epsilon_Y, epsilon_Y~N(0,0.5^2), independent of epsilon_M"
+      }
+    ],
+    "observed_variables": [
+      {
+        "name": "X1",
+        "role": "covariate",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "X2",
+        "role": "covariate",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "A",
+        "role": "treatment",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "M",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "Y",
+        "role": "outcome",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      }
+    ],
+    "latent_variables": [],
+    "latent_variables_status": "not_explicitly_specified",
+    "sampling": {
+      "unit": "individual",
+      "dependence": "iid"
+    },
+    "assumptions": [
+      "Consistency and no interference",
+      "IID individuals",
+      "Independent exposure and baseline covariates",
+      "Independent mediator and outcome errors",
+      "No unmeasured mediator-outcome confounding",
+      "Positivity for binary exposure"
+    ],
+    "properties": {
+      "dimension": 2,
+      "effective_dimension": 2,
+      "observed_columns": 5,
+      "high_dimensional": false,
+      "interactions": false,
+      "nonlinear": false,
+      "notes": "X1 is Gaussian and X2 is Bernoulli; both enter M and Y linearly. Different alpha/beta null and power values are one mechanism family."
+    }
+  },
+  "estimand": {
+    "name": "NIE_1",
+    "definition": "E[Y(1,M(1))-Y(1,M(0))] in the source SEM superpopulation; exposure S is named A in data columns.",
+    "population": null
+  },
+  "scenarios": [
+    {
+      "id": "fixed_product_004_ratio_1",
+      "parameters": {
+        "alpha_s": 0.2,
+        "beta_m": 0.2,
+        "x1_sd": 1.0,
+        "x2_probability": 0.5,
+        "treatment_probability": 0.5,
+        "mediator_intercept": 1.0,
+        "mediator_x1": 1.0,
+        "mediator_x2": 1.0,
+        "mediator_noise_sd": 0.5,
+        "outcome_intercept": 1.0,
+        "outcome_x1": 1.0,
+        "outcome_x2": 1.0,
+        "outcome_direct": 1.0,
+        "outcome_noise_sd": 0.5
+      },
+      "truth": {
+        "status": "reported_numeric",
+        "value": 0.04000000000000001,
+        "expression": "E[Y(1,M(1))-Y(1,M(0))] in the source SEM superpopulation; exposure S is named A in data columns.",
+        "derivation": "Closed-form alpha_S*beta_M; independent counterfactual structural substitution.",
+        "evidence": [
+          {
+            "file": "checks/report.json",
+            "location": "execution.scenario_results[fixed_product_004_ratio_1].truth"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fixed_null_h01",
+      "parameters": {
+        "alpha_s": 0.0,
+        "beta_m": 0.5,
+        "x1_sd": 1.0,
+        "x2_probability": 0.5,
+        "treatment_probability": 0.5,
+        "mediator_intercept": 1.0,
+        "mediator_x1": 1.0,
+        "mediator_x2": 1.0,
+        "mediator_noise_sd": 0.5,
+        "outcome_intercept": 1.0,
+        "outcome_x1": 1.0,
+        "outcome_x2": 1.0,
+        "outcome_direct": 1.0,
+        "outcome_noise_sd": 0.5
+      },
+      "truth": {
+        "status": "reported_numeric",
+        "value": 0.0,
+        "expression": "E[Y(1,M(1))-Y(1,M(0))] in the source SEM superpopulation; exposure S is named A in data columns.",
+        "derivation": "Closed-form alpha_S*beta_M; independent counterfactual structural substitution.",
+        "evidence": [
+          {
+            "file": "checks/report.json",
+            "location": "execution.scenario_results[fixed_null_h01].truth"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fixed_null_h02",
+      "parameters": {
+        "alpha_s": 0.5,
+        "beta_m": 0.0,
+        "x1_sd": 1.0,
+        "x2_probability": 0.5,
+        "treatment_probability": 0.5,
+        "mediator_intercept": 1.0,
+        "mediator_x1": 1.0,
+        "mediator_x2": 1.0,
+        "mediator_noise_sd": 0.5,
+        "outcome_intercept": 1.0,
+        "outcome_x1": 1.0,
+        "outcome_x2": 1.0,
+        "outcome_direct": 1.0,
+        "outcome_noise_sd": 0.5
+      },
+      "truth": {
+        "status": "reported_numeric",
+        "value": 0.0,
+        "expression": "E[Y(1,M(1))-Y(1,M(0))] in the source SEM superpopulation; exposure S is named A in data columns.",
+        "derivation": "Closed-form alpha_S*beta_M; independent counterfactual structural substitution.",
+        "evidence": [
+          {
+            "file": "checks/report.json",
+            "location": "execution.scenario_results[fixed_null_h02].truth"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fixed_null_h03",
+      "parameters": {
+        "alpha_s": 0.0,
+        "beta_m": 0.0,
+        "x1_sd": 1.0,
+        "x2_probability": 0.5,
+        "treatment_probability": 0.5,
+        "mediator_intercept": 1.0,
+        "mediator_x1": 1.0,
+        "mediator_x2": 1.0,
+        "mediator_noise_sd": 0.5,
+        "outcome_intercept": 1.0,
+        "outcome_x1": 1.0,
+        "outcome_x2": 1.0,
+        "outcome_direct": 1.0,
+        "outcome_noise_sd": 0.5
+      },
+      "truth": {
+        "status": "reported_numeric",
+        "value": 0.0,
+        "expression": "E[Y(1,M(1))-Y(1,M(0))] in the source SEM superpopulation; exposure S is named A in data columns.",
+        "derivation": "Closed-form alpha_S*beta_M; independent counterfactual structural substitution.",
+        "evidence": [
+          {
+            "file": "checks/report.json",
+            "location": "execution.scenario_results[fixed_null_h03].truth"
+          }
+        ]
+      }
+    }
+  ],
+  "source_relation": "adapted_from_source",
+  "adaptations": [
+    "Retain the published linear SEM and baseline/noise constants. Register the three fixed null configurations from equation (12) as scenarios of one family.",
+    "Choose alpha_S=beta_M=0.2 from the §4.2 fixed-product 0.04 alternative at ratio one; this particular point is a disclosed selection from the paper's continuous power setting, not a new family.",
+    "Report the population natural NIE alpha_S*beta_M rather than the paper's bootstrap test performance."
+  ],
+  "implementation": {
+    "generator_available": true,
+    "generator_reference": "generator.py",
+    "truth_reference": "truth.py",
+    "source_archive": "mediation-he-song-xu-2024-single-linear-v1.zip",
+    "code_check_reported_pass": true,
+    "scientific_acceptance": false,
+    "exported_generator_path": "generators/mediation-he-song-xu-2024-single-linear-v1.py",
+    "exported_generator_sha256": "882ac9277e21703f31f2935921948ab7b77fcac6e5598ab5f20eeca197bc213b"
+  },
+  "evidence": [
+    {
+      "file": "collection.json",
+      "location": "source, equations, estimand, truth"
+    },
+    {
+      "file": "config.json",
+      "location": "scenarios"
+    },
+    {
+      "file": "source_audit.json",
+      "location": "source review"
+    }
+  ],
+  "provenance": {
+    "mode": "structured_zip",
+    "archive_sha256": "276ecb7384380d94e973bd5fae2ffb138663d18daf768b3d7177d7e41cfd1505",
+    "collection_sha256": "fd4712f00eae45ad12efb43599f22313b87c75d739d717098fb27c72658a2210",
+    "provided_source_pdf_verified": false,
+    "source_review_status": "unknown",
+    "submission_file": "incoming/mediation-he-song-xu-2024-single-linear-v1.zip",
+    "submitted_zip_sha256": "276ecb7384380d94e973bd5fae2ffb138663d18daf768b3d7177d7e41cfd1505",
+    "reviewed_original_paper": false,
+    "submitted_by": "github_file_upload"
+  },
+  "review_status": "needs_scientific_review",
+  "warnings": [
+    "No explicit latent-variable metadata or reliably identifiable latent declarations; absence from this list does not prove that no latent variables exist."
+  ],
+  "source_suggested_domain": "mediation",
+  "classification_status": "zip_metadata_unverified",
+  "suggested_secondary_domains": []
+}
+

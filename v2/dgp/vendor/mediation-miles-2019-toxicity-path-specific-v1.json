@@ -1,0 +1,261 @@
+{
+  "schema_version": "0.1",
+  "record_id": "mediation-miles-2019-toxicity-path-specific-v1",
+  "kind": "synthetic_dgp",
+  "domain": "mediation",
+  "english_display": {},
+  "paper": {
+    "citation": "Miles, C. H., Shpitser, I., Kanki, P., Meloni, S. and Tchetgen Tchetgen, E. J. (2019). On semiparametric estimation of a path-specific effect in the presence of mediator-outcome confounding. Biometrika 107(1), 159-172. DOI: 10.1093/biomet/asz063.",
+    "title": null,
+    "doi": "10.1093/biomet/asz063",
+    "source_url": "https://doi.org/10.1093/biomet/asz063",
+    "source_file_evidence": [],
+    "venue": "Biometrika",
+    "year": 2019,
+    "source_version": null,
+    "source_locator": "Section 5 'Simulation study', arXiv:1710.02011v1 PDF pages 12-13: the displayed data-generating mechanism for (C0, A, C1, M, Y). Estimand beta_0 and the path-specific effect P_AMY are defined in Section 2, PDF pages 4-5; the identification formula is equation (1), PDF page 5."
+  },
+  "mechanism": {
+    "name": "Path-specific effect along A to M to Y with a treatment-induced mediator-outcome confounder vector",
+    "title_en": null,
+    "family_id": "miles-2019-toxicity-adherence-path-specific",
+    "generation_equations": [
+      {
+        "label": "Baseline covariate",
+        "expression": "C0 ~ Uniform(0, 2)"
+      },
+      {
+        "label": "Exposure",
+        "expression": "A | C0 ~ Bernoulli(1 - {1 + exp(0.9 + 0.3 C0)}^{-1}) = Bernoulli(expit(0.9 + 0.3 C0))"
+      },
+      {
+        "label": "Treatment-induced confounder vector",
+        "expression": "C1 = (0.8, 0.6, -0.3)^T + (1, 0.1, 0.2)^T C0 + (0.5, -0.4, 0.5)^T A + (-0.1, 0.8, -0.2)^T C0 A + N(0, I_3)"
+      },
+      {
+        "label": "Mediator",
+        "expression": "M = -0.5 - 0.2 C0 + 0.3 A + [-0.2, 0.1, 0.5] C1 + [0.4, 0, 0] A C1 + N(0, 1)"
+      },
+      {
+        "label": "Outcome",
+        "expression": "Y = 0.2 + 0.2 C0 + 0.6 A + [1, 0.7, 0.3] C1 - 0.9 M - 0.8 A M + N(0, 1)"
+      },
+      {
+        "label": "Identification formula (source equation (1))",
+        "expression": "beta_0 = int int int E(Y|m, c1, a', c0) dF(m|c1, a, c0) dF(c1|a', c0) dF(c0)"
+      }
+    ],
+    "observed_variables": [
+      {
+        "name": "C0",
+        "role": "covariate",
+        "dtype": "float",
+        "min": "0",
+        "max": "2",
+        "observed": "true"
+      },
+      {
+        "name": "A",
+        "role": "exposure",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "C11",
+        "role": "treatment_induced_confounder",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "C12",
+        "role": "treatment_induced_confounder",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "C13",
+        "role": "treatment_induced_confounder",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "M",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "Y",
+        "role": "outcome",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      }
+    ],
+    "latent_variables": [],
+    "latent_variables_status": "explicit_structured_metadata",
+    "sampling": {
+      "unit": "individual",
+      "dependence": "iid individuals; C0, then A, then the three-vector C1, then M, then Y are generated in temporal order within an individual"
+    },
+    "assumptions": [
+      "Consistency, and nested counterfactuals are well defined, as assumed by the source",
+      "Independent and identically distributed individuals; no interference",
+      "No unmeasured confounding of the exposure-outcome and mediator-outcome relationships, i.e. the relaxed Markovian model of the source's Figure 1(b)",
+      "Positivity as stated by the source: the conditional densities of M given (C1, A, C0) and of C1 given (A, C0) are bounded away from zero almost everywhere, and 0 < f(a|C0) < 1 almost everywhere",
+      "C1 is a treatment-induced mediator-outcome confounder, so it must be adjusted for in the outcome regression and must be kept at its a'-counterfactual value inside the nested expectation",
+      "Positivity for the exposure holds pointwise: expit(0.9 + 0.3 C0) lies in (0.71, 0.82) over the support C0 in [0, 2]"
+    ],
+    "properties": {
+      "dimension": 1,
+      "effective_dimension": 1,
+      "high_dimensional": false,
+      "interactions": true,
+      "nonlinear": true,
+      "notes": "One baseline covariate C0 ~ Uniform(0, 2), which enters the exposure, the C1, the mediator and the outcome equations, so dimension = effective_dimension = 1. The three-dimensional vector C1 is a treatment-induced confounder, i.e. post-treatment, and is deliberately NOT counted as a baseline covariate. Not high dimensional: one baseline covariate and three post-treatment confounders against the source sample size n = 5000. interactions = true for three explicit products: C0*A in the C1 equation, A*C1_1 in the mediator equation (coefficient vector [0.4, 0, 0]) and A*M in the outcome equation. nonlinear = true for the logistic exposure link only; the C1, M and Y conditional means are linear in their arguments."
+    }
+  },
+  "estimand": {
+    "name": "P_AMY = E(Y[M{a, C1(a')}, C1(a'), a']) - E[Y(a')]",
+    "definition": "The path-specific effect of A on Y along the path A -> M -> Y, as defined in Section 2 of the source. It is the CONTRAST of two nested counterfactual means: in both arms the treatment-induced confounder vector C1 and the outcome are held at the reference level a' = 0, and only the exposure level fed to the mediator equation moves, from a' = 0 to a = 1. Writing beta_0 = E(Y[M{a, C1(a')}, C1(a'), a']) for the moved arm and E[Y(a')] for the unmoved arm, P_AMY = beta_0 - E[Y(a')]. beta_0 on its own is a counterfactual MEAN, not an effect, and is registered only as a component; the source's Figure 2 plots beta_0, which is why that figure is used as coding evidence rather than as the target. P_AMY is NOT a natural indirect effect, NOT a natural direct effect and NOT a total effect; keeping C1 at a' inside the mediator counterfactual is what distinguishes it from the standard natural effects.",
+    "population": null
+  },
+  "scenarios": [
+    {
+      "id": "original",
+      "parameters": {
+        "baseline_support": [
+          0.0,
+          2.0
+        ],
+        "exposure_coefficients": [
+          0.9,
+          0.3
+        ],
+        "confounder_intercept": [
+          0.8,
+          0.6,
+          -0.3
+        ],
+        "confounder_baseline": [
+          1.0,
+          0.1,
+          0.2
+        ],
+        "confounder_exposure": [
+          0.5,
+          -0.4,
+          0.5
+        ],
+        "confounder_interaction": [
+          -0.1,
+          0.8,
+          -0.2
+        ],
+        "confounder_sd": 1.0,
+        "mediator_intercept": -0.5,
+        "mediator_baseline": -0.2,
+        "mediator_exposure": 0.3,
+        "mediator_confounder": [
+          -0.2,
+          0.1,
+          0.5
+        ],
+        "mediator_exposure_confounder": [
+          0.4,
+          0.0,
+          0.0
+        ],
+        "mediator_sd": 1.0,
+        "outcome_intercept": 0.2,
+        "outcome_baseline": 0.2,
+        "outcome_exposure": 0.6,
+        "outcome_confounder": [
+          1.0,
+          0.7,
+          0.3
+        ],
+        "outcome_mediator": -0.9,
+        "outcome_exposure_mediator": -0.8,
+        "outcome_sd": 1.0,
+        "reference_level": 0,
+        "comparison_level": 1,
+        "target": "P_AMY"
+      },
+      "truth": {
+        "status": "reported_numeric",
+        "value": -0.9180000000000001,
+        "expression": "The path-specific effect of A on Y along the path A -> M -> Y, as defined in Section 2 of the source. It is the CONTRAST of two nested counterfactual means: in both arms the treatment-induced confounder vector C1 and the outcome are held at the reference level a' = 0, and only the exposure level fed to the mediator equation moves, from a' = 0 to a = 1. Writing beta_0 = E(Y[M{a, C1(a')}, C1(a'), a']) for the moved arm and E[Y(a')] for the unmoved arm, P_AMY = beta_0 - E[Y(a')]. beta_0 on its own is a counterfactual MEAN, not an effect, and is registered only as a component; the source's Figure 2 plots beta_0, which is why that figure is used as coding evidence rather than as the target. P_AMY is NOT a natural indirect effect, NOT a natural direct effect and NOT a total effect; keeping C1 at a' inside the mediator counterfactual is what distinguishes it from the standard natural effects.",
+        "derivation": "Closed form. Both arms of the contrast come from the same identification formula and differ only in the exposure level fed to the mediator equation; each nested expectation is linear with additive mean-zero noise and affine in C0, so the integral over C0 ~ Uniform(0,2) reduces to substituting E[C0] = 1. The arms are beta_0 = 2.678 and E[Y(a')] = 3.596, so P_AMY = -0.918. Cross-checked by per-arm Simpson and three-dimensional Gauss-Hermite quadrature and by a 400000-unit common-random-number simulation of both nested counterfactuals.",
+        "evidence": [
+          {
+            "file": "checks/report.json",
+            "location": "execution.scenario_results[original].truth"
+          }
+        ]
+      }
+    }
+  ],
+  "source_relation": "adapted_from_source",
+  "adaptations": [
+    "CORRECTION (2026-11-01): an earlier version of this contribution registered beta_0 = 2.678 as truth.reference_value while titling the contribution a path-specific effect. beta_0 is a nested counterfactual MEAN; the effect the source defines is P_AMY = beta_0 - E[Y(a')] = -0.918. The generating mechanism and the truth code always distinguished the two quantities and both were reported, but the registered scalar was the wrong one of the pair. The registered target is now the effect; beta_0 and E[Y(a')] are carried as components and anchored in verify.py.",
+    "Version used: arXiv:1710.02011v1 preprint; the published journal version was not accessible to the collector, so section and page locators refer to the preprint PDF. The journal volume, issue and pages recorded in the citation come from the Crossref record for DOI 10.1093/biomet/asz063 and were not read by the collector.",
+    "The source writes the reference level as a' and the comparison level as a without giving them numerical codes. The registered scenario reads a' = 0 and a = 1. Evidence: the source's Figure 2 y-axis spans 2 to 5 with a dashed line at the true beta_0; the registered mechanism gives beta_0 = 2.678 under a' = 0, a = 1, which falls inside that range, while the opposite reading gives 5.611, which does not. This is the collector's inference and must be confirmed by a reviewer.",
+    "Truth method: the source prints no numerical value of beta_0. The registered 2.678 is derived analytically by the collector from the displayed coefficients and must be checked by a reviewer.",
+    "The source compares four estimators under four working-model configurations M_int, M_a, M_b, M_c. Those correctly and incorrectly specified working models, including the probit link, the squared and interacted covariate terms and the omitted A*M term, are estimation devices applied to the same data; none of them is reproduced and none is registered as a separate mechanism.",
+    "The source generates 1000 datasets of size 5000; no estimator, bootstrap or coverage computation is reproduced here.",
+    "Sampling is re-implemented with NumPy Generator(PCG64); no attempt is made to match the source software draw-for-draw."
+  ],
+  "implementation": {
+    "generator_available": true,
+    "generator_reference": "generator.py",
+    "truth_reference": "truth.py",
+    "source_archive": "mediation-miles-2019-toxicity-path-specific-v1.zip",
+    "code_check_reported_pass": true,
+    "scientific_acceptance": false,
+    "exported_generator_path": "generators/mediation-miles-2019-toxicity-path-specific-v1.py",
+    "exported_generator_sha256": "240b3ebd82e710580b00ceba6b0ec834d2101b42b17ba4f75fb3070e609f5753"
+  },
+  "evidence": [
+    {
+      "file": "collection.json",
+      "location": "source, equations, estimand, truth"
+    },
+    {
+      "file": "config.json",
+      "location": "scenarios"
+    },
+    {
+      "file": "source_audit.json",
+      "location": "source review"
+    }
+  ],
+  "provenance": {
+    "mode": "structured_zip",
+    "archive_sha256": "ac44390eee4cf40f9bca0a2f691d5738d94929a554ace1956aa4e8a8f8333ef5",
+    "collection_sha256": "8afda7a19466fae4fd84beb95788f214f7766777994cc1707e4cce976311e902",
+    "provided_source_pdf_verified": false,
+    "source_review_status": "AI-assisted source audit by the collector; named human scientific review and independent-person reproduction pending",
+    "submission_file": "incoming/mediation-miles-2019-toxicity-path-specific-v1.zip",
+    "submitted_zip_sha256": "ac44390eee4cf40f9bca0a2f691d5738d94929a554ace1956aa4e8a8f8333ef5",
+    "reviewed_original_paper": false,
+    "submitted_by": "github_file_upload"
+  },
+  "review_status": "needs_scientific_review",
+  "warnings": [],
+  "source_suggested_domain": "mediation",
+  "classification_status": "zip_metadata_unverified",
+  "suggested_secondary_domains": []
+}
+

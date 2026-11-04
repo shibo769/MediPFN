@@ -1,0 +1,312 @@
+{
+  "schema_version": "0.1",
+  "record_id": "mediation-jones-2024-sparse-mediators-lnl-v1",
+  "kind": "synthetic_dgp",
+  "domain": "mediation",
+  "english_display": {},
+  "paper": {
+    "citation": "Jones, J., Ertefaie, A. and Strawderman, R. L. (2025). Causal mediation analysis: selection with asymptotically valid inference. Journal of the Royal Statistical Society Series B: Statistical Methodology 87(3), 678-700. DOI: 10.1093/jrsssb/qkae109.",
+    "title": null,
+    "doi": "10.1093/jrsssb/qkae109",
+    "source_url": "https://doi.org/10.1093/jrsssb/qkae109",
+    "source_file_evidence": [],
+    "venue": "Journal of the Royal Statistical Society Series B: Statistical Methodology",
+    "year": 2025,
+    "source_version": null,
+    "source_locator": "Section 5 'Simulation Studies', arXiv:2110.06127v2 PDF page 15 (the two forms of mu_D0, psi_M and psi_Y, and the three-letter scenario naming; this contribution registers LNL), and Appendix A 'Simulation Results', PDF page 26 (all variances, dimensions and the structural parameters alpha_0, beta_0, gamma_0, and the statement NIE = 2.4). Structural model (1) is on PDF page 4; Proposition 2.1 giving NDE = gamma_0 and NIE = alpha_0 . beta_0 is on PDF page 6."
+  },
+  "mechanism": {
+    "name": "Sparse natural indirect effect with ten candidate mediators, scenario LNL (linear propensity, nonlinear mediator confounding, linear outcome confounding)",
+    "title_en": null,
+    "family_id": "jones-2024-robinson-additive-sparse-mediator-selection",
+    "generation_equations": [
+      {
+        "label": "Baseline confounders",
+        "expression": "X_l ~ N(0, 1/4) independently, l = 1, 2, 3"
+      },
+      {
+        "label": "Treatment propensity (scenario LNL)",
+        "expression": "mu_D0(X) = expit{0.8 (X1 + X2)}"
+      },
+      {
+        "label": "Mediator confounding (scenario LNL)",
+        "expression": "psi_M(X) = X1^2 + X2 - X3"
+      },
+      {
+        "label": "Outcome confounding (scenario LNL)",
+        "expression": "psi_Y(X) = 2 (X1 - 0.5) + X2 + 2 X3"
+      },
+      {
+        "label": "Treatment",
+        "expression": "D | X ~ Bernoulli(mu_D0(X))"
+      },
+      {
+        "label": "Mediator vector",
+        "expression": "M = alpha_0 D + psi_M(X) 1_p + eta, eta_j ~ N(0, 1) independently, p = 10, alpha_0 = (1, 2, 2, 0, ..., 0)"
+      },
+      {
+        "label": "Outcome",
+        "expression": "Y = gamma_0 D + beta_0' M + psi_Y(X) + epsilon, epsilon ~ N(0, 1), gamma_0 = 2, beta_0 = (0.8, 0.4, 0.4, 0, ..., 0)"
+      },
+      {
+        "label": "Source identities (Proposition 2.1)",
+        "expression": "NDE = gamma_0 = 2; NIE = alpha_0 . beta_0 = 2.4"
+      }
+    ],
+    "observed_variables": [
+      {
+        "name": "X1",
+        "role": "covariate",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "X2",
+        "role": "covariate",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "X3",
+        "role": "covariate",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "D",
+        "role": "treatment",
+        "dtype": "binary",
+        "min": "0",
+        "max": "1",
+        "observed": "true"
+      },
+      {
+        "name": "M1",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "M2",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "M3",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "M4",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "M5",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "M6",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "M7",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "M8",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "M9",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "M10",
+        "role": "mediator",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      },
+      {
+        "name": "Y",
+        "role": "outcome",
+        "dtype": "float",
+        "min": "",
+        "max": "",
+        "observed": "true"
+      }
+    ],
+    "latent_variables": [],
+    "latent_variables_status": "explicit_structured_metadata",
+    "sampling": {
+      "unit": "individual",
+      "dependence": "iid individuals; X, then D, then the ten-dimensional mediator vector, then Y are generated in temporal order within an individual"
+    },
+    "assumptions": [
+      "Consistency and well-defined joint interventions on the treatment and the mediator vector",
+      "Independent individuals; no interference",
+      "Treatment exchangeability given X and mediator-outcome exchangeability given (X, D), as encoded by the source's additive model and its Assumptions 2.1 and 2.2",
+      "The source's sparsity assumptions: the first three mediators form the good mediator set S*, and no mediator outside S* is related to any variable in S*",
+      "Mean-zero errors conditional on the preceding variables: E(eta|X,D) = 0 and E(epsilon|X,D,M) = 0",
+      "Treatment positivity: the source states it deliberately chose the small covariate variance 1/4 to minimise the chance of inadvertent positivity violations; expit of a bounded linear or product term stays strictly inside (0,1) for every finite X, but no uniform overlap bound is claimed on unbounded Gaussian support",
+      "The source notes that under slightly more general assumptions its estimands also admit an interventional-effect interpretation; the registered definition follows the natural-effect reading the source adopts"
+    ],
+    "properties": {
+      "dimension": 3,
+      "effective_dimension": 3,
+      "high_dimensional": false,
+      "interactions": false,
+      "nonlinear": true,
+      "notes": "Three baseline confounders X1, X2, X3 ~ N(0, 1/4) independently; all three enter psi_M and psi_Y and the first two enter the propensity, so dimension = effective_dimension = 3. The ten candidate mediators are post-treatment and are NOT counted as covariate dimension; exactly three of them carry both a nonzero treatment coefficient and a nonzero outcome coefficient, so the mediator set is sparse with three active out of ten. Not high dimensional: three confounders and ten mediators against source sample sizes 500 to 4000. interactions = false: scenario LNL contains no product term in any structural equation; the nonlinear forms used elsewhere in this family are powers, not interactions. nonlinear = true for the logistic propensity link, the squared term X1^2 in psi_M; the outcome mean is otherwise linear in (D, M, X)."
+    }
+  },
+  "estimand": {
+    "name": "NIE = alpha_0 . beta_0",
+    "definition": "Natural indirect effect through the sparse mediator set: NIE = E[Y(1, M(1))] - E[Y(1, M(0))]. Under the source's additive structural model (its equation (1)) and its Proposition 2.1 this equals the inner product alpha_0 . beta_0 of the treatment-to-mediator and mediator-to-outcome coefficient vectors. The companion natural direct effect equals gamma_0. This is NOT a total effect and NOT a single-mediator indirect effect; ten candidate mediators are generated and only the first three are true mediators.",
+    "population": null
+  },
+  "scenarios": [
+    {
+      "id": "LNL",
+      "parameters": {
+        "covariate_count": 3,
+        "covariate_variance": 0.25,
+        "mediator_count": 10,
+        "propensity_form": "linear",
+        "propensity_scale": 0.8,
+        "mediator_confounding_form": "nonlinear",
+        "outcome_confounding_form": "linear",
+        "alpha0": [
+          1.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "beta0": [
+          0.8,
+          0.4,
+          0.4,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gamma0": 2.0,
+        "mediator_noise_sd": 1.0,
+        "outcome_noise_sd": 1.0,
+        "target": "NIE"
+      },
+      "truth": {
+        "status": "reported_numeric",
+        "value": 2.4000000000000004,
+        "expression": "Natural indirect effect through the sparse mediator set: NIE = E[Y(1, M(1))] - E[Y(1, M(0))]. Under the source's additive structural model (its equation (1)) and its Proposition 2.1 this equals the inner product alpha_0 . beta_0 of the treatment-to-mediator and mediator-to-outcome coefficient vectors. The companion natural direct effect equals gamma_0. This is NOT a total effect and NOT a single-mediator indirect effect; ten candidate mediators are generated and only the first three are true mediators.",
+        "derivation": "Closed form, and printed by the source. The mediator equation is M = alpha_0 D + psi_M(X) 1 + eta and the outcome equation is Y = gamma_0 D + beta_0' M + psi_Y(X) + epsilon with mean-zero errors, so NIE = beta_0' (E[M(1)] - E[M(0)]) = beta_0' alpha_0 = 1*0.8 + 2*0.4 + 2*0.4 = 2.4 exactly, in this and every other confounding-function scenario of the family. The source states NIE = 2.4 in its Appendix A.",
+        "evidence": [
+          {
+            "file": "checks/report.json",
+            "location": "execution.scenario_results[LNL].truth"
+          }
+        ]
+      }
+    }
+  ],
+  "source_relation": "adapted_from_source",
+  "adaptations": [
+    "Version used: arXiv:2110.06127v2 preprint; the published journal version was not accessible to the collector, so section and page locators refer to the preprint PDF and journal pages 678-700 were not cross-checked.",
+    "Only the source's 'Large' parameter setting is registered. The source's 'Small' setting makes alpha_0 and beta_0 depend on the sample size n (contributions of order n^{-1/2}), which is a drifting local parameter sequence rather than a fixed data-generating mechanism, so it is deliberately not registered.",
+    "SCENARIO SLICING: the source gives a linear and a nonlinear form for each of mu_D0, psi_M and psi_Y and names scenarios by the three-letter triple in that order, mentioning LNN explicitly as an example, which makes eight combinations possible. A change of functional form is a change of mechanism rather than a change of a parameter, so a triple is a contribution rather than a scenario inside one. THREE of the eight are registered, deliberately and not exhaustively, as a reference triple plus its two one-factor neighbours: LNN, the only triple the source names; NNN, which differs from LNN in mu_D0 alone and is the only registered pack carrying the source's X1 * X2 product term; and LNL, which differs from LNN in psi_Y alone. Each registered pair therefore isolates a single nuisance function. The remaining five triples are NOT submitted: they would add relabellings of the same family and inflate the mechanism count without adding a distinct data law. All three share the mechanism_family_id 'jones-2024-robinson-additive-sparse-mediator-selection', so a reviewer who prefers to count the family as a single DGP can collapse them. The source does not state which of the eight combinations it actually ran, and no functional form beyond the two it prints is invented here. This one is LNL.",
+    "The source sets p = 10 candidate mediators in the main text and reports a p = 60 setting in its Appendix B. Only p = 10 is registered: the p = 60 variant shares the functional forms of the p = 10 LNN pack and differs only in that dimension, so registering it as a separate mechanism would be a parameter sweep rather than a new data law. It is kept out of the submission for that reason.",
+    "The source also uses cross-fitting with K = 10 folds, a perturbation bootstrap with exponential weights, and five competing estimators. All of that is estimation machinery applied to the same data; none of it is reproduced and none is registered as a separate mechanism.",
+    "Sampling is re-implemented with NumPy Generator(PCG64); no attempt is made to match the source software draw-for-draw.",
+    "Citation verified against Crossref for DOI 10.1093/jrsssb/qkae109: the authors are Jeremiah Jones, Ashkan Ertefaie and Robert L. Strawderman (an earlier draft of this contribution wrote the first author's initial as M., which was wrong), published online 2024-11-28 and in print in volume 87(3), pages 678-700, dated 2025-07-14. The print year 2025 is the one cited, matching volume 87(3). The contribution_id slug still carries '2024' from the online-first date and is deliberately left unchanged so earlier identifiers stay stable."
+  ],
+  "implementation": {
+    "generator_available": true,
+    "generator_reference": "generator.py",
+    "truth_reference": "truth.py",
+    "source_archive": "mediation-jones-2024-sparse-mediators-lnl-v1.zip",
+    "code_check_reported_pass": true,
+    "scientific_acceptance": false,
+    "exported_generator_path": "generators/mediation-jones-2024-sparse-mediators-lnl-v1.py",
+    "exported_generator_sha256": "e160af24f35039b2327cff69b2f143cc97c0815fc0d2c9df37292db020a486b8"
+  },
+  "evidence": [
+    {
+      "file": "collection.json",
+      "location": "source, equations, estimand, truth"
+    },
+    {
+      "file": "config.json",
+      "location": "scenarios"
+    },
+    {
+      "file": "source_audit.json",
+      "location": "source review"
+    }
+  ],
+  "provenance": {
+    "mode": "structured_zip",
+    "archive_sha256": "9b703b263db1ae02d495f0fc95c44963db96d2da8e4965387625e5e5c751b73c",
+    "collection_sha256": "da261f314dc3fcd30f19657a10cd2a14109996c0a42e568309b3d5a7192ae09c",
+    "provided_source_pdf_verified": false,
+    "source_review_status": "AI-assisted source audit by the collector; named human scientific review and independent-person reproduction pending",
+    "submission_file": "incoming/mediation-jones-2024-sparse-mediators-lnl-v1.zip",
+    "submitted_zip_sha256": "9b703b263db1ae02d495f0fc95c44963db96d2da8e4965387625e5e5c751b73c",
+    "reviewed_original_paper": false,
+    "submitted_by": "github_file_upload"
+  },
+  "review_status": "needs_scientific_review",
+  "warnings": [],
+  "source_suggested_domain": "mediation",
+  "classification_status": "zip_metadata_unverified",
+  "suggested_secondary_domains": []
+}
+
