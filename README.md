@@ -17,13 +17,34 @@ and independent calibration produce the retained effect intervals.
 | Version | Model and data | Current status |
 |---|---|---|
 | **v1** | Retained custom MediPFN production pipeline | Code, seven checkpoint files, normalization/calibration records and verified aggregate results archived; restore check passed |
-| **v2** | New custom backbone and a richer literature-derived mediation simulation bank | Factual and nested nuisance stages completed and archived; signed-error/post-training/calibration workflow submitted; final interval evaluation pending |
+| **v2** | New custom backbone and a richer literature-derived mediation simulation bank | Primary model trained, post-trained, freshly calibrated and restored; full bundle archived; scientific ID/OOD evaluation pending |
 
 The versions are stored separately. New v2 development does not change the
 first-version model, manuscript or reported experiments. This repository is
 private; the vendored generator materials have not been made public.
 
 ## Quick start
+
+Verify the trained v2 research prototype with the Python standard library:
+
+```sh
+git clone https://github.com/shibo769/MediPFN.git
+cd MediPFN
+python v2/predict.py --verify-only
+```
+
+With the recorded NumPy/PyTorch environment and an observed-table NPZ file:
+
+```sh
+python v2/predict.py --data observed_table.npz --output interval.json
+```
+
+The file contains numeric `x`, `a`, `m`, `y` arrays and optional string feature
+types. Inference verifies four selected checkpoint files, final calibration
+and 68 bound source files before loading. See the
+[v2 inference guide](v2/README.md#primary-model-inference).
+
+For the retained first-version pipeline:
 
 ```sh
 git clone https://github.com/shibo769/MediPFN.git
@@ -94,17 +115,20 @@ selected checkpoint is from step 17,000, with same-source DEV factual loss
 are archived separately from the v1 assets. The nested-regression stage also
 completed 5,000 steps and 40,000 training-table draws; its selected DEV loss is
 0.229999. Both checkpoints passed a joint cross-fitted inference restoration
-check. The separately frozen signed-error, post-training and calibration
-workflow has been submitted with integration and checkpoint guards. Final
-interval-coverage results follow successful completion of those stages.
+check. Signed-error learning, confidence-guided post-training and fresh
+ID task-mixture calibration are also complete. The
+[final bundle](v2/checkpoints/primary/bundle.json) preserves completion records
+and exact asset identities. This primary prototype uses one ordered
+signed-error head; it does not reuse the v1 mixture-of-experts construction.
+Scientific ID/OOD coverage, accuracy and runtime evaluation remain pending.
 
 The frozen factual/nested source release is identified by
 `65fff8193cab74881e14a3262c254578255a78d2f6ca56aa4d7f6086a25ed36d`.
 The [current error-pipeline release](v2/release_manifest.json) preserves those
 source bytes and adds explicit estimator/feature/checkpoint bindings.
 Optional [pretrained-backbone experiments](v2/OPTIONAL_BACKBONES.md) use a
-separate pinned implementation and actual-model fixture gate. Their status
-does not establish completed v2 evaluation results.
+separate pinned implementation. Their actual-model fixture passed; optional
+production runs are active. These are not completed v2 evaluation results.
 See [v2/README.md](v2/README.md), [protocol](v2/protocol.json), and
 [release manifest](v2/release_manifest.json). Learned-error training,
 post-training, fresh calibration and final evaluation are separate stages.

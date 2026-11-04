@@ -1,0 +1,91 @@
+{
+  "status": "PASS_PRIMARY_MODEL_TRAIN_POSTTRAIN_CALIBRATE_AND_RESTORE",
+  "actual_qacct": {
+    "8425910": {
+      "owner": "shibo",
+      "jobname": "mpfn2_factual",
+      "jobnumber": "8425910",
+      "failed": "0",
+      "exit_status": "0",
+      "ru_wallclock": "374"
+    },
+    "8425970": {
+      "owner": "shibo",
+      "jobname": "mpfn2_nested",
+      "jobnumber": "8425970",
+      "failed": "0",
+      "exit_status": "0",
+      "ru_wallclock": "166"
+    },
+    "8426127": {
+      "owner": "shibo",
+      "jobname": "mpfn2_error_sm",
+      "jobnumber": "8426127",
+      "failed": "0",
+      "exit_status": "0",
+      "ru_wallclock": "39"
+    },
+    "8426136": {
+      "owner": "shibo",
+      "jobname": "mpfn2_error_fit",
+      "jobnumber": "8426136",
+      "failed": "0",
+      "exit_status": "1",
+      "ru_wallclock": "307"
+    },
+    "8426219": {
+      "owner": "shibo",
+      "jobname": "mpfn2_cal_end",
+      "jobnumber": "8426219",
+      "failed": "0",
+      "exit_status": "0",
+      "ru_wallclock": "34"
+    },
+    "8426159": {
+      "owner": "shibo",
+      "jobname": "mpfn2_v3_smoke",
+      "jobnumber": "8426159",
+      "failed": "0",
+      "exit_status": "0",
+      "ru_wallclock": "62"
+    }
+  },
+  "completion_sha256": "1310626fc95bf25488269b6b1fd5e24db73fc38923bc7d1928be2ca7e4fd5636",
+  "assets": {
+    "factual_checkpoint_sha256": {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/medipfn_v2_20261103/runs/factual_seed0/best.pt",
+      "sha256": "722172242bb4f80957b02a9f2227d557d29379db20906a63a5e5e2aa01a2d66b",
+      "bytes": 27005256
+    },
+    "eta_checkpoint_sha256": {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/medipfn_v2_20261103/runs/nested_seed0/best.pt",
+      "sha256": "82fc00689e50526f130263beebecd09afefe4ab4cbe1fccf7239dd599d659cd7",
+      "bytes": 16939208
+    },
+    "error_checkpoint_sha256": {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/medipfn_v2_20261103/runs/error_pipeline_seed0/error_fit/best.pt",
+      "sha256": "ea603ec80c1f70238a14bfad9fa24576cf7685a17686d34cac5fa75f9f52f3ed",
+      "bytes": 1041340
+    },
+    "post_checkpoint_sha256": {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/medipfn_v2_20261103/runs/error_pipeline_seed0/post_fit/best.pt",
+      "sha256": "2a8e8c3ac56ceb34e718acc29838ec4b0a1785fd62c92b1dced910e856bcc3c3",
+      "bytes": 1214493
+    },
+    "calibration_sha256": {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/medipfn_v2_20261103/runs/error_pipeline_seed0/final_calibration.json",
+      "sha256": "dc857f520a4af6405d1e26922d28faae677ee294fb232b97f92127b5fda22427",
+      "bytes": 86043
+    }
+  },
+  "counts": {
+    "train": 10000,
+    "dev": 1024,
+    "post_train": 1024,
+    "post_dev": 512,
+    "calibration": 1024
+  },
+  "scientific_id_ood_test_evaluation": "not performed",
+  "original_pipeline_exit1_is_documented_filename_collision": true,
+  "finalization_exit0_is_genuine": true
+}

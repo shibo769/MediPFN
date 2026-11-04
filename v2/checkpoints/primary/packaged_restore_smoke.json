@@ -1,0 +1,27 @@
+{
+  "status": "PACKAGED_PRIMARY_CPU_RESTORE_PASS",
+  "package_sha256": "ca5a94d65c4c2b01f6c1c684cbc68135a2e044252a2720c9f20119ac0a985789",
+  "package_files_sha256_verified": 238,
+  "bundle_verification": {
+    "status": "BUNDLE_SHA256_VERIFIED",
+    "bundle_sha256": "e483682f7b2eca63c680da5af20c9563b3f94fd8a3e1ba37959db6a9781da8e8",
+    "model_and_calibration_files": 5,
+    "source_files": 68,
+    "source_release_sha256": "c1bd3404749513a923eb3da4f0586e3fb9544effd499dc0b7fb03faa8420a923"
+  },
+  "rows": 200,
+  "synthetic_truth_computed": false,
+  "extra_pickled_truth_field_ignored": true,
+  "calibrated_intervals_finite_ordered_nested": true,
+  "altered_calibration_rejected_before_model_load": true,
+  "observed_npz_contract_tests_passed": 4,
+  "model_status": "TRAINED_POSTTRAINED_CALIBRATED_RESEARCH_PROTOTYPE",
+  "scientific_id_ood_test_evaluation": "not performed",
+  "versions": {
+    "torch": "2.5.1+cu121",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3"
+  },
+  "inference_fixture_seconds": 3.2731429820414633,
+  "timing_scope": "CPU loading/inference fixture and rejection check, not a runtime benchmark"
+}

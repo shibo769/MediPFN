@@ -15,15 +15,15 @@ implementation; it is not the active V3 adapter route.
 
 ## Current execution gates
 
-The active actual-model fixture is job `8426159`. It must verify real V3
-classifier/regressor input gradients, parameter updates across tasks, unchanged
-frozen backbone weights and checkpoint restoration. Successful completion has
-not yet been verified in this snapshot.
+Actual-model fixture job `8426159` passed and has actual scheduler exit 0.
+It checked real V3 classifier/regressor input gradients, updates across
+independent contexts, unchanged frozen backbone weights and checkpoint
+restoration, including alternate feature-dimension paths.
 
-Frozen-V3 head job `8426161` and V3 adapter/head job `8426163` are submitted
-with the fixture as a dependency. A dependency alone does not establish that
-the fixture passed. Production entry points also inspect the required fixture
-report and pinned runtime identities. Current execution evidence is maintained
+Frozen-V3 head job `8426161` and V3 adapter/head job `8426163` are now running.
+Actual feature generation and nonzero adapter gradients were observed.
+Production entry points inspect the required fixture report and pinned runtime
+identities. Completed optional checkpoints and evaluation are still pending. Current execution evidence is maintained
 in [STATUS.md](../STATUS.md).
 
 ## Package, weights and license

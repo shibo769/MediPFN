@@ -1,0 +1,124 @@
+{
+  "format": "medipfn-v2-primary-bundle-1",
+  "status": "TRAINED_POSTTRAINED_CALIBRATED_RESEARCH_PROTOTYPE",
+  "target": "superpopulation_NIE_1",
+  "files": {
+    "factual": {
+      "path": "../factual/best.pt",
+      "sha256": "722172242bb4f80957b02a9f2227d557d29379db20906a63a5e5e2aa01a2d66b",
+      "bytes": 27005256
+    },
+    "nested": {
+      "path": "../nested/best.pt",
+      "sha256": "82fc00689e50526f130263beebecd09afefe4ab4cbe1fccf7239dd599d659cd7",
+      "bytes": 16939208
+    },
+    "error": {
+      "path": "error_best.pt",
+      "sha256": "ea603ec80c1f70238a14bfad9fa24576cf7685a17686d34cac5fa75f9f52f3ed",
+      "bytes": 1041340
+    },
+    "posttrained_error": {
+      "path": "post_best.pt",
+      "sha256": "2a8e8c3ac56ceb34e718acc29838ec4b0a1785fd62c92b1dced910e856bcc3c3",
+      "bytes": 1214493
+    },
+    "calibration": {
+      "path": "final_calibration.json",
+      "sha256": "dc857f520a4af6405d1e26922d28faae677ee294fb232b97f92127b5fda22427",
+      "bytes": 86043
+    }
+  },
+  "source_manifest": "../../release_manifest.json",
+  "source_manifest_sha256": "074670a2d22a7e001d290daa551ba3dcd4ecf6590041fca10cef9048d2174948",
+  "source_release_sha256": "c1bd3404749513a923eb3da4f0586e3fb9544effd499dc0b7fb03faa8420a923",
+  "learned_weights_producer_release_sha256": "475a2abf480e9e36bfebeac6d584dc6a5d5139377340fac2ea0c221e41daedf6",
+  "inference_defaults": {
+    "seed": 123,
+    "device": "cpu",
+    "probability_floor": 0.01,
+    "outer_folds": 2
+  },
+  "observation_schema": {
+    "required": [
+      "x",
+      "a",
+      "m",
+      "y"
+    ],
+    "optional": [
+      "x_types",
+      "mediator_types"
+    ],
+    "truth_access": false
+  },
+  "supported_levels": [
+    90,
+    95,
+    99
+  ],
+  "scientific_id_ood_test_evaluation": "not performed",
+  "model_structure": "Custom nuisance networks plus one ordered signed-error head with confidence-guided post-training; not the v1 mixture of experts.",
+  "finalization": {
+    "original_job": "8426136",
+    "original_exit_status": 1,
+    "reason": "Calibration output filename collided with immutable calibration-cache metadata; training and post-training completed.",
+    "finalizer_job": "8426219",
+    "finalizer_exit_status": 0,
+    "weights_changed_by_finalizer": false,
+    "calibration_cache_reused_without_selection": true,
+    "workflow_source_fix": "Only run_error_pipeline.py output filename changed to final_calibration.json."
+  },
+  "provenance_files": [
+    {
+      "path": "verification.json",
+      "bytes": 2977,
+      "sha256": "773f55035e7d898bbe7dafc0ba099735751763914371dc94ae2d543968d11b3d"
+    },
+    {
+      "path": "completion.json",
+      "bytes": 2864,
+      "sha256": "1310626fc95bf25488269b6b1fd5e24db73fc38923bc7d1928be2ca7e4fd5636"
+    },
+    {
+      "path": "workflow_config.json",
+      "bytes": 657,
+      "sha256": "f4fae8496869f085e287a3884871beb666c8de1dcaac0a896e0929213d80eeec"
+    },
+    {
+      "path": "error_best.pt",
+      "bytes": 1041340,
+      "sha256": "ea603ec80c1f70238a14bfad9fa24576cf7685a17686d34cac5fa75f9f52f3ed"
+    },
+    {
+      "path": "error_run_config.json",
+      "bytes": 805752,
+      "sha256": "93bedb4a8a38fe58f7c462905fc245fe02e4c56ebbd3cdc96dbe5bd7b49d9182"
+    },
+    {
+      "path": "error_training.jsonl",
+      "bytes": 2906,
+      "sha256": "9939182519f73e682601f6342adc54a871de74752efc3a8e514e376fbe7a8562"
+    },
+    {
+      "path": "post_best.pt",
+      "bytes": 1214493,
+      "sha256": "2a8e8c3ac56ceb34e718acc29838ec4b0a1785fd62c92b1dced910e856bcc3c3"
+    },
+    {
+      "path": "post_run_config.json",
+      "bytes": 918986,
+      "sha256": "84041b9ea9f40722cef0f4e6b0019bb69cd3fe49405baa2301c413bb91a82296"
+    },
+    {
+      "path": "post_history.json",
+      "bytes": 186320,
+      "sha256": "8083122edd8e65b2b037e4b63d5f809088186d972c16d7d065923f618ccec95a"
+    },
+    {
+      "path": "final_calibration.json",
+      "bytes": 86043,
+      "sha256": "dc857f520a4af6405d1e26922d28faae677ee294fb232b97f92127b5fda22427"
+    }
+  ]
+}

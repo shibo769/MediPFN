@@ -50,7 +50,8 @@ file is a private [release asset](https://github.com/shibo769/MediPFN/releases/t
 The nested stage completed 5,000 optimizer steps and 40,000 training-table
 draws. Its frozen teacher is the factual best checkpoint above. The selected
 factual/nested pair passed a joint native-table cross-fitted inference restore
-check; uncertainty training, post-training and calibration remain later stages.
+check. The completed primary uncertainty and calibration assets are indexed
+below; the historical nested-stage manifest preserves its original stage status.
 
 | Asset | Bytes | SHA-256 |
 |---|---:|---|
@@ -59,3 +60,29 @@ check; uncertainty training, post-training and calibration remain later stages.
 
 See the [nested manifest](v2/checkpoints/nested/manifest.json) and
 [joint restoration record](v2/checkpoints/nuisance_restore_smoke.json).
+
+## Complete primary v2 inference bundle
+
+The [bundle manifest](v2/checkpoints/primary/bundle.json) references the archived
+factual and nested weights and adds the completed uncertainty assets:
+
+| Role | File | SHA-256 |
+|---|---|---|
+| Selected signed-error head | [error_best.pt](v2/checkpoints/primary/error_best.pt) | `ea603ec80c1f70238a14bfad9fa24576cf7685a17686d34cac5fa75f9f52f3ed` |
+| Selected post-trained head | [post_best.pt](v2/checkpoints/primary/post_best.pt) | `2a8e8c3ac56ceb34e718acc29838ec4b0a1785fd62c92b1dced910e856bcc3c3` |
+| Final fresh calibration | [final_calibration.json](v2/checkpoints/primary/final_calibration.json) | `dc857f520a4af6405d1e26922d28faae677ee294fb232b97f92127b5fda22427` |
+
+The [completion](v2/checkpoints/primary/completion.json),
+[actual accounting verification](v2/checkpoints/primary/verification.json),
+configuration and training histories remain beside the bundle. The initial
+workflow filename collision and successful finalizer are preserved; the
+finalizer did not retrain or reselect the model. Run the following from the
+repository root for full model/calibration/source verification:
+
+```sh
+python v2/predict.py --verify-only
+```
+
+The complete
+[private release](https://github.com/shibo769/MediPFN/releases/tag/v2-primary-20261103)
+is a trained research prototype, with scientific ID/OOD evaluation pending.

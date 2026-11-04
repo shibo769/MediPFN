@@ -1,101 +1,131 @@
 # MediPFN v2: rich mediation simulations
 
-**Status: factual and nested nuisance training completed; the signed-error,
-post-training and calibration workflow is submitted.**
-Factual pretraining ran under SCC job `8425910`.
-The completed run contains 20,000 optimizer steps and 160,000 training tables
-across all eight source families. Step 17,000 was selected by same-source DEV
-factual loss (1.526461). Its [checkpoint manifest](checkpoints/factual/manifest.json)
-records the verified assets. The retained v1 weights and results are stored
-separately in [`../v1`](../v1); final v2 interval evaluation follows the later
-stages.
+**Primary research prototype: trained, post-trained, freshly calibrated and
+restored. Scientific ID/OOD evaluation is pending.**
 
-Nested-regression job `8425970` completed 5,000 steps and 40,000 training-table
-draws. Its selected checkpoint is bound to the exact factual teacher and is
-recorded in the [nested checkpoint manifest](checkpoints/nested/manifest.json).
-The pair passed an independent native-table cross-fitted inference restore
-check with finite scores and no synthetic truth supplied to inference.
+The custom backbone is trained from new weights. The bank adapts 15 registry
+records into 14 distinct complete-data presets, with the superpopulation
+natural indirect effect `E[Y(1,M(1))-Y(1,M(0))]` as the common target. Ten presets
+from eight provenance families supply training and independent same-source ID
+partitions. Eric and Xia-Chan are source OOD; Jones NNN is composition OOD.
+Those holdouts remain outside fitting, DEV selection and calibration. See the
+[generator guide](dgp/README.md) for adaptations and truth calculations.
 
-For a small generated-table loading/inference check from this directory:
+## Primary model inference
+
+From the repository root, verify all bundle weights, calibration and 68 source
+files without importing NumPy or PyTorch:
 
 ```sh
-python evaluate.py --checkpoint checkpoints/factual/best.pt \
-  --eta-checkpoint checkpoints/nested/best.pt --source he_song_xu \
-  --n 200 --device cpu --output smoke_score.json
+python v2/predict.py --verify-only
 ```
 
-This entry point reports the point estimate and an uncalibrated score-Wald
-interval. The learned-error and calibrated interval stages have separate
-artifacts and will be added after successful completion and verification.
+The [bundle manifest](checkpoints/primary/bundle.json) records the four selected
+checkpoint identities, final calibration and source manifest. It references
+the existing factual/nested checkpoints rather than duplicating them. The
+selected factual/nested networks retain separate weights. A single ordered
+signed-error head and confidence-guided post-training supply the interval
+quantiles; this is distinct from the v1 mixture-of-experts construction.
 
-## Signed-error and calibrated intervals
+With the recorded NumPy/PyTorch/SciPy environment, provide a complete observed
+table as an NPZ:
 
-The current [error pipeline](ERROR_PIPELINE.md) learns the standardized error
-of the restored nuisance estimator, selects post-training corrections on fresh
-development tasks, and calibrates on a new ID task mixture. The production
-workflow is submitted as job `8426136`. Thirteen SCC CPU contracts passed;
-the GPU integration log reports a pass, with its final accounting check still
-separate from production completion. No final v2 coverage results are claimed.
+```sh
+python -m pip install -r v2/requirements-primary.txt
+```
 
-The entry point from this directory is:
+The packaged CPU restoration used PyTorch 2.5.1+cu121, NumPy 2.2.6 and SciPy
+1.15.3. Select the appropriate official PyTorch build for the local hardware.
+
+Create the NPZ from observed arrays:
+
+```python
+import numpy as np
+np.savez("observed_table.npz", x=x, a=a, m=m, y=y,
+         x_types=np.asarray(x_types, dtype="U"),
+         mediator_types=np.asarray(mediator_types, dtype="U"))
+```
+
+| Key | Shape and interpretation |
+|---|---|
+| `x` | Numeric baseline covariates, `[n,p]`, with 0–32 columns; use shape `[n,0]` when no baseline covariates are observed |
+| `a` | Treatment, `[n]`, with values 0/1 for the trained contrast |
+| `m` | Numeric mediator coordinates, `[n,q]`, with 1–128 columns |
+| `y` | Numeric outcome, `[n]` |
+| `x_types`, `mediator_types` | Optional one-dimensional Unicode/string arrays matching their columns; entries `continuous`, `binary` or `categorical`; omitted columns default to `continuous` |
+
+Values must be finite and complete, with at least eight observations in each
+treatment group for nested cross-fitting. Type tags describe the model input
+roles; they do not select a new model or create a new causal identification
+claim. Extra NPZ fields, including synthetic truth, are ignored and never
+materialized by this entry point. Pickled NPZ objects are prohibited.
+
+```sh
+python v2/predict.py --bundle v2/checkpoints/primary/bundle.json \
+  --data observed_table.npz --output interval.json --device cpu
+```
+
+The JSON output contains the point estimate, estimated scale and 90%/95%/99%
+calibrated intervals. `--seed` controls nested cross-fitting. Existing output
+files are not overwritten. The CLI rejects altered source/weight/calibration
+bytes and incompatible construction contracts before prediction.
+
+Fresh calibration uses the registered iid ID task mixture. It supplies no
+per-source, conditional or arbitrary OOD coverage guarantee. Scientific
+coverage and runtime results are not yet available. A loading fixture is not
+a coverage or speed benchmark. Causal interpretation still requires the
+natural-effect identification and overlap assumptions.
+
+## Completed training stages
+
+Factual nuisance job `8425910` completed 20,000 steps and 160,000 table draws;
+step 17,000 was selected by same-source DEV loss (1.526461). Nested job
+`8425970` completed 5,000 steps and 40,000 draws, selecting step 5,000 with
+DEV pseudo-outcome loss 0.229999. Its frozen factual-teacher hash matches the
+selected factual checkpoint.
+
+Signed-error training uses 10,000 new tasks and 1,024 DEV tasks. Fresh
+post-training uses 1,024 training tasks and 512 DEV tasks, followed by 1,024
+independent iid calibration tasks. Job `8426136` completed training and
+post-training but exited 1 on a calibration-output filename collision.
+Finalizer `8426219` successfully calibrated the same selected weights using
+the same fresh cache, without retraining or selection, and passed a bound
+200-row CPU restoration fixture. The original exit and finalizer accounting
+are retained in the [verification record](checkpoints/primary/verification.json).
+
+Selected checkpoint, configuration and training-history files are under
+[`checkpoints/`](checkpoints/). A complete bundle is in the
+[private primary release](https://github.com/shibo769/MediPFN/releases/tag/v2-primary-20261103).
+The larger nuisance optimizer-resume states are separate private releases.
+
+## Frozen sources and training entry points
+
+The current primary source release is
+`c1bd3404749513a923eb3da4f0586e3fb9544effd499dc0b7fb03faa8420a923`.
+The [source manifest](release_manifest.json) retains the original 59 factual/
+nested file hashes and adds nine error-learning/binding/calibration files.
+Only the workflow calibration-output filename differs from the release that
+produced the error/post-training weights. All source identities remain in the
+[manifest index](manifests/README.md).
+
+Training entry points are `train.py`, `train_nested.py` and
+`run_error_pipeline.py`; inspect their `--help` before allocating resources.
+For example, from this `v2` directory with trained nuisance weights:
 
 ```sh
 python run_error_pipeline.py --checkpoint checkpoints/factual/best.pt \
   --eta-checkpoint checkpoints/nested/best.pt \
-  --output runs/error_seed0 --cpu-threads 8
+  --output runs/error_seed1 --cpu-threads 8
 ```
 
-This is a full CUDA training workflow with fresh outputs, not a smoke check.
-Its frozen budgets are 10,000 error-training tasks, 1,024 error-DEV tasks,
-1,024 post-training tasks, 512 post-training DEV tasks, and 1,024 independent
-calibration tasks. OOD presets and scientific test banks are excluded from
-those stages. `error_binding.py` checks table, source, checkpoint and feature
-identities before calibrated inference.
+This is a full CUDA training workflow with a new output directory, not a smoke
+check. The immutable [error guide](ERROR_PIPELINE.md) and
+[protocol](protocol.json) describe their freeze points;
+[STATUS.md](../STATUS.md) records subsequent execution. Optional pretrained
+backbone experiments have a separate [guide](OPTIONAL_BACKBONES.md) and source
+manifest. Their actual-model fixture passed; production runs are active.
 
-Optional frozen-V3 and adapter variants are described separately in
-[OPTIONAL_BACKBONES.md](OPTIONAL_BACKBONES.md). They await actual-model fixture
-verification and do not change the custom backbone's completed checkpoints.
-
-This version introduces a new custom support-query network for scalar and
-vector mediator inputs, factual propensity/outcome learning, Bayes-based density
-ratios, and a separate nested-regression stage. The frozen source release covers
-the factual and nested nuisance stages. The current release adds learned-error
-training, post-training and fresh calibration; scientific evaluation follows
-their verified completion.
-
-The generator bank adapts 15 registry records into 14 distinct complete-data
-presets, with a superpopulation natural indirect effect as the common target.
-Eight provenance families supply training and independent ID partitions.
-Eric and the Xia-Chan family are source OOD; Jones NNN is composition OOD.
-These held-out presets must remain absent from training, development selection
-and calibration. See [`dgp/README.md`](dgp/README.md) for adaptations, truth
-calculation, parameter domains and source provenance.
-
-The current source is frozen by [`release_manifest.json`](release_manifest.json),
-release SHA-256
-`475a2abf480e9e36bfebeac6d584dc6a5d5139377340fac2ea0c221e41daedf6`.
-The original nuisance-stage manifest is retained separately as
-[`manifests/factual_65fff8193cab7488.json`](manifests/factual_65fff8193cab7488.json).
-Its 59 source hashes are unchanged. Optional-source distribution has its own
-manifest; see the [manifest index](manifests/README.md).
-The run design is recorded in [`protocol.json`](protocol.json). Any code change
-requires a new release digest and an explicitly identified training run.
-
-From this directory, the local generator checks can be run with:
-
-```sh
-python -m dgp.test_generators
-```
-
-Training entry points are `train.py` and `train_nested.py`; inspect their
-`--help` output for the source release's supported configuration. A production
-run requires the separately recorded frozen configuration, resource profile,
-successful preflight and fresh output directory. No scheduler session,
-authentication material, raw test bank or environment is stored here.
-
-The status in the immutable `protocol.json` describes the source-freeze point.
-Current progress is recorded in [`../STATUS.md`](../STATUS.md) and the
-[`v2 model card`](../MODEL_CARD_V2.md).
-
-The upstream vendored materials remain private and retain their original
-[`LICENSE`](dgp/vendor/LICENSE) and [`NOTICE`](dgp/vendor/NOTICE.md).
+The retained v1 assets are separate in [`../v1`](../v1). Vendored source
+materials retain their [license](dgp/vendor/LICENSE) and [notice](dgp/vendor/NOTICE.md).
+Third-party TabPFN weights, raw test tables and authentication material are
+not redistributed.

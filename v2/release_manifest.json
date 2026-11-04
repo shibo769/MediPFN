@@ -1,5 +1,5 @@
 {
-  "release_sha256": "475a2abf480e9e36bfebeac6d584dc6a5d5139377340fac2ea0c221e41daedf6",
+  "release_sha256": "c1bd3404749513a923eb3da4f0586e3fb9544effd499dc0b7fb03faa8420a923",
   "factual_release_sha256": "65fff8193cab74881e14a3262c254578255a78d2f6ca56aa4d7f6086a25ed36d",
   "files": {
     "evaluate.py": "0ea44e181e9e62102fbeca3d533ec2ca12275bf36f6848433ff4e1c78950288c",
@@ -68,7 +68,7 @@
     "calibrate.py": "5827d1cb584408cd13176ff288cdfa09875292ffe976ed481736df7eea2c74f7",
     "error_tests.py": "6eb859176e4f947cf8c269f388512f454812a19ddbe17476029e469308e13a67",
     "error_smoke.py": "0685fb14bda354a2e0890bdf6049c2c497ef043eaadf08eec905186b16a4c0fe",
-    "run_error_pipeline.py": "98a35237dba4c58e840c695171eff77d3aba1286a54645ab8b4388e4b1c97712",
+    "run_error_pipeline.py": "43215baebb787025fc3eee929f1b71721f95869550c4703d57f2eabedd2d7c90",
     "ERROR_PIPELINE.md": "eeac8ddc7366b33c6b55cbb756d3e82b543633c5b19c86baa177ff8d37cdecaa"
   },
   "scope": "complete nuisance/error/post-training/calibration implementation; requires real integration validation"

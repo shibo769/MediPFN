@@ -30,7 +30,7 @@ def run(args):
                             confidence_width=32,correction_width=16,lr=.001,output_penalty=.0001))
     split='calibration'
     build_cache(Namespace(**config,split=split,cases=counts[split],output=str(out/(split+'.npz'))))
-    calibration_path=out/'calibration.json'
+    calibration_path=out/'final_calibration.json'
     calibrate(Namespace(error_checkpoint=str(post),calibration_cache=str(out/'calibration.npz'),output=str(calibration_path),
                         device='cuda',allow_unposttrained=False))
     model,_,cal=load_calibrated_error(post,calibration_path,'cuda')

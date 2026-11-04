@@ -19,8 +19,11 @@ learning across literature-derived simulation tasks. Factual nuisance
 pretraining completed on SCC under job `8425910`, with 20,000 optimizer steps
 and 160,000 training-table draws across all eight training provenance families.
 Step 17,000 was selected by independent same-source DEV factual loss (1.526461).
-Actual scheduler accounting recorded successful completion. Final effect-estimation and interval results
-follow completion of the remaining uncertainty stages.
+Actual scheduler accounting recorded successful completion. Signed-error
+learning, confidence-guided post-training and fresh ID task-mixture calibration
+are now also complete. The [primary inference bundle](v2/checkpoints/primary/bundle.json)
+is a trained research prototype. Scientific ID/OOD coverage, point-error and
+runtime evaluation remain pending.
 
 Nested-regression training also completed under job `8425970`: 5,000 optimizer
 steps and 40,000 training-table draws, with selected DEV pseudo-outcome loss
@@ -76,10 +79,20 @@ generated synthetic tasks. Post-training and fresh calibration follow model
 selection. Known synthetic effects are offline supervision/evaluation targets;
 deployment uses the observed table and frozen model outputs.
 
-The current signed-error workflow is submitted as job `8426136`, with the
-completed nested checkpoint and integration guard as dependencies. Thirteen
-CPU contracts passed, and the GPU integration log reports a pass; final
-scheduler accounting and production completion remain separate checks.
+The signed-error workflow completed training and post-training under job
+`8426136`. Its final calibration output name collided with immutable cache
+metadata, so that process exited 1. Finalizer `8426219` completed with actual
+scheduler exit 0, using the same selected weights and independently generated
+calibration cache without retraining or selection. A bound 200-row CPU restore
+returned finite, ordered, nested intervals. The
+[verification record](v2/checkpoints/primary/verification.json) preserves both
+the original failure and successful finalization.
+
+Error learning uses 10,000 training tasks and 1,024 DEV tasks. Post-training
+uses 1,024 new training tasks and 512 new DEV tasks. Fresh final calibration
+uses 1,024 iid tasks from the registered training-source mixture. This
+prototype uses one ordered signed-error head, followed by confidence-guided
+post-training and rank calibration; it is not the v1 mixture of experts.
 The implementation binds inference to the actual table, estimator source,
 selected factual/nested checkpoints, feature schema and calibration records.
 
@@ -100,9 +113,13 @@ settings use mixed precision, TF32, shared inducing-token contexts and
 asynchronous data preparation; final measured runtime will be reported with
 the actual resource and timing boundaries.
 
-The error-learning, post-training and calibration extension is frozen as
+The error/post-training weights were produced by release
 `475a2abf480e9e36bfebeac6d584dc6a5d5139377340fac2ea0c221e41daedf6`.
-All 59 factual/nested source file hashes are unchanged. The
+The current release is
+`c1bd3404749513a923eb3da4f0586e3fb9544effd499dc0b7fb03faa8420a923`;
+only the workflow calibration-output filename changed. All scientific
+estimator, error-model and calibration source bytes are unchanged, including
+the original 59 factual/nested source files. The
 [original nuisance manifest](v2/manifests/factual_65fff8193cab7488.json)
 remains available independently of the current release.
 
@@ -110,8 +127,8 @@ See the [current release manifest](v2/release_manifest.json),
 [protocol](v2/protocol.json), and [current status](STATUS.md). The protocol's
 status field records the source-freeze point; current execution status is
 maintained separately. Optional pretrained TabPFN-v3 variants have their own
-[source and runtime guide](v2/OPTIONAL_BACKBONES.md), pending an actual-model
-fixture. They do not replace or rename the custom nuisance backbone.
+[source and runtime guide](v2/OPTIONAL_BACKBONES.md). Their actual-model
+fixture passed, and optional production runs are active. They do not replace or rename the custom nuisance backbone.
 
 ## Checkpoints and access
 
@@ -129,7 +146,19 @@ and verified completion record; the optimizer-resume state is a separate
 The [joint restoration record](v2/checkpoints/nuisance_restore_smoke.json)
 checks complete finite scores from the two selected models.
 
-These checkpoints provide the nuisance estimator; learned-error training,
-post-training and fresh calibration remain separate stages. The private repository preserves
+The [primary bundle manifest](v2/checkpoints/primary/bundle.json) adds the
+selected error head, selected post-trained head and final calibration. The
+[inference CLI](v2/predict.py) verifies all model/calibration hashes and the
+complete bound source distribution before loading an observed-table NPZ.
+Synthetic truth is not accessed by inference. A complete source-and-checkpoint
+archive is available as the [private primary release](https://github.com/shibo769/MediPFN/releases/tag/v2-primary-20261103).
+
+Calibration targets marginal coverage over the registered iid ID task mixture,
+conditional on the frozen models. It is not a per-source or conditional
+coverage statement, and source/composition OOD performance has not yet been
+measured. The model assumes the causal identification and overlap conditions
+required by its natural-effect score; numerical inference on a new table does
+not establish those assumptions. Input feature dimensions and type metadata
+must follow the documented interface. The private repository preserves
 upstream licenses and notices; raw observed test banks and authentication
 material are excluded.
