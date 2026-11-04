@@ -76,6 +76,13 @@ generated synthetic tasks. Post-training and fresh calibration follow model
 selection. Known synthetic effects are offline supervision/evaluation targets;
 deployment uses the observed table and frozen model outputs.
 
+The current signed-error workflow is submitted as job `8426136`, with the
+completed nested checkpoint and integration guard as dependencies. Thirteen
+CPU contracts passed, and the GPU integration log reports a pass; final
+scheduler accounting and production completion remain separate checks.
+The implementation binds inference to the actual table, estimator source,
+selected factual/nested checkpoints, feature schema and calibration records.
+
 The primary interval level is 95%, with 90% and 99% as secondary levels. Final
 evaluation will report coverage, interval length, point error, failures and
 runtime, with paired uncertainty grouped by mechanism. There are no completed
@@ -93,10 +100,18 @@ settings use mixed precision, TF32, shared inducing-token contexts and
 asynchronous data preparation; final measured runtime will be reported with
 the actual resource and timing boundaries.
 
-See the [release manifest](v2/release_manifest.json),
+The error-learning, post-training and calibration extension is frozen as
+`475a2abf480e9e36bfebeac6d584dc6a5d5139377340fac2ea0c221e41daedf6`.
+All 59 factual/nested source file hashes are unchanged. The
+[original nuisance manifest](v2/manifests/factual_65fff8193cab7488.json)
+remains available independently of the current release.
+
+See the [current release manifest](v2/release_manifest.json),
 [protocol](v2/protocol.json), and [current status](STATUS.md). The protocol's
 status field records the source-freeze point; current execution status is
-maintained separately. Later stages use separately frozen releases.
+maintained separately. Optional pretrained TabPFN-v3 variants have their own
+[source and runtime guide](v2/OPTIONAL_BACKBONES.md), pending an actual-model
+fixture. They do not replace or rename the custom nuisance backbone.
 
 ## Checkpoints and access
 

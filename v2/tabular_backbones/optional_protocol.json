@@ -1,0 +1,89 @@
+{
+  "status": "V3_RUNTIME_READY_PENDING_ACTUAL_GPU_FIXTURE",
+  "priority": "Only after custom MediPFN v2 stages; no competition for its allocation",
+  "route_a": {
+    "name": "frozen TabPFN-v3 nuisance backbone plus mediation NIE error head",
+    "relation": "TabCon-backbone-style adaptation; not original TabCon, no RL claim",
+    "current_status": "ACTUAL_V3_PACKAGE_AND_OFFICIAL_LFS_HASH_VERIFIED_WEIGHTS_READY",
+    "requires": [
+      "isolated compatible package",
+      "valid licensed local v3 classifier/regressor weights",
+      "explicit hashes",
+      "real mediation fixture"
+    ],
+    "fallback": "Existing frozen TabPFN-v2 can be evaluated under its explicit name; it must not be labeled v3 or original TabCon",
+    "runtime_manifest": "v3_runtime/bootstrap_manifest.json"
+  },
+  "route_b": {
+    "name": "TabPFN-v2 offline cross-task mediation fine-tuning",
+    "package_version": "6.0.6",
+    "official_source_commit": "4103e892d8c3059183ac7c507b923924ac9b1091",
+    "training_inputs": "Independent DGP tables through get_preprocessed_datasets lists; meta_batch_size=1; gradient accumulation across tables",
+    "targets": [
+      "factual A given X",
+      "factual A given X,M",
+      "factual Y given X,A,M"
+    ],
+    "selection": "Independent same-source DEV only; OOD and calibration labels prohibited",
+    "deployment": "Freeze updated weights globally; in-context fit only, no per-test SGD",
+    "initial_budget": {
+      "optimizer_steps": 2000,
+      "table_size": 256,
+      "gradient_accumulation": 4,
+      "learning_rate": 1e-06,
+      "n_estimators": 1
+    },
+    "resources_to_profile": {
+      "gpu": 1,
+      "minimum_gpu_memory_GiB": 24,
+      "cpu_slots": 4
+    },
+    "mandatory_before_submission": [
+      "actual installed classifier and regressor gradients nonzero",
+      "weights changed",
+      "parameter identity retained across independent tables",
+      "checkpoint roundtrip",
+      "frozen deployment preserves trained weights",
+      "independent source review"
+    ]
+  },
+  "shared": {
+    "train_families": [
+      "cheng",
+      "diaz_hejazi",
+      "diaz_intermediate",
+      "he_song_xu",
+      "jones",
+      "miles",
+      "shan",
+      "zuo"
+    ],
+    "source_ood": [
+      "eric",
+      "xia_binary",
+      "xia_continuous"
+    ],
+    "composition_ood": [
+      "jones_nnn"
+    ],
+    "target": "superpopulation NIE_1",
+    "nuisance_score": "Bayes density ratio from pi(X),g(X,M),mu1(X,M), nested eta0(X), direct eta1(X)",
+    "uncertainty": "Learn standardized estimator error on independent synthetic train tasks; new DEV post-training and fresh calibration after backbone freezing",
+    "all_unfavorable_results": "retained"
+  },
+  "route_c": {
+    "name": "TabPFN-v3 frozen backbone plus cross-task mediation input/output adapter",
+    "program": "train_adapter.py",
+    "validation": "test_v3_runtime.py",
+    "context_policy": "Separate task context and fresh preprocessing for each independent table; shared frozen V3 weights by ModelSpecs",
+    "selection": "Fixed sixteen independent DEV contexts, two per training source family; best.pt and last.pt",
+    "test_time_sgd": false,
+    "budget": {
+      "steps": 2000,
+      "n": 128,
+      "accumulation": 4,
+      "lr": 0.0001
+    },
+    "status": "IMPLEMENTED_PENDING_ACTUAL_GRADIENT_FIXTURE"
+  }
+}

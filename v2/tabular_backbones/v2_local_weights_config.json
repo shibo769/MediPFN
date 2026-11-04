@@ -1,0 +1,12 @@
+{
+  "model_version": "v2",
+  "package_version": "6.0.6",
+  "classifier_path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/additional_baselines_4m_20261101/tabpfn_v2_dev_20261102/weights/tabpfn-v2-classifier-finetuned-zk73skhh.ckpt",
+  "classifier_sha256": "cf8c519c01eaf1613ee91239006d57b1c806ff5f23ac1aeb1315ba1015210e49",
+  "regressor_path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/additional_baselines_4m_20261101/tabpfn_v2_dev_20261102/weights/tabpfn-v2-regressor.ckpt",
+  "regressor_sha256": "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736",
+  "device": "cuda",
+  "n_estimators": 1,
+  "n_preprocessing_jobs": 1,
+  "probability_floor": 0.01
+}

@@ -1,0 +1,47 @@
+{
+  "official_repository": "PriorLabs/TabPFN",
+  "legacy_commit": "4103e892d8c3059183ac7c507b923924ac9b1091",
+  "legacy_package": "6.0.6",
+  "legacy_files": [
+    {
+      "path": "src/tabpfn/base.py",
+      "git_blob_sha": "32c42e32cf4c03f29101bd55030a79b35607f4cc",
+      "url": "https://github.com/PriorLabs/TabPFN/blob/4103e892d8c3059183ac7c507b923924ac9b1091/src/tabpfn/base.py"
+    },
+    {
+      "path": "src/tabpfn/classifier.py",
+      "git_blob_sha": "b8171d1444263541c463a8614afb371f6931c771",
+      "url": "https://github.com/PriorLabs/TabPFN/blob/4103e892d8c3059183ac7c507b923924ac9b1091/src/tabpfn/classifier.py"
+    },
+    {
+      "path": "src/tabpfn/regressor.py",
+      "git_blob_sha": "c53b01a686efede7c01a8452cd0bc0073b4fa0c9",
+      "url": "https://github.com/PriorLabs/TabPFN/blob/4103e892d8c3059183ac7c507b923924ac9b1091/src/tabpfn/regressor.py"
+    },
+    {
+      "path": "src/tabpfn/utils.py",
+      "git_blob_sha": "eff69a813aad4c7db3abf78beac2943022c0b260",
+      "url": "https://github.com/PriorLabs/TabPFN/blob/4103e892d8c3059183ac7c507b923924ac9b1091/src/tabpfn/utils.py"
+    },
+    {
+      "path": "src/tabpfn/finetune_utils.py",
+      "git_blob_sha": "42b878bef170b212d2d3372f47e2dcba1d0c7c45",
+      "url": "https://github.com/PriorLabs/TabPFN/blob/4103e892d8c3059183ac7c507b923924ac9b1091/src/tabpfn/finetune_utils.py"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob_sha": "de6111dabfb750fd53dd5421d5a1cbfde5516768",
+      "url": "https://github.com/PriorLabs/TabPFN/blob/4103e892d8c3059183ac7c507b923924ac9b1091/LICENSE"
+    }
+  ],
+  "current_official_commit": "953a4b916a19856fbd8dcda089a206b5bfe83696",
+  "tabcon_paper": "https://arxiv.org/html/2609.33114v1",
+  "current_license_guidance": "https://github.com/PriorLabs/TabPFN#license",
+  "v3_model": "https://huggingface.co/Prior-Labs/tabpfn_3",
+  "v3_license": "https://huggingface.co/Prior-Labs/tabpfn_3/blob/main/LICENSE",
+  "tabcon_implementation_excerpt_location": "Section3 frozen TabPFN-v3 regression head; Appendix C.3 frozen512dim embeddings plus MLP residual heads",
+  "existing_scc_package_probe": "probe_existing_receipt.json",
+  "existing_scc_api_probe": "probe_api_receipt.json",
+  "current_model_api_supports": "fit_with_differentiable_input for classifier/regressor in current source; legacy6.0.6regressor rejects differentiable_input",
+  "scope": "Read-only source/API audit; no checkpoint download or optional job submitted"
+}

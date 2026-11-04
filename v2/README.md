@@ -1,6 +1,7 @@
 # MediPFN v2: rich mediation simulations
 
-**Status: factual and nested nuisance training completed.**
+**Status: factual and nested nuisance training completed; the signed-error,
+post-training and calibration workflow is submitted.**
 Factual pretraining ran under SCC job `8425910`.
 The completed run contains 20,000 optimizer steps and 160,000 training tables
 across all eight source families. Step 17,000 was selected by same-source DEV
@@ -25,13 +26,42 @@ python evaluate.py --checkpoint checkpoints/factual/best.pt \
 
 This entry point reports the point estimate and an uncalibrated score-Wald
 interval. The learned-error and calibrated interval stages have separate
-artifacts and will be added after validation.
+artifacts and will be added after successful completion and verification.
+
+## Signed-error and calibrated intervals
+
+The current [error pipeline](ERROR_PIPELINE.md) learns the standardized error
+of the restored nuisance estimator, selects post-training corrections on fresh
+development tasks, and calibrates on a new ID task mixture. The production
+workflow is submitted as job `8426136`. Thirteen SCC CPU contracts passed;
+the GPU integration log reports a pass, with its final accounting check still
+separate from production completion. No final v2 coverage results are claimed.
+
+The entry point from this directory is:
+
+```sh
+python run_error_pipeline.py --checkpoint checkpoints/factual/best.pt \
+  --eta-checkpoint checkpoints/nested/best.pt \
+  --output runs/error_seed0 --cpu-threads 8
+```
+
+This is a full CUDA training workflow with fresh outputs, not a smoke check.
+Its frozen budgets are 10,000 error-training tasks, 1,024 error-DEV tasks,
+1,024 post-training tasks, 512 post-training DEV tasks, and 1,024 independent
+calibration tasks. OOD presets and scientific test banks are excluded from
+those stages. `error_binding.py` checks table, source, checkpoint and feature
+identities before calibrated inference.
+
+Optional frozen-V3 and adapter variants are described separately in
+[OPTIONAL_BACKBONES.md](OPTIONAL_BACKBONES.md). They await actual-model fixture
+verification and do not change the custom backbone's completed checkpoints.
 
 This version introduces a new custom support-query network for scalar and
 vector mediator inputs, factual propensity/outcome learning, Bayes-based density
 ratios, and a separate nested-regression stage. The frozen source release covers
-the factual and nested nuisance stages; learned-error training, post-training,
-fresh calibration and final evaluation are later stages.
+the factual and nested nuisance stages. The current release adds learned-error
+training, post-training and fresh calibration; scientific evaluation follows
+their verified completion.
 
 The generator bank adapts 15 registry records into 14 distinct complete-data
 presets, with a superpopulation natural indirect effect as the common target.
@@ -41,8 +71,13 @@ These held-out presets must remain absent from training, development selection
 and calibration. See [`dgp/README.md`](dgp/README.md) for adaptations, truth
 calculation, parameter domains and source provenance.
 
-The source is frozen by [`release_manifest.json`](release_manifest.json), release
-SHA-256 `65fff8193cab74881e14a3262c254578255a78d2f6ca56aa4d7f6086a25ed36d`.
+The current source is frozen by [`release_manifest.json`](release_manifest.json),
+release SHA-256
+`475a2abf480e9e36bfebeac6d584dc6a5d5139377340fac2ea0c221e41daedf6`.
+The original nuisance-stage manifest is retained separately as
+[`manifests/factual_65fff8193cab7488.json`](manifests/factual_65fff8193cab7488.json).
+Its 59 source hashes are unchanged. Optional-source distribution has its own
+manifest; see the [manifest index](manifests/README.md).
 The run design is recorded in [`protocol.json`](protocol.json). Any code change
 requires a new release digest and an explicitly identified training run.
 

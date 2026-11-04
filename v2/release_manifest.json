@@ -1,18 +1,19 @@
 {
-  "release_sha256": "65fff8193cab74881e14a3262c254578255a78d2f6ca56aa4d7f6086a25ed36d",
+  "release_sha256": "475a2abf480e9e36bfebeac6d584dc6a5d5139377340fac2ea0c221e41daedf6",
+  "factual_release_sha256": "65fff8193cab74881e14a3262c254578255a78d2f6ca56aa4d7f6086a25ed36d",
   "files": {
+    "evaluate.py": "0ea44e181e9e62102fbeca3d533ec2ca12275bf36f6848433ff4e1c78950288c",
     "model.py": "cf8af4ef5025a30fc4faf8a879cb64163505a882303010b5e9cdd8b4321aff5a",
+    "protocol.json": "cb2c87d577d2c8fb63f92e835498a30d6dc50389285c46dbd19efa7471f832ce",
+    "test_model.py": "f199195f1bbf9c486d36fbf2c5fd8838c18310709bf661b5b98ecd6da5c22b91",
     "train.py": "b073f88e24b9c832efc60082da4070565efccdbfef7684b3bcd2b2fa894c40e0",
     "train_nested.py": "861b9f9eb9aa73cb0bd8e5b2e460a8fec41bf5ff8beced28ab94d91b035664a7",
-    "evaluate.py": "0ea44e181e9e62102fbeca3d533ec2ca12275bf36f6848433ff4e1c78950288c",
-    "test_model.py": "f199195f1bbf9c486d36fbf2c5fd8838c18310709bf661b5b98ecd6da5c22b91",
-    "protocol.json": "cb2c87d577d2c8fb63f92e835498a30d6dc50389285c46dbd19efa7471f832ce",
-    "dgp/__init__.py": "902d7570d098c7447932d0e41c95794009870074c9d5de969bf33236d0ec943b",
     "dgp/generators.py": "443e04663970594a8ec2932dc0ee9718c10cc501314d133686dfd0e9acf1baa8",
     "dgp/README.md": "933421f2dad197b369354d2d72deac90058033113336b2714fcd99f40e71a668",
     "dgp/source_manifest.json": "be6ee04db16a871f1f50ad7a300c9d6a8f4b410abb4f4879a5c3fce1cd16247b",
     "dgp/test_generators.py": "af8e6315832625869495d24e31b2067d0ae877830cbce4049c841c475f555489",
     "dgp/validation_report.json": "eac8430d11e7f2672b3e76a64b4d90c994d9cca848be8faa7ac7af454b72086d",
+    "dgp/__init__.py": "902d7570d098c7447932d0e41c95794009870074c9d5de969bf33236d0ec943b",
     "dgp/vendor/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
     "dgp/vendor/mediation-cheng-li-2025-principal-strata-kang-schafer-v1.json": "aa6ad7228fc65d58f51c1293ae2433f7871fae968e4f84f2b9a7bcf4e59b03ba",
     "dgp/vendor/mediation-cheng-li-2025-principal-strata-kang-schafer-v1.md": "13bf17061100d566d75a27c98a8705027ba9c409d8ea9e7410dee0dd1732479d",
@@ -59,7 +60,16 @@
     "dgp/vendor/nie-eric-original-v1.json": "3335d85209b91099d1d87ef167a34cc48edfb94f49c88a86defc75319ed3fe6d",
     "dgp/vendor/nie-eric-original-v1.md": "f92751279121993ad5989fd604e8797a480dfad4dda3fbf364f69faaf8de83ca",
     "dgp/vendor/nie-eric-original-v1.py": "7c33d3584e976a5a0ea7796df15b84d433172283544c42483be3888b807ee2a4",
-    "dgp/vendor/NOTICE.md": "7aeb2e8802013b3d4eca75ffa9413a07987dadd4365d3faacd02992c8520c638"
+    "dgp/vendor/NOTICE.md": "7aeb2e8802013b3d4eca75ffa9413a07987dadd4365d3faacd02992c8520c638",
+    "error_model.py": "8bcda406ab05514c9da0d200ef43ab49f53b08a654552f93a8d67c5cec097b7e",
+    "error_binding.py": "2d35e181b9b56607c295a5ba5ea4d3dc1f60b32fce0e4971c2811c32174c08d1",
+    "train_error.py": "888b7d85c537c522b0f04ba08aef48f51ff7ed1d538c6edd391abd14f0702eda",
+    "posttrain_error.py": "fdb4491c323b854aeb36a2351eefe1444a5a10f3506d0e218785f008dd9a7260",
+    "calibrate.py": "5827d1cb584408cd13176ff288cdfa09875292ffe976ed481736df7eea2c74f7",
+    "error_tests.py": "6eb859176e4f947cf8c269f388512f454812a19ddbe17476029e469308e13a67",
+    "error_smoke.py": "0685fb14bda354a2e0890bdf6049c2c497ef043eaadf08eec905186b16a4c0fe",
+    "run_error_pipeline.py": "98a35237dba4c58e840c695171eff77d3aba1286a54645ab8b4388e4b1c97712",
+    "ERROR_PIPELINE.md": "eeac8ddc7366b33c6b55cbb756d3e82b543633c5b19c86baa177ff8d37cdecaa"
   },
-  "scope": "factual and nested nuisance stages; learned-error stages are separate later releases"
+  "scope": "complete nuisance/error/post-training/calibration implementation; requires real integration validation"
 }

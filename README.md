@@ -17,7 +17,7 @@ and independent calibration produce the retained effect intervals.
 | Version | Model and data | Current status |
 |---|---|---|
 | **v1** | Retained custom MediPFN production pipeline | Code, seven checkpoint files, normalization/calibration records and verified aggregate results archived; restore check passed |
-| **v2** | New custom backbone and a richer literature-derived mediation simulation bank | Factual and nested nuisance stages completed with archived selected checkpoints; learned-error/post-training/calibration stages follow; final interval evaluation pending |
+| **v2** | New custom backbone and a richer literature-derived mediation simulation bank | Factual and nested nuisance stages completed and archived; signed-error/post-training/calibration workflow submitted; final interval evaluation pending |
 
 The versions are stored separately. New v2 development does not change the
 first-version model, manuscript or reported experiments. This repository is
@@ -94,10 +94,17 @@ selected checkpoint is from step 17,000, with same-source DEV factual loss
 are archived separately from the v1 assets. The nested-regression stage also
 completed 5,000 steps and 40,000 training-table draws; its selected DEV loss is
 0.229999. Both checkpoints passed a joint cross-fitted inference restoration
-check. Final interval-coverage results follow the later stages.
+check. The separately frozen signed-error, post-training and calibration
+workflow has been submitted with integration and checkpoint guards. Final
+interval-coverage results follow successful completion of those stages.
 
 The frozen factual/nested source release is identified by
 `65fff8193cab74881e14a3262c254578255a78d2f6ca56aa4d7f6086a25ed36d`.
+The [current error-pipeline release](v2/release_manifest.json) preserves those
+source bytes and adds explicit estimator/feature/checkpoint bindings.
+Optional [pretrained-backbone experiments](v2/OPTIONAL_BACKBONES.md) use a
+separate pinned implementation and actual-model fixture gate. Their status
+does not establish completed v2 evaluation results.
 See [v2/README.md](v2/README.md), [protocol](v2/protocol.json), and
 [release manifest](v2/release_manifest.json). Learned-error training,
 post-training, fresh calibration and final evaluation are separate stages.
@@ -121,6 +128,10 @@ v2/
   model.py            New nuisance backbone
   train.py            Factual pretraining entry point
   train_nested.py     Nested-regression stage
+  run_error_pipeline.py  Error learning, post-training and fresh calibration
+  error_binding.py    Observed-table and checkpoint identity checks
+  manifests/          Separate factual, error and optional source identities
+  tabular_backbones/  Optional pretrained-backbone adaptations and tests
   dgp/                Adapted generators, tests and upstream provenance
 ```
 
