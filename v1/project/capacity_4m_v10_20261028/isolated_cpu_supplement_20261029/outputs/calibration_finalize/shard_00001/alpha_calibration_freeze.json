@@ -1,0 +1,227 @@
+{
+  "status": "PASS",
+  "protocol_sha256": "13c0b826814ef942764551cac083aaf416fb0341a5cb6eca35c2d5f223925ce8",
+  "calibration_stage_manifest_sha256": "abaa8927bdecc725add36fc6b9b703590285fcaa85af021eec7071ff718cfa71",
+  "groups": "4 independent groups of 100 mechanisms",
+  "fixed_95_confidence_anchor_not_arbitrary_level_confidence": true,
+  "models": {
+    "0.9": {
+      "head_path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/multilevel_4m_20261028/trained_heads/head_90.pt",
+      "head_sha256": "1fa7426659ad78176c9ad395735fceb7b7af2103c037824cf4fc182fdbe596af",
+      "relative_expansion": 0.39074761232800903,
+      "n": 400,
+      "k": 361
+    },
+    "0.99": {
+      "head_path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/multilevel_4m_20261028/trained_heads/head_99.pt",
+      "head_sha256": "fdf705bf8f1203a314e417bebe7a4b9aa8d0ab530ee1bd7c7af292fb9795f63a",
+      "relative_expansion": 1.3439759758888665,
+      "n": 400,
+      "k": 397
+    }
+  },
+  "shards": [
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00001/calibration.npz",
+      "sha256": "b2d8db3af4738a2a8a9fedc65f4843bc0032c697e03cd09343240d651645406b",
+      "record_sha256": "059f7dd3eb2c9e7ef7a2233092041c9437e3904da72d0bec52975fe57f710d98"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00002/calibration.npz",
+      "sha256": "d28babf8a6cbd72e2e4956c711c522131696486b15df7fe8eaba045110b63d18",
+      "record_sha256": "c1aa75d53148bdf76d946bf31046db183ebfd82aa1b57da9a542ef174b78d9c2"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00003/calibration.npz",
+      "sha256": "b8e6cf547cbb28e1c448a84cd5ca8fc7c121d8c25438374ac7c2d5fdbb461573",
+      "record_sha256": "5d42145d1a50eafe1d7b159bdb67acf9c5d0a3fd72e0b37450ac2fe9d2d0c515"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00004/calibration.npz",
+      "sha256": "5fe3b6614f1941332a37b28c2489c81d8e7686294ec6e416687f3bf6f637c6f7",
+      "record_sha256": "90f0d945cbdea3d2ea6c7c818865517d5489d3bc9e6feb6e7b8cc35b361aa5ef"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00005/calibration.npz",
+      "sha256": "3f2857e65ea55dcbe80eae1665cb9369ba262b6490f34844070366c477b28356",
+      "record_sha256": "2a6e71d6ef360295d94d98fec25d9821118676f4fae5d319de2630550757e940"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00006/calibration.npz",
+      "sha256": "3d434d8b85e4417a97b7b9e7a596703f67c0368bcc5fb12849cd8e477838bc79",
+      "record_sha256": "c451d25433a92851a4bf3bcd0a8d7440a5c85718ced66373a5fe5172716c3c8e"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00007/calibration.npz",
+      "sha256": "28bd511511e4cf2d245129aab5aff3c31603e987a9fe853e500d58fb4576f279",
+      "record_sha256": "a95c21790db81bc277acc1e79221c9f7f6101860eef8f89a955bd4864e17e4e6"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00008/calibration.npz",
+      "sha256": "c633cb2dd9bf09dda602c298d15b2086741638e2c0155b58c92dbaaf3d48e53b",
+      "record_sha256": "b5c8492791eb495476504a8e57f14c5e9a30c02bf45908d25d916dbeab741072"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00009/calibration.npz",
+      "sha256": "d856b91cb02444a7fc879588000081afdeb01b4e39dc39c9e9996f6aabf2ad9f",
+      "record_sha256": "118e2971e5fcdefed5abcc33bbb94fe6a48cb1346a856fe174e7e52a08c348be"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00010/calibration.npz",
+      "sha256": "78c6bff51c5403956f23a378a271402d1115ea5fd6d5ac8751dc119a42d90357",
+      "record_sha256": "a922c5a1a65d2f7a01f1bd352feaf9fb37c44b2a137c0229af632eb8d419f84c"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00011/calibration.npz",
+      "sha256": "80fe062156bf7e191aaba19383f87c795dd75540e91d15714b1393c21d0f4f83",
+      "record_sha256": "a413dde7925c1735669db3ea39f10d8bd6760242482a1331f70885f46e161c3f"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00012/calibration.npz",
+      "sha256": "6207fc1bd942a9828e3eb5a77eaa42354f23e908d70bbdbd6112b35608c29315",
+      "record_sha256": "461f82e443932a11061c7a47feb4c541091bc0c424f74a348bff33526d5c2e75"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00013/calibration.npz",
+      "sha256": "38942425512c4fe79a21c701b3e40b65d2396d2eb2db89242a61f2f8b3fa225c",
+      "record_sha256": "48674fce9755d40eee1aa23f37b223a59ae7cb354b3f1d4d4a02b465b27ba990"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00014/calibration.npz",
+      "sha256": "c28e910bb021080734e2384e72c00e4b5f7400c78f5e56a7b79173084bc11e95",
+      "record_sha256": "dd8cf28145bbc429b0bef6032f48c18dc64a0421364a9047aa632edbc9f67277"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00015/calibration.npz",
+      "sha256": "efd3e65a8b177bb4687fa999bf376d04e78729838d3ef80c3217550cc618d3be",
+      "record_sha256": "453907336322c5d514f265148bb04a68ba31c16a42e71d48a7d326f310a9a7ef"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00016/calibration.npz",
+      "sha256": "83af00d4198727d08768a23a41e0f594d4be71d0636a164712e2c1cc7b0fa55b",
+      "record_sha256": "a3b0bd7312b16173fea952b66caca2fc653f960d346e0401e27c246d8bd5a95c"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00017/calibration.npz",
+      "sha256": "1334244443179c1f8795dcbc7d58006feb93d3ab39cc8f64148295f173683049",
+      "record_sha256": "6ce911bf9d0b0aa466df22f92071cd6551309da3341d8f5db430ec1db0067391"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00018/calibration.npz",
+      "sha256": "707d2b23b1e7e8ae2c9579b6648098e57d742c8b5b0874f9041e2daabe0cd58c",
+      "record_sha256": "86bcb19cb9a66c7de255fc849a31fc772b91fdbed22bc02019f7eb76da5b7db0"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00019/calibration.npz",
+      "sha256": "0a0c784e7574836bf53a85bddca8264a5107de5842e6be8873a5a5ec692ee118",
+      "record_sha256": "8d7c4632d52d22490d34e947dbb942d8953b02f18b31e03ff4bc9ea9fe13d4fa"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00020/calibration.npz",
+      "sha256": "99f3fdf7fb280b092c5fe365115c047bae457850ff6200b71096f2b2239eb626",
+      "record_sha256": "908a26ebb90bc54a53cac1c2bf4dae154fddb2bbe8ac09a4db3e7c30900a36cd"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00021/calibration.npz",
+      "sha256": "de8fba8b287f90ce704444b20c8491556558e6925054bdbbc50725372fa3ec31",
+      "record_sha256": "c3cdb48ef6bc9a33e74b374d28585333b20e10779a1ddeacc3e17da83aeb3937"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00022/calibration.npz",
+      "sha256": "6046ab87dd28be6add1048deb0ad9e5dfe3a19c83bd7f743f5fcde5636aeb28c",
+      "record_sha256": "d1cbe6ad2551e6468d1a4055ddac8ca2909bdfbd646e55390aa84b42b129343e"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00023/calibration.npz",
+      "sha256": "2f16200a68be3edcfde362e72a3b9666846c76f04f1f277f6a88ca160f529737",
+      "record_sha256": "71f51a911773f37b6cecf964c3ad545019039ede9e9e6c66d7c3da6c632a5bd3"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00024/calibration.npz",
+      "sha256": "329c381bbabcbdb784bb2feb0f6fad6d701cb179925f46285a1b49e4182ce653",
+      "record_sha256": "2bb9844b2ab94f09e847ba83ed421d3d8f206f0211df63e7c88376ab6d7c0806"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00025/calibration.npz",
+      "sha256": "b0afd92f0661436e7fad4d88dd0b45fc78e42e170e61d97b53b149a01d8fd8a4",
+      "record_sha256": "73ca3ec9bffa1f675c6b0bb2a801823ade2d4601a9ef727d1731b2dd1146723d"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00026/calibration.npz",
+      "sha256": "7809e645659a98fdd7ebd32418d8f0d97dc9203993601649a818560a4f4ac590",
+      "record_sha256": "f790d31138a8ffb1cba2ff864e191f8030d73f844e2421d22538684ea77360d4"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00027/calibration.npz",
+      "sha256": "32c47decc1865ec23631492b2fcec85bff3e2ed6580a402b6d75b414013ceb38",
+      "record_sha256": "86024c8b827c272de6672ab1b9aa81d3b47e2e3edb35ae0dc9fce09814a0d718"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00028/calibration.npz",
+      "sha256": "611c978ddd98232982f5d7f6eae770cdaa1f5bc8a7c9ab56f0c36d4f58bd557a",
+      "record_sha256": "3aec4373c838f42403331a7c1c0665601ac6dad1496950e2c85474a4d56907f9"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00029/calibration.npz",
+      "sha256": "b2d19915ef4381dd61ccabea2ca04da1b926d9bc4474233dd8d922edc4de616b",
+      "record_sha256": "8c0603f93614509571d2d0cb9ff3c6afd476afa58b5c57638040700c7a21a2d1"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00030/calibration.npz",
+      "sha256": "bb1277ec093ccdc6a7a453e0f25b6745f3942507295f18a1c648abbde74f8d60",
+      "record_sha256": "a407e3dcb6a4fbae66cee3abf7212a413930004da2eb30db2a76c53dc4a847dc"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00031/calibration.npz",
+      "sha256": "5cd8330aacf2d071e19d19d02fdf63e0d2c31e1312ce76073a48b16ddd8f036b",
+      "record_sha256": "737e643d9e9dc773cfbd536f5b263a87c537fdf512bca231a3b08a6c807395cb"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00032/calibration.npz",
+      "sha256": "287c7d6f49a17e138cad5816be8e972a8eb9ab802cd1ee2b9b5e62a973f6c577",
+      "record_sha256": "c1004bc81dd8af6b24e8020844721be8572355bef242f2b51eb7294afebe2b2a"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00033/calibration.npz",
+      "sha256": "7a12e50ff1980a5d71d85597645e4b33a8bd152d1c46bca694e5d11686967c5a",
+      "record_sha256": "4f01d857655e0f966b88680b1fdbfda5f5ec907c5ebe517c90b624d01eaf0d0f"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00034/calibration.npz",
+      "sha256": "72d9519f4ef621c2ede1e625a05320a08f5fc81b5a68a1289ef4efe60555db3b",
+      "record_sha256": "510c76cabe8b3b935f648087716b71a821fb42ceaee1ee41f2e1aca76395000f"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00035/calibration.npz",
+      "sha256": "a663dab7ea61a8484bbb40df1b4a71297de7e456f44af3368b3addbe014ccecb",
+      "record_sha256": "e5e5aab00da0e7b3eb37b1affc0b6a42cabf592c69445a97580dc81a9e91e46b"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00036/calibration.npz",
+      "sha256": "71b62f0044fe976faf3c251706eb235f78b2a9b8e75ee86d792ebae2291daf96",
+      "record_sha256": "f235267342830c7a9fc8c5a82fd61ab7fd90775f82246e9d720199dcb5b01b84"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00037/calibration.npz",
+      "sha256": "c2c77439d57f83011ca048e3923495b48c2f5092fa9eb1f736c58fa45e704e34",
+      "record_sha256": "75b8190631c07562002cbfe4f55ca62c65dfafce97c734c6fc58bdb9418557a8"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00038/calibration.npz",
+      "sha256": "40d6174994e7567249e4c21dea994180544c2e4d262815b731dbb2b84bf5c64c",
+      "record_sha256": "d631e14e0941ffd7722ed4a7df9ca6719d685ebcf0e121e28c8d2c60ea0d2f89"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00039/calibration.npz",
+      "sha256": "05b434a0277f9527bed7cae10cd2cca0c96ad46ad81cc7f90c98949b5f70c61e",
+      "record_sha256": "85b0ad412d665ce381a4958f7114ca13b880a77f6ac6231dc719d5c4c440d18b"
+    },
+    {
+      "path": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/isolated_cpu_supplement_20261029/outputs/calibration/shard_00040/calibration.npz",
+      "sha256": "ca6ee2a2a88e8bf408c58ce33357b931827ab8fba692c0108a9a684c62cc4e85",
+      "record_sha256": "c2957adc32134031345278ff7ac0b92955372bebd9699e21b91f4185dd51bca1"
+    }
+  ],
+  "source_sha256": "ae3d373ab42f3d6172066e8b7216dc954f174a35a6ba1c96dc9c30ace65c3c18",
+  "guarantee_scope": "fixed stratified calibration; no arbitrary-OOD or conditional coverage guarantee"
+}

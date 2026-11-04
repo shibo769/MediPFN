@@ -1,0 +1,62 @@
+{
+  "plan_sha256": "4480e474afe6d11bfe7478ffe781e895265094c8ed59599561288bfaee5fc06c",
+  "models": {
+    "0.9": {
+      "model": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/multilevel_4m_20261028/trained_heads/head_90.pt",
+      "sha256": "1fa7426659ad78176c9ad395735fceb7b7af2103c037824cf4fc182fdbe596af",
+      "dev_diagnostics": {
+        "id": {
+          "n": 20,
+          "coverage": 0.9,
+          "length": 0.23801439339741134
+        },
+        "tree_rff": {
+          "n": 20,
+          "coverage": 0.65,
+          "length": 0.26508985330342416
+        },
+        "tree_mlp": {
+          "n": 20,
+          "coverage": 0.7,
+          "length": 0.3517923159366275
+        },
+        "rff_mlp": {
+          "n": 20,
+          "coverage": 0.8,
+          "length": 0.3457580714719134
+        }
+      }
+    },
+    "0.99": {
+      "model": "/projectnb/tmd-ortho/shibo/nie-uq-full-20261026-v9/capacity_4m_v10_20261028/multilevel_4m_20261028/trained_heads/head_99.pt",
+      "sha256": "fdf705bf8f1203a314e417bebe7a4b9aa8d0ab530ee1bd7c7af292fb9795f63a",
+      "dev_diagnostics": {
+        "id": {
+          "n": 20,
+          "coverage": 0.95,
+          "length": 0.31522200295170677
+        },
+        "tree_rff": {
+          "n": 20,
+          "coverage": 0.85,
+          "length": 0.3396895278100427
+        },
+        "tree_mlp": {
+          "n": 20,
+          "coverage": 0.9,
+          "length": 0.4230832106268971
+        },
+        "rff_mlp": {
+          "n": 20,
+          "coverage": 0.8,
+          "length": 0.4004877435487195
+        }
+      }
+    }
+  },
+  "train_n": 240,
+  "dev_n": 80,
+  "selection": "both predetermined levels, 160 steps; DEV diagnostics only",
+  "confidence_anchor_scope": "fixed 95%-confidence feature, not a target-level confidence head",
+  "new_calibration_and_test_data_used": false
+}

@@ -1,0 +1,36 @@
+{
+  "checkpoint_files": 7,
+  "files_sha_verified": 97,
+  "numpy": "2.2.6",
+  "restore_source_sha256": "62e6f828629b398beba524601952a08fd8970fced9fb6fcd240e5e34bb4c60db",
+  "results": [
+    {
+      "estimate": -0.18848429397308447,
+      "level": 0.9,
+      "lower": -0.20965119122731063,
+      "method": "MediPFN v1 frozen selected calibrated",
+      "standard_error": 0.1223456366707128,
+      "upper": 0.07974429372604741
+    },
+    {
+      "estimate": -0.18848429397308447,
+      "level": 0.95,
+      "lower": -0.2514480085561721,
+      "method": "MediPFN v1 frozen selected calibrated",
+      "standard_error": 0.1223456366707128,
+      "upper": 0.09326889483178413
+    },
+    {
+      "estimate": -0.18848429397308447,
+      "level": 0.99,
+      "lower": -0.5063925776693015,
+      "method": "MediPFN v1 frozen selected calibrated",
+      "standard_error": 0.1223456366707128,
+      "upper": 0.34394381881770525
+    }
+  ],
+  "scope": "Archive restore implementation executed with only path/bindings resolution to original SHA-identical SCC files; 32 independent synthetic rows, not benchmark results. No files or jobs created.",
+  "seconds": 2.224771467037499,
+  "status": "READONLY_IDENTICAL_SOURCE_RESTORE_SMOKE_PASS",
+  "torch": "2.5.1+cu121"
+}
