@@ -4,11 +4,18 @@
 
 Shi Bo · Boston University
 
-MediPFN estimates a natural indirect effect and its uncertainty from an observed
-table. A custom support-query network learns nuisance relationships across
-simulated tasks; cross-fitted scores, learned error distributions, post-training
-and independent calibration produce the retained effect intervals.
+[Paper: arXiv:2611.13219](https://arxiv.org/abs/2611.13219) ·
+[Arena model and inference](arena_n500/README.md)
 
+MediPFN estimates a natural indirect effect and its uncertainty from an observed
+table. The current meeting-run model combines a frozen TabPFN-v3 backbone, a
+mediation adapter, a cross-fitted score, a supervised fine-tuned error head and
+independent calibration. Earlier custom-backbone research models are retained
+in the repository.
+
+[Arena model and inference](arena_n500/README.md) ·
+[Arena model card](arena_n500/MODEL_CARD.md) ·
+[Arena results](ARENA_RESULTS.md) ·
 [v1 model card](MODEL_CARD.md) · [v2 model card](MODEL_CARD_V2.md) ·
 [V3 adaptations](MODEL_CARD_V3_ADAPTATIONS.md) ·
 [Checkpoints](CHECKPOINTS.md) · [Reproducibility](REPRODUCIBILITY.md) ·
@@ -18,14 +25,44 @@ and independent calibration produce the retained effect intervals.
 
 | Version | Model and data | Current status |
 |---|---|---|
+| **Arena meeting run** | Frozen TabPFN-v3 with mediation adapter; n=500 | Adapter, SFT error head and calibration archived; 1,000 ID and 1,000 source-OOD tables evaluated |
 | **v1** | Retained custom MediPFN production pipeline | Code, seven checkpoint files, normalization/calibration records and verified aggregate results archived; restore check passed |
 | **v2** | New custom backbone and a richer literature-derived mediation simulation bank | All three routes trained and archived; shared 1,152-table evaluation complete and independently verified; ID gains and composition-OOD undercoverage reported |
 
-The versions are stored separately. New v2 development does not change the
-first-version model, manuscript or reported experiments. This repository is
-private; the vendored generator materials have not been made public.
+The versions are stored separately. The Arena meeting run uses its own
+checkpoint and evaluation protocol. The published arXiv manuscript describes
+the earlier paper model; the Arena results belong to a subsequent experiment.
 
-## Quick start
+## Arena meeting-run quick start
+
+The meeting-run predictor accepts one observed table with 500 rows and returns
+the NIE estimate, standard error, and 90%, 95% and 99% intervals. The selected
+adapter, SFT head and calibration are included in `arena_n500/checkpoints/`.
+Obtain the two official TabPFN-v3 classifier and regressor weights separately
+from [Prior Labs](https://huggingface.co/Prior-Labs/tabpfn_3), and use them
+under the accompanying license.
+
+```sh
+git clone https://github.com/shibo769/MediPFN.git
+cd MediPFN/arena_n500
+pip install -r requirements-research.txt
+python predict.py --observed example/observed_n500.npz \
+  --classifier /path/to/tabpfn-v3-classifier-v3_default.ckpt \
+  --regressor /path/to/tabpfn-v3-regressor-v3_default.ckpt \
+  --device cpu --output prediction.json
+```
+
+Input fields, checkpoint bindings, reproducibility and licensing are documented
+in the [Arena inference guide](arena_n500/README.md) and
+[model card](arena_n500/MODEL_CARD.md). The meeting-run fitting budget was
+20,000 distinct tables, with an additional independent calibration set. On
+the held-out 1,000 ID and 1,000 source-OOD tables, 95% coverage and mean
+interval length were 95.39% / 0.5519 and 97.90% / 2.0203, respectively.
+The source-OOD split holds out two source families from mediation-specific
+fitting and calibration; upstream TabPFN exposure is unknown. These are
+single-method results, and the same-table baselines remain to be evaluated.
+
+## Earlier research models
 
 Verify the trained v2 research prototype with the Python standard library:
 
@@ -67,7 +104,7 @@ synthetic table. It is a loading/inference check, not a coverage benchmark.
 [Reproducibility instructions](REPRODUCIBILITY.md) include dependency guidance
 and a Python inference example.
 
-## Inference pipeline
+## Earlier custom-backbone inference pipeline
 
 ```mermaid
 flowchart LR
@@ -172,14 +209,21 @@ v2/
 
 ## License and provenance
 
-The private project currently has no blanket public redistribution license.
+The repository currently has no blanket redistribution license.
 Vendored upstream generator materials retain their Apache-2.0
 [license](v2/dgp/vendor/LICENSE) and [notice](v2/dgp/vendor/NOTICE.md).
+The Arena inference package includes the applicable TabPFN-3 license and notice;
+the official pretrained weights are subject to their own terms.
 Raw study datasets, raw test banks, authentication material, temporary
 environments and third-party TabPFN weights are not redistributed here.
 
 ## Citation
 
-The manuscript title is *MediPFN: Amortized In-Context Nuisance Learning and
-Inference for Causal Mediation Analysis*, by Shi Bo. A persistent paper link
-and formal citation will be added when the manuscript has a public identifier.
+```bibtex
+@article{bo2026medipfn,
+  title={MediPFN: Amortized In-Context Nuisance Learning and Inference for Causal Mediation Analysis},
+  author={Bo, Shi and Hu, Jiaming},
+  journal={arXiv preprint arXiv:2611.13219},
+  year={2026}
+}
+```

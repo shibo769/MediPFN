@@ -1,0 +1,20 @@
+{
+  "artifact_kind": "benchmark_run",
+  "methods": [
+    {
+      "adaptation_steps": [
+        "mediation column adapter",
+        "SFT error-quantile head",
+        "independent ID symmetric calibration"
+      ],
+      "entrypoint": "predict.py",
+      "execution_mode": "adapted",
+      "method_id": "medipfn-v2-arena-n500",
+      "method_role": "pfn_adapter",
+      "model_version": "MediPFN V2 Arena n500, TabPFN v3/9.2.0",
+      "reason": null,
+      "support_status": "implemented"
+    }
+  ],
+  "schema_version": "0.2.0"
+}

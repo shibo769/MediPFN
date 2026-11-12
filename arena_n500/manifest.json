@@ -1,0 +1,69 @@
+{
+  "files": {
+    "README.md": "59f74855b3ec10136dc64f722830b2008bd33a7a401adaf091911a6ef547a6f2",
+    "TABPFN-3-LICENSE": "c4badfb6a5955484e35b302619a0969269949e9fc240b899c11b0b77341418d1",
+    "checkpoints/arena_adapter.pt": "87c13c5e32a3c1b441c06f22876343a3a75d3684b65d870e58263fe4431eef37",
+    "checkpoints/arena_calibration.json": "46cf6bc6829fe5789d4f49319c2c93143e9ed30dc46a0ef4f744bcd9b562f76d",
+    "checkpoints/arena_sft_head.pt": "93c3ee9895b30fa8e494ae6dda317f2ab81e184ad911fb12dbb69bbc4ea525a1",
+    "example/observed_n500.npz": "b6f9857ce67c84bedc28f1e51cd9768053765b300ebde8dc0b4842ba94aa9a5f",
+    "methods.json": "fe18ff327c91055665dce8ede86f3ceb58c5de5c92a6dbccaf00df8634a8d007",
+    "predict.py": "82bdeaeaec15e946cb6c4c7477981596bb7f70d5c047154c5af3582970407a54",
+    "requirements-research.txt": "01446dd6cbdd316dc0f02c35f369ac1cc8cf3f6e83bde2932ed624fe0a75c41b",
+    "runtime/common.py": "680eb6152607365d8a331d845e3f3ea40b39a9117f351cbe10bde6c45e6fa931",
+    "runtime/features.py": "1ee4d3825d103e28476c4a1a0378d6f288616c13c573e76ee2fc77c0e85b24d7",
+    "runtime/fit_arena.py": "74e662152e0f67859754df8a7aaa99980cee35a3707840169d0ca10c077b1a9d",
+    "runtime/heads.py": "3720023943c301373b9532d5504366d8cd53ac59f46b4718dc6df58b351634da",
+    "runtime/tabular_backbones/__init__.py": "d9b976e067d72e01c902b4c6c047ff3fbb471211e17ce675471bb3c82b5f304b",
+    "runtime/tabular_backbones/adapter.py": "520cec7aee3d0bb4a2a2c6e746d51f1a3fdb6fbc2a8119947f8d61a08302dee0",
+    "runtime/tabular_backbones/error_head.py": "63adb500969b0dc2cb266ae22e7a060f8255af6e102339d66336253e781bc404",
+    "runtime/tabular_backbones/frozen.py": "86e0af2e4dc167c0df7b69b87760027bb8eae089dd84f6d2b2d7f03a40f517f7",
+    "runtime/tabular_backbones/run_state.py": "b9a776d4b0201c68a62fb7305438ec3f128b5ec59f45061ec4c21653e0103059",
+    "runtime/tabular_backbones/train_uncertainty.py": "9353eabd50f3a645cacd95fc88a024367e73e360837a1016e5652d2c8e75aa20"
+  },
+  "format": "medipfn-arena-local-method-v1",
+  "method_id": "medipfn-v2-arena-n500",
+  "n": 500,
+  "point_contract": {
+    "adapter_sha256": "87c13c5e32a3c1b441c06f22876343a3a75d3684b65d870e58263fe4431eef37",
+    "classifier_sha256": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988",
+    "common_program_sha256": "680eb6152607365d8a331d845e3f3ea40b39a9117f351cbe10bde6c45e6fa931",
+    "feature_dimension": 1038,
+    "feature_program_sha256": "e4b1d43c9b715bbc69a9cab694f26bfc564322583270e62ac4d096bfcdc0a5ca",
+    "legacy_extractor_sha256": "1ee4d3825d103e28476c4a1a0378d6f288616c13c573e76ee2fc77c0e85b24d7",
+    "n": 500,
+    "native_feature_program_sha256": "9353eabd50f3a645cacd95fc88a024367e73e360837a1016e5652d2c8e75aa20",
+    "native_manifest_sha256": "794b4fbd6d6b38a7716bc4c20364e743b992cd8f2d2a991b62b386d7661a2975",
+    "native_point_program_sha256": "86e0af2e4dc167c0df7b69b87760027bb8eae089dd84f6d2b2d7f03a40f517f7",
+    "native_release_sha256": "67409e5e616eea452020131b7beef22de3c6833c1c441e2fa7b30df569d43408",
+    "outer_folds": 2,
+    "point_config": {
+      "classifier_sha256": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988",
+      "model_version": "v3",
+      "n_estimators": 1,
+      "n_preprocessing_jobs": 1,
+      "package_version": "9.2.0",
+      "probability_floor": 0.01,
+      "regressor_sha256": "311ce18d97e9533d8585eaadafe040fbdd8070533209ed8696641dadc97a7301"
+    },
+    "regressor_sha256": "311ce18d97e9533d8585eaadafe040fbdd8070533209ed8696641dadc97a7301",
+    "route": "arena_n500_adapter",
+    "standard_error_floor": 0.001,
+    "target": "NIE1=E[Y(1,M(1))-Y(1,M(0))]"
+  },
+  "provenance": {
+    "adapter_sha256": "87c13c5e32a3c1b441c06f22876343a3a75d3684b65d870e58263fe4431eef37",
+    "calibration_sha256": "46cf6bc6829fe5789d4f49319c2c93143e9ed30dc46a0ef4f744bcd9b562f76d",
+    "evaluation_source_sha256": "3901dac80a11fe3a326857eb6d70ec9282356e3c1dd91890d89db48378810012",
+    "plan_sha256": "e735df305f84b0e8a16756d2e5bda28acbc3604ae1d8e583c1fd0e5d18856ebc",
+    "sft_checkpoint_sha256": "93c3ee9895b30fa8e494ae6dda317f2ab81e184ad911fb12dbb69bbc4ea525a1",
+    "training_plan_sha256": "4d163c922c107a47fe28956d3046bff60087de64066e5a4a5be8bffe0c183b85"
+  },
+  "runtime": {
+    "official_model_repository": "https://huggingface.co/Prior-Labs/tabpfn_3",
+    "python": "3.10.12",
+    "pytorch_cpu": "2.5.1",
+    "pytorch_gpu": "2.5.1+cu121",
+    "tabpfn_commit": "953a4b916a19856fbd8dcda089a206b5bfe83696"
+  },
+  "target": "NIE1=E[Y(1,M(1))-Y(1,M(0))]"
+}

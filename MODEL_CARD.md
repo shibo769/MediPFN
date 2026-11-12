@@ -116,8 +116,6 @@ test and does not estimate coverage.
 
 ## Access and redistribution
 
-This repository is private. Raw study tables and third-party pretrained
-TabPFN weights are not redistributed. A public release requires an explicit
-license and a separate review of the rights associated with any included
-third-party source material. No open-source license is granted by the model
-card itself.
+Raw study tables and third-party pretrained TabPFN weights are not
+redistributed. Included upstream materials retain their own licenses and
+notices. No blanket open-source license is granted by the model card itself.

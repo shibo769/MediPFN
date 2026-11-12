@@ -1,0 +1,7 @@
+# Direct runtime dependencies used by the audited SCC Python 3.10 environment.
+# Select the appropriate official PyTorch 2.5.1 wheel for your CPU/CUDA setup.
+numpy==2.2.6
+scipy==1.15.3
+scikit-learn==1.7.2
+torch==2.5.1
+tabpfn @ git+https://github.com/PriorLabs/TabPFN.git@953a4b916a19856fbd8dcda089a206b5bfe83696

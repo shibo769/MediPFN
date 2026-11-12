@@ -143,7 +143,7 @@ The completed factual-stage [selected checkpoint](v2/checkpoints/factual/best.pt
 has SHA-256 `722172242bb4f80957b02a9f2227d557d29379db20906a63a5e5e2aa01a2d66b`.
 The [checkpoint manifest](v2/checkpoints/factual/manifest.json) binds its source,
 configuration, training log and completion record. The larger optimizer-resume
-checkpoint is a [private release asset](https://github.com/shibo769/MediPFN/releases/tag/v2-factual-20261103).
+checkpoint is a [release asset](https://github.com/shibo769/MediPFN/releases/tag/v2-factual-20261103).
 
 The [selected nested checkpoint](v2/checkpoints/nested/best.pt) has SHA-256
 `82fc00689e50526f130263beebecd09afefe4ab4cbe1fccf7239dd599d659cd7`.
@@ -158,7 +158,7 @@ selected error head, selected post-trained head and final calibration. The
 [inference CLI](v2/predict.py) verifies all model/calibration hashes and the
 complete bound source distribution before loading an observed-table NPZ.
 Synthetic truth is not accessed by inference. A complete source-and-checkpoint
-archive is available as the [private primary release](https://github.com/shibo769/MediPFN/releases/tag/v2-primary-20261103).
+archive is available as the [primary release](https://github.com/shibo769/MediPFN/releases/tag/v2-primary-20261103).
 
 Calibration targets marginal coverage over the registered iid ID task mixture,
 conditional on the frozen models. It is not a per-source or conditional
@@ -166,6 +166,6 @@ coverage statement. Measured source/composition OOD results are retained
 with the ID results; composition undercoverage illustrates this scope limit. The model assumes the causal identification and overlap conditions
 required by its natural-effect score; numerical inference on a new table does
 not establish those assumptions. Input feature dimensions and type metadata
-must follow the documented interface. The private repository preserves
+must follow the documented interface. The repository preserves
 upstream licenses and notices; raw observed test banks and authentication
 material are excluded.

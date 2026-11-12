@@ -1,5 +1,16 @@
 # Retained checkpoints
 
+## Arena meeting-run checkpoints
+
+The current n=500 method is in [arena_n500](arena_n500/README.md). Its selected
+mediation adapter, SFT error head and independently fitted calibration are
+included in [arena_n500/checkpoints](arena_n500/checkpoints/). Their file
+hashes and the runtime source bindings are recorded in
+[arena_n500/manifest.json](arena_n500/manifest.json). The official frozen
+TabPFN-v3 classifier and regressor weights are obtained separately, as
+described in the method README. This package is distinct from the earlier
+custom-backbone models below.
+
 All files below are the actual retained first-version production artifacts.
 They are stored directly in Git because each file is below the GitHub file-size
 limit. They are not placeholder fixtures or links to unavailable weights.
@@ -25,7 +36,7 @@ inside the relevant `.pt` files.
 
 Run `python v1/restore.py --verify-only` after cloning. The full original source
 and asset bindings are recorded in [v1/manifest.json](v1/manifest.json).
-All seven files were independently downloaded back from the private GitHub
+All seven files were independently downloaded back from the GitHub
 repository after the first push and matched against these SHA-256 values.
 
 ## MediPFN v2 factual-stage checkpoint
@@ -43,7 +54,7 @@ subsequent nested-regression, uncertainty and calibration stages.
 [The factual checkpoint manifest](v2/checkpoints/factual/manifest.json) records
 the frozen source digest, configuration, training log, source-family counts,
 selection record and actual scheduler-completion evidence. The larger resume
-file is a private [release asset](https://github.com/shibo769/MediPFN/releases/tag/v2-factual-20261103).
+file is a [release asset](https://github.com/shibo769/MediPFN/releases/tag/v2-factual-20261103).
 
 ## MediPFN v2 nested-regression checkpoint
 
@@ -84,7 +95,7 @@ python v2/predict.py --verify-only
 ```
 
 The complete
-[private release](https://github.com/shibo769/MediPFN/releases/tag/v2-primary-20261103)
+[release](https://github.com/shibo769/MediPFN/releases/tag/v2-primary-20261103)
 is a trained research prototype, with scientific ID/OOD evaluation pending.
 
 ## Optional frozen-V3 NIE head and calibration
@@ -118,6 +129,6 @@ configuration and independent actual-accounting/full-restoration proof.
 | [Fresh matching calibration](v2/checkpoints/adapter_v3/head/calibration.json) | `dcef6f5e668b0756d78f9a7d3a4acfc1ce22bc994711e69536f5991537b66ad3` |
 
 Both optional bundles and their scientific source/license references are in the
-[private adaptations release](https://github.com/shibo769/MediPFN/releases/tag/v2-v3-adaptations-20261103).
+[adaptations release](https://github.com/shibo769/MediPFN/releases/tag/v2-v3-adaptations-20261103).
 Official backbone weights remain separate licensed inputs. Scientific ID/OOD
 evaluation is pending; restored training artifacts are not coverage results.

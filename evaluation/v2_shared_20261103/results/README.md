@@ -92,6 +92,6 @@ transport receipts are excluded. The frozen source and hash/count bank index
 remain in the [parent directory](../README.md).
 
 A byte-verified aggregate-only archive is available in the
-[private evaluation release](https://github.com/shibo769/MediPFN/releases/tag/v2-shared-evaluation-20261104).
+[evaluation release](https://github.com/shibo769/MediPFN/releases/tag/v2-shared-evaluation-20261104).
 The [nine-point plot data](overview95.csv) and [plot binding](overview.metadata.json)
 are derived from the verified primary-level aggregate cells.

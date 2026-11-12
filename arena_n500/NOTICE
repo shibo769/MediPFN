@@ -1,0 +1,9 @@
+The TABPFN-3 Model is licensed by Prior Labs GmbH under the TABPFN-3 Non-Commercial License.
+Copyright © Prior Labs GmbH 2026.
+THE SERVICES ARE PROVIDED FREE OF CHARGE: COMPANY SHALL NOT BE LIABLE FOR DAMAGES RESULTING FROM SLIGHT NEGLIGENCE. LIABILITY FOR GROSS NEGLIGENCE AND INTENTIONAL MISCONDUCT REMAINS UNAFFECTED.
+
+MediPFN uses an adapted TABPFN-3 inference pipeline with a separately trained
+adapter and uncertainty head. The adaptation is not an official Prior Labs
+product and has not been endorsed, approved, or validated by Prior Labs.
+Rights to use TABPFN-3 and any derivatives are granted directly by Prior Labs
+under the accompanying TABPFN-3-LICENSE.

@@ -167,6 +167,6 @@ advantage is inferred from successful training or restoration.
 
 Both optional routes are trained, calibrated and restored. Their archived
 learned components and source/license references are available in the
-[private adaptations release](https://github.com/shibo769/MediPFN/releases/tag/v2-v3-adaptations-20261103).
+[adaptations release](https://github.com/shibo769/MediPFN/releases/tag/v2-v3-adaptations-20261103).
 Current evidence is recorded in [STATUS.md](STATUS.md). The retained
 custom primary model and first-version manuscript remain unchanged.

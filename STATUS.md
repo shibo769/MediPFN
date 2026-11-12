@@ -82,7 +82,7 @@ remain outside fitting, DEV selection and calibration.
 
 Selected primary weights, final calibration, configuration and training history
 are archived under [`v2/checkpoints/`](v2/checkpoints/). Larger nuisance
-optimizer-resume states are private GitHub release assets. Both optional
+optimizer-resume states are GitHub release assets. Both optional
 models, trained heads and matching calibrations are also archived and verified. The v1 assets and manuscript remain unchanged.
 
 ## Shared ID/OOD evaluation: complete and independently verified

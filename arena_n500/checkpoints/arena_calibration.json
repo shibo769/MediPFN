@@ -1,0 +1,31 @@
+{
+  "status": "PASS_ARENA_N500_INDEPENDENT_SYMMETRIC_CALIBRATION",
+  "geometry": "sym",
+  "levels": [
+    0.9,
+    0.95,
+    0.99
+  ],
+  "cases": 1024,
+  "checkpoint_sha256": "93c3ee9895b30fa8e494ae6dda317f2ab81e184ad911fb12dbb69bbc4ea525a1",
+  "point_contract_sha256": "33a0f4a6cd93be06eafdaeea68c0eac2e83f457a89fe3f54f245b1b49a937022",
+  "train_plan_sha256": "4d163c922c107a47fe28956d3046bff60087de64066e5a4a5be8bffe0c183b85",
+  "calibration_cache_sha256": "a0efd437af4226b7a4b74dcbed8fd8552199bddd9ed43ef9f4c9b1e57a17a022",
+  "scope": "calibration on fresh ID task mixture; held-out source performance is empirical",
+  "no_test_used": true,
+  "ranks": [
+    923,
+    974,
+    1015
+  ],
+  "raw_expansions": [
+    0.012468099594116211,
+    0.06754124164581299,
+    0.18501293659210205
+  ],
+  "expansions": [
+    0.012468099594116211,
+    0.06754124164581299,
+    0.18501293659210205
+  ]
+}

@@ -1,0 +1,2 @@
+# The Arena manifest hashes exact bytes. Preserve package files on all platforms.
+arena_n500/** -text

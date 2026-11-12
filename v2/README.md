@@ -96,8 +96,8 @@ are retained in the [verification record](checkpoints/primary/verification.json)
 
 Selected checkpoint, configuration and training-history files are under
 [`checkpoints/`](checkpoints/). A complete bundle is in the
-[private primary release](https://github.com/shibo769/MediPFN/releases/tag/v2-primary-20261103).
-The larger nuisance optimizer-resume states are separate private releases.
+[primary release](https://github.com/shibo769/MediPFN/releases/tag/v2-primary-20261103).
+The larger nuisance optimizer-resume states are separate releases.
 
 ## Frozen sources and training entry points
 
