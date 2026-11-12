@@ -8,7 +8,7 @@ Shi Bo and Jiaming Hu · Boston University
 [Meeting-run model](arena_n500/MODEL_CARD.md) ·
 [Inference guide](arena_n500/README.md) ·
 [Evaluation results](ARENA_RESULTS.md) ·
-[Checkpoint index](CHECKPOINTS.md)
+[Model release](https://github.com/shibo769/MediPFN/releases/tag/arena-n500-20261109)
 
 MediPFN estimates a natural indirect effect and its uncertainty from an
 observed table. It combines nuisance predictions with a cross-fitted mediation
@@ -67,11 +67,8 @@ timing and reproducibility details.
 - [`arena_n500/`](arena_n500/) contains the meeting-run inference code, model
   card, adapter and uncertainty checkpoints, calibration, and a synthetic
   observed-only example.
-- [`v1/`](v1/) and [`v2/`](v2/) preserve earlier custom-backbone research
-  pipelines and checkpoints. Their model cards and historical evaluation are
-  indexed in [CHECKPOINTS.md](CHECKPOINTS.md).
-- [`evaluation/`](evaluation/) contains earlier aggregate evaluation results.
-  Raw held-out tables and the meeting-run maintainer evaluator are separate.
+- [`ARENA_RESULTS.md`](ARENA_RESULTS.md) records the evaluation protocol and
+  results. The raw held-out tables and maintainer evaluator are separate.
 
 The meeting-run checkpoint has been restored and tested on a synthetic table.
 The public meeting-run package provides inference and the fitted checkpoints;
@@ -95,7 +92,6 @@ described in the [model card](arena_n500/MODEL_CARD.md).
 ## License and provenance
 
 The repository does not currently provide a blanket redistribution license.
-Vendored upstream generator materials retain their [Apache-2.0 license](v2/dgp/vendor/LICENSE)
-and [notice](v2/dgp/vendor/NOTICE.md). The meeting-run package includes the
-applicable TabPFN-3 license and notice. Official pretrained TabPFN weights are
-obtained separately and are subject to their own terms.
+The meeting-run package includes the applicable TabPFN-3 license and notice.
+Official pretrained TabPFN weights are obtained separately and are subject to
+their own terms.

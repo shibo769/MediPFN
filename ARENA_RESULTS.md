@@ -62,5 +62,4 @@ environments use different operating systems and PyTorch builds. The cause of
 the cross-environment numerical difference has not been established.
 
 Same-table linear and random-forest comparators for this meeting run have not
-yet been evaluated. The archived older evaluations use different test banks and
-should not be combined with these numbers for a paired comparison.
+yet been evaluated.

@@ -1,5 +1,0 @@
-# Primary custom-backbone CPU inference runtime verified by the packaged restore.
-# SCC used the +cu121 build of this PyTorch public version.
-torch==2.5.1
-numpy==2.2.6
-scipy==1.15.3
