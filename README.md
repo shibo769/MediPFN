@@ -74,6 +74,8 @@ timing and reproducibility details.
   Raw held-out tables and the meeting-run maintainer evaluator are separate.
 
 The meeting-run checkpoint has been restored and tested on a synthetic table.
+The public meeting-run package provides inference and the fitted checkpoints;
+the complete meeting-run data-generation and training workflow is not bundled.
 Across Windows and SCC CPU environments, the same input produced a small
 numerical difference; see [ARENA_RESULTS.md](ARENA_RESULTS.md) for details.
 The causal interpretation of the NIE requires the identification assumptions
