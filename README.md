@@ -21,27 +21,71 @@ a mediation adapter, an SFT error head and independent calibration. It accepts
 published manuscript and this later meeting-run checkpoint use distinct
 training and evaluation protocols.
 
-## Inference
+## Quick Start
 
-Clone the repository and obtain the official TabPFN-v3 classifier and regressor
-weights separately from [Prior Labs](https://huggingface.co/Prior-Labs/tabpfn_3)
-under their license. With a compatible Python 3.10 environment:
+Use Python 3.10. The first run downloads about 446 MB of official TabPFN-v3
+weights from Prior Labs. Both Hugging Face repositories support anonymous
+downloads.
 
 ```sh
-git clone https://github.com/shibo769/MediPFN.git
-cd MediPFN/arena_n500
-pip install -r requirements-research.txt
-python predict.py --observed example/observed_n500.npz \
-  --classifier /path/to/tabpfn-v3-classifier-v3_default.ckpt \
-  --regressor /path/to/tabpfn-v3-regressor-v3_default.ckpt \
-  --device cpu --output prediction.json
+python -m pip install "huggingface_hub==2.4.0"
+hf download shibo769/MediPFN arena_n500/requirements-research.txt --revision 315046cf9838ebcf2b920dad0f87e95bbb5bbc04 --local-dir medipfn_hf
+python -m pip install -r medipfn_hf/arena_n500/requirements-research.txt
 ```
 
-The input contains observed `x`, `a`, `m`, `y` arrays and variable-type
-metadata. The output contains a point estimate, standard error and 90%, 95%
-and 99% confidence intervals. See the [inference guide](arena_n500/README.md)
-for the input schema, exact checkpoint names, dependency versions and hash
-checks. The adapter, error head and calibration are included in the repository.
+Save the following as `quickstart.py` and run `python quickstart.py`. The example
+downloads a fixed MediPFN release and the two matching TabPFN-v3 checkpoints,
+then scores the included synthetic table on CPU.
+
+```python
+import json
+from pathlib import Path
+import sys
+
+from huggingface_hub import hf_hub_download, snapshot_download
+
+model_dir = Path(snapshot_download(
+    repo_id="shibo769/MediPFN",
+    revision="315046cf9838ebcf2b920dad0f87e95bbb5bbc04",
+    allow_patterns=["arena_n500/**"],
+    local_dir="medipfn_hf",
+    token=False,
+)) / "arena_n500"
+
+backbone_repo = "Prior-Labs/tabpfn_3"
+backbone_revision = "e923ba9be85784206c9e2f43b0035c84d5fd5747"
+classifier, regressor = [
+    hf_hub_download(
+        repo_id=backbone_repo,
+        filename=f"tabpfn-v3-{role}-v3_default.ckpt",
+        revision=backbone_revision,
+        token=False,
+    )
+    for role in ("classifier", "regressor")
+]
+
+sys.path.insert(0, str(model_dir.resolve()))
+from predict import Predictor, read_observed
+
+predictor = Predictor(classifier, regressor, device="cpu", threads=4)
+observed = read_observed(model_dir / "example" / "observed_n500.npz")
+result = predictor(observed, fold_seed=18031)
+print(json.dumps({
+    "estimate": result["estimate"],
+    "standard_error": result["standard_error"],
+    "intervals": result["intervals"],
+}, indent=2))
+```
+
+With the example seed, the NIE is approximately `0.24574`, the score standard
+error is `0.06337`, and the 95% confidence interval is `[0.06425, 0.42723]`.
+
+For **Arena**, initialize `Predictor` once and reuse it across tables. Pass the
+evaluator-assigned `fold_seed` on each call. Supply an observed 500-row table
+with `x`, `a`, `m`, `y`, `x_types`, and `mediator_types`.
+
+See the [inference guide](arena_n500/README.md) for the full input schema,
+command-line usage and checkpoint verification.
 
 ## Meeting-run evaluation
 
