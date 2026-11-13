@@ -5,6 +5,7 @@
 Shi Bo and Jiaming Hu · Boston University
 
 [Paper](https://arxiv.org/abs/2611.13219) ·
+[Hugging Face checkpoints](https://huggingface.co/shibo769/MediPFN) ·
 [Meeting-run model](arena_n500/MODEL_CARD.md) ·
 [Inference guide](arena_n500/README.md) ·
 [Evaluation results](ARENA_RESULTS.md) ·
